@@ -1,6 +1,13 @@
+html {
+  height: 100%;
+}
 body {
-  padding: 50px;
+  height: 100%;
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #000 url("/images/logo.png") center no-repeat;
+  background-size: 400px auto;
 }
 a {
   color: #00b7ff;
