@@ -12,11 +12,24 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 0.0.23)
+    capistrano-bundler (1.1.1)
+      capistrano (~> 3.0)
+      sshkit (>= 1.2.0)
+    capistrano-rvm (0.1.0)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2.0)
+    chunky_png (1.2.9)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    fssm (0.2.10)
     i18n (0.6.9)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
     rake (10.1.0)
+    sass (3.2.12)
     sshkit (1.2.0)
       net-scp (>= 1.1.2)
       net-ssh
@@ -30,4 +43,8 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano (~> 3.0.1)
+  capistrano-bundler
   capistrano-grunt!
+  capistrano-rvm
+  compass
+  sass

@@ -5,8 +5,13 @@
   "scripts": {
     "start": "coffee app.coffee"
   },
-  "devDependencies": {
+  "dependencies": {
+    "express": "3.2.6",
+    "jade": "*",
+    "stylus": "*",
+    "coffee-script": "*",
     "grunt": "*",
+    "grunt-cli": "*",
     "grunt-contrib-stylus": "*",
     "grunt-contrib-sass": "*",
     "grunt-contrib-watch": "*",
@@ -18,11 +23,5 @@
     "grunt-contrib-copy": "*",
     "grunt-browserify": "*",
     "coffeeify": "*"
-  },
-  "dependencies": {
-    "express": "3.2.6",
-    "jade": "*",
-    "stylus": "*",
-    "coffee-script": "*"
   }
 }

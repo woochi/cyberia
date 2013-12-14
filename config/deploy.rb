@@ -17,16 +17,24 @@ set :log_level, :debug
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 2
 
-set :grunt_file, -> { release_path.join('config/Gruntfile.coffee') }
+# Grunt options
+set :grunt_tasks, 'deploy'
+set :grunt_file, -> { release_path.join('Gruntfile.coffee') }
 
 # Node options
 set :node_binary, "/usr/bin/coffee"
 set :app_command, "app.coffee"
 set :upstart_job_name, "cyberia"
 
+set :bundle_flags, ''
+#set :rvm_ruby_version, '2.0.0-p353'
+#set :default_env, { rvm_bin_path: '~/.rvm/bin' }
+#SSHKit.config.command_map[:rake] = "#{fetch(:default_env)[:rvm_bin_path]}/rvm ruby-#{fetch(:rvm_ruby_version)} do bundle exec rake"
+
 before "deploy", "deploy:create_release_dir"
 before "deploy", "node:create_upstart_config"
-before "deploy:symlink:release", "node:install_packages"
+before "deploy:updated", "node:install_packages"
+before "deploy:updated", 'grunt'
 after "deploy:updated", "node:restart"
 after "deploy:rollback", "node:restart"
 
