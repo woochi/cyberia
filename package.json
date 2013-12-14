@@ -1,9 +1,23 @@
 {
-  "name": "Cuberia",
+  "name": "Cyberia",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "coffee app.coffee"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-stylus": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-coffee": "*",
+    "matchdep": "*",
+    "grunt-express-server": "*",
+    "connect-assets": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-browserify": "*",
+    "coffeeify": "*"
   },
   "dependencies": {
     "express": "3.2.6",

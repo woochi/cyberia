@@ -17,16 +17,19 @@ app.use express.favicon()
 app.use express.logger("dev")
 app.use express.bodyParser()
 app.use express.methodOverride()
-app.use express.cookieParser("your secret here")
-app.use express.session()
 app.use app.router
-app.use require("stylus").middleware(__dirname + "/public")
 app.use express.static(path.join(__dirname, "public"))
+app.use "/stylesheets", express.static(__dirname + "/build/stylesheets")
+app.use "/javascripts", express.static(__dirname + "/build/javascripts")
 
-# development only
+serveAsset = (req, res, next) ->
+  res.sendfile path.join(__dirname, "build", "assets", req.url)
+
 app.use express.errorHandler()  if "development" is app.get("env")
+app.get "/javascripts/*", serveAsset
+app.get "/stylesheets/*", serveAsset
 app.get "/", routes.index
-app.get "/users", user.list
+app.get "/*", routes.index
+  
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
-

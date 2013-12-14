@@ -1,0 +1,22 @@
+%button
+  +transition(all 0.01s linear)
+  +user-select(none)
+  cursor: pointer
+  text-decoration: none
+  text-transform: uppercase
+  letter-spacing: 2px
+
+.button
+  @extend %button
+  +rhythm-borders(1px, 0.5)
+  display: inline-block
+  padding-left: rhythm(1)
+  padding-right: rhythm(1)
+  border-color: $white
+  border-radius: $global-radius
+  color: $white
+
+  &:hover
+    color: $white
+    background-color: $orange
+    border-color: $orange
