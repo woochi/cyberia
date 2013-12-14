@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem "capistrano", "~>2.15.5"
-gem "capistrano-node-deploy"
+gem "capistrano", "~> 3.0.1"
+gem 'capistrano-grunt', github: 'roots/capistrano-grunt'

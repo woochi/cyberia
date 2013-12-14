@@ -1,0 +1,85 @@
+package_json = MultiJson.load(File.open("package.json").read) rescue {}
+
+set :application, package_json["name"] unless defined? fetch(:application)
+set :app_command, package_json["main"] || "index.js" unless defined? fetch(:app_command)
+set :app_environment, "" unless defined? fetch(:app_environment)
+
+set :node_binary, "/usr/bin/node" unless defined? fetch(:node_binary)
+set :node_env, "production" unless defined? fetch(:node_env)
+set :node_user, "deploy" unless defined? fetch(:node_user)
+
+set :stdout_log_path, -> { "#{shared_path}/log/#{node_env}.out.log" }
+set :stderr_log_path, -> { "#{shared_path}/log/#{node_env}.err.log" }
+
+set :upstart_job_name, -> { "#{fetch(:application)}-#{fetch(:node_env)}" } unless defined? fetch(:upstart_job_name)
+set :upstart_file_path, -> { "/etc/init/#{fetch(:upstart_job_name)}.conf" } unless defined? fetch(:upstart_file_path)
+
+def remote_file_exists?(full_path)
+  results = []
+  execute "if [ -e '#{full_path}' ]; then echo -n 'true'; fi" do |ch, stream, out|
+    results << (out == 'true')
+  end
+  results == [true]
+end
+
+def remote_file_content_same_as?(full_path, content)
+  results = []
+  execute "md5sum #{full_path} | awk '{ print $1 }'" do |ch, stream, out|
+    results << (out == Digest::MD5.hexdigest(content))
+  end
+  results == [true]
+end
+
+def remote_file_differs?(full_path, content)
+  exists = remote_file_exists?(full_path)
+  !exists || exists && !remote_file_content_same_as?(full_path, content)
+end
+
+namespace :node do
+  desc "Check required packages and install if packages are not installed"
+  task :install_packages do
+    on roles(:app) do
+      execute "cp -r #{fetch(:previous_release)}/node_modules #{fetch(:release_path)}" if fetch(:previous_release)
+      execute "cd #{fetch(:release_path)} && npm install --loglevel warn"
+    end
+  end
+
+  desc "Create upstart script for this node app"
+  task :create_upstart_config do
+    on roles(:app) do
+      temp_config_file_path = "#{shared_path}/#{fetch(:application)}.conf"
+
+      # Generate and upload the upstart script
+      upload! "./config/upstart.conf", temp_config_file_path
+
+      # Copy the script into place and make executable
+      sudo "cp #{temp_config_file_path} /etc/init/cyberia.conf"
+    end
+  end
+
+  task :check_upstart_config do
+    invoke :create_upstart_config #if remote_file_differs?(fetch(:upstart_file_path), fetch(:upstart_file_contents))
+  end
+
+  desc "Start the node application"
+  task :start do
+    on roles(:app) do
+      sudo "start #{fetch(:upstart_job_name)}"
+    end
+  end
+
+  desc "Stop the node application"
+  task :stop do
+    on roles(:app) do
+      sudo "stop #{fetch(:upstart_job_name)}"
+    end
+  end
+
+  desc "Restart the node application"
+  task :restart do
+    on roles(:app) do
+      sudo "stop #{fetch(:upstart_job_name)}; true"
+      sudo "start #{fetch(:upstart_job_name)}"
+    end
+  end
+end

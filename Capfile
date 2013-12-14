@@ -1,14 +1,29 @@
-require "capistrano/node-deploy"
+# Load DSL and Setup Up Stages
+require 'capistrano/setup'
 
-set :application, "cyberia"
-set :repository,  "git@github.com:woochi/cyberia.git"
-set :user, "deploy"
-set :scm, :git
-set :deploy_to, "/home/deploy/apps"
+# Includes default deployment tasks
+require 'capistrano/deploy'
 
-set :app_environment, "PORT=8003"
-set :node_binary, "/usr/bin/coffee"
-set :app_command, "app.coffee"
-set :upstart_job_name, "cyberia"
+# Grunt tasks
+require 'capistrano/grunt'
 
-role :app, "cyberia2020.com"
+# Includes tasks from other gems included in your Gemfile
+#
+# For documentation on these, see for example:
+#
+#   https://github.com/capistrano/rvm
+#   https://github.com/capistrano/rbenv
+#   https://github.com/capistrano/chruby
+#   https://github.com/capistrano/bundler
+#   https://github.com/capistrano/rails/tree/master/assets
+#   https://github.com/capistrano/rails/tree/master/migrations
+#
+# require 'capistrano/rvm'
+# require 'capistrano/rbenv'
+# require 'capistrano/chruby'
+# require 'capistrano/bundler'
+# require 'capistrano/rails/assets'
+# require 'capistrano/rails/migrations'
+
+# Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
+Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }

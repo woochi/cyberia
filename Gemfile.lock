@@ -1,29 +1,33 @@
+GIT
+  remote: git://github.com/roots/capistrano-grunt.git
+  revision: 9164e9623624c550c2b0f162e7d2f01a37f3bd48
+  specs:
+    capistrano-grunt (0.0.4)
+      capistrano (>= 3.0.0.pre)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    capistrano (2.15.5)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
-    capistrano-node-deploy (1.2.12)
-      multi_json (~> 1.3.6)
-      railsless-deploy (>= 1.1.0)
-    highline (1.6.20)
-    multi_json (1.3.7)
+    capistrano (3.0.1)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 0.0.23)
+    i18n (0.6.9)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
-    net-sftp (2.1.2)
-      net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
-    net-ssh-gateway (1.2.0)
-      net-ssh (>= 2.6.5)
-    railsless-deploy (1.1.2)
+    rake (10.1.0)
+    sshkit (1.2.0)
+      net-scp (>= 1.1.2)
+      net-ssh
+      term-ansicolor
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
+    tins (0.13.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  capistrano (~> 2.15.5)
-  capistrano-node-deploy
+  capistrano (~> 3.0.1)
+  capistrano-grunt!
