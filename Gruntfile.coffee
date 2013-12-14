@@ -16,6 +16,7 @@ module.exports = (grunt) ->
     sass:
       options:
         compass: true
+        bundleExec: true
       build:
         files:
           "build/assets/stylesheets/app.css": "assets/stylesheets/app.sass"
