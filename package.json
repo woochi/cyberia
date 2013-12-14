@@ -12,7 +12,7 @@
     "grunt-contrib-coffee": "*",
     "grunt-express-server": "*",
     "grunt-contrib-copy": "*",
-    "grunt-sass": "*",
+    "grunt-contrib-sass": "*",
     "grunt-browserify": "*",
     "coffeeify": "*"
   },
@@ -31,7 +31,7 @@
     "grunt-express-server": "*",
     "connect-assets": "*",
     "grunt-contrib-copy": "*",
-    "grunt-sass": "*",
+    "grunt-contrib-sass": "*",
     "grunt-browserify": "*",
     "coffeeify": "*"
   }
