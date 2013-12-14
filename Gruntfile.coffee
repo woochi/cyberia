@@ -2,7 +2,7 @@ module.exports = (grunt) ->
 
   coffeeify = require('coffeeify')
   # Load all grunt tasks
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks)
+  require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks)
 
   grunt.initConfig
     express:
