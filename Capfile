@@ -19,7 +19,6 @@ require 'capistrano/grunt'
 #   https://github.com/capistrano/rails/tree/master/migrations
 #
 require 'capistrano/rvm'
-require "rvm/capistrano"
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 require 'capistrano/bundler'

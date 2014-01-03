@@ -18,10 +18,6 @@ set :log_level, :debug
 set :keep_releases, 2
 
 # RVM Setup
-set :rvm_ruby_string, :local
-set :rvm_autolibs_flag, "read-only"
-before 'deploy:setup', 'rvm:install_rvm'
-before 'deploy:setup', 'rvm:install_ruby'
 
 # Grunt options
 set :grunt_tasks, 'deploy'
