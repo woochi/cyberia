@@ -1,6 +1,6 @@
 #hero
   position: relative
-  height: rhythm(24)
+  height: rhythm(18)
   background: #161616 url("/hero.jpg") center no-repeat
   background-size: cover
   text-align: center
@@ -22,22 +22,29 @@
 
 #description
   position: absolute
-  bottom: rhythm(10)
+  top: rhythm(2)
   width: 100%
   text-transform: uppercase
   letter-spacing: 2px
   font-weight: 600
-  color: $body-font-color-alt
-
-  &:before, &:after
-    content: " - "
+  color: rgba($white, 0.8)
 
 @media #{$medium-up}
 
   #hero
     height: rhythm(28)
 
+  #description
+    top: auto
+    bottom: rhythm(7)
+
+    &:before, &:after
+    content: " - "
+
 @media #{$large-up}
 
   #hero
     height: rhythm(32)
+
+  #description
+    bottom: rhythm(9)

@@ -19,6 +19,12 @@
   margin: rhythm(1) 0 rhythm(2) !important
   border-color: $gray-darker
 
+@media #{$small-only}
+
+  .featurette-title
+    +adjust-font-size-to($h5-font-size, 1.5)
+    font-weight: 600
+
 @media #{$medium-up}
 
   .featurette

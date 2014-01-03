@@ -1,9 +1,6 @@
 extends layout
 
 block header
-  video#cyberia-video
-    source(src="/big_buck_bunny.mp4", poster="/hero.jpg")
-    p Not supported.
   p#description Live-roolipeli Rovaniemellä 12.4.2014
   a#scroll-button.button
     | Lue lisää&nbsp;
@@ -24,12 +21,13 @@ block content
 
       .column.small-12.medium-6
         pre#console
-          .chrome Socket connected...
+          .chrome Socket connected
           i.fa.fa-times.cross
-          | > Tyyli ennen tarkoitusta.
-          | > Asenne ennen kaikkea.
-          | > Elä aina reunalla.
-          | > Riko aina sääntöjä.
+          | > CYBERPUNKIN SÄÄNNÖT:
+          | > 1. Tyyli ennen tarkoitusta.
+          | > 2. Asenne ennen kaikkea.
+          | > 3. Elä aina reunalla.
+          | > 4. Riko aina sääntöjä.
           i.caret
 
   // Maailmankartta
@@ -37,6 +35,7 @@ block content
     .row
       .column.small-12
         img#map-img(src="map_animation.gif")
+
   // Cyberiasta
   a.anchor#cyberia
   article.featurette(rel="cyberia")

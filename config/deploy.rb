@@ -1,5 +1,7 @@
 set :application, 'cyberia'
 set :repo_url, 'git@github.com:woochi/cyberia.git'
+
+# Grunt detup
 set :grunt_tasks, 'deploy'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -36,11 +38,12 @@ set :bundle_flags, ''
 before "deploy", "deploy:create_release_dir"
 before "deploy", "node:create_upstart_config"
 before "deploy:updated", "node:install_packages"
-before "deploy:updated", 'grunt'
 after "deploy:updated", "node:restart"
 after "deploy:rollback", "node:restart"
 
 namespace :deploy do
+
+  before :updated, 'grunt'
 
   desc 'Restart application'
   task :restart do

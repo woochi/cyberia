@@ -8,10 +8,12 @@
 #nav
   @extend %navigation
   +leading-border(1px, 1)
+  display: none
 
 #nav-sticky
   @extend %navigation
   +trailing-border(1px, 1)
+  display: none
   position: fixed
   top: 0
   left: 0
@@ -35,3 +37,8 @@
 
     a.current, a:hover
       color: $header-font-color
+
+@media #{$medium-up}
+
+  #nav, #nav-sticky
+    display: block
