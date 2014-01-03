@@ -22,22 +22,15 @@ block content
           p Cyberpunkin maailma on väkivaltainen ja vaarallinen paikka täynnä hemmoja, jotka mieluiten repivät kätesi irti ja grillasivat sen mikrossa TV-dinneriksi itse lainkaan kipua tuntematta. Terve järki on korvannut hyvän ja pahan perinteiset käsitteet - teet mitä henkesi pitimiksi täytyy. Jos saat samalla jotain hyvää aikaan, hieno juttu. Mutta älä ota sitä tavaksi.
           p - Lainaus Cyberpunk 2.0.2.0. -roolipelistä.
 
-      .column.small-12.medium-6.hidden
-        .info-box#cyberpunk-rules
-          h4.info-box-title &sect; Cyberpunkin säännöt
-          ol
-            li
-              h6 Tyyli Ennen Tarkoitusta
-              p Sillä mitä teet, ei ole mitään väliä, niin kauan kuin näytät hyvältä sitä tehdessäsi.
-            li
-              h6 Asenne Ennen Kaikkea
-              p Jos ajattelet vaarallisesti, olet vaarallinen. Jos ajattelet heikosti, olet heikko.
-            li
-              h6 Elä Aina Reunalla
-              p Naura vaaralle ja vedä sitä daijuun. Älä koskaan pelaa varman päälle. Omistaudu Reunalle.
-            li
-              h6.underlined Riko Aina Sääntöjä
-              <i class="caret"></i>
+      .column.small-12.medium-6
+        pre#console
+          .chrome Socket connected...
+          i.fa.fa-times.cross
+          | > Tyyli ennen tarkoitusta.
+          | > Asenne ennen kaikkea.
+          | > Elä aina reunalla.
+          | > Riko aina sääntöjä.
+          i.caret
 
   // Maailmankartta
   figure#map.featurette(rel="cyberia")
@@ -60,29 +53,35 @@ block content
         hr.row-separator
     .row
       .column.small-12.medium-6
+        img(src="/five_circuit.png", width="100%")
       .column.small-12.medium-6
         h2.featurette-title <span class="digit">03</span> Tänään
         p Tänään Cyberia viettää viisivuotissyntymäpäiväänsä. Viisi vuotta on todella pitkä aika selviytyä tällaisessa maailmassa ja sitä halutaan juhlia kunnolla. Mean Cat on hoitanut paikalle kaiken tarvittavan ja saanut jopa tällä hetkellä kovimmassa nousussa olevat artistit, <strong>Typhonin</strong> ja <strong>Alexioksen</strong>, heittämään keikan juhlan kunniaksi. Jotkut ovat säästäneet rahaa jopa kuukausia saadakseen pääsyliput tähän spektaakkeliin. Mean Cat järjesti arvonnan, jonka onnekas voittaja seuralaisineen saa palkinnoksi VIP kohtelun koko illaksi.
         p Tämä ilta tulee siis olemaan mahtava tilaisuus vaikkapa hoitaa vanhoja kaunoja, etsiä kadonneita ihmisiä, hankkia uusia kontakteja tai vain pitää hauskaa vuoden kovimmissa bileissä.
 
   // Pelaajat ja hahmot
-  a.anchor#players
+  a.anchor#hahmot
   article.featurette(rel="hahmot")
     .row
-      .column.small-12.medium-6
+      .column.small-12.medium-6.padded
         h2.featurette-title <span class="digit">04</span> Hahmot
         p Pelaajat saavat ilmoittautumisen päätyttyä hahmorungon, jota noudattaen he tekevät oman hahmonsa. Runko sisältää mm. valmiiksi määritettyjä luonteenpiirteitä, historiaa ja kontakteja. Pelinjohto tarkastaa ja mahdollisesti muokkaa vielä pelaajan hahmoa. Voit myös pyytää täysin valmista hahmoa.
         p Peliin otetaan myös NPC-pelaajia ihan vain bilettäjiksi. Näiden pelaajien pelimaksu on hieman halvempi ja pelinjohto ei tarjoa heille valmiita hahmoja. Halutessaan NPC-pelaajat voivat kirjoittaa itselleen oikean hahmon alusta alkaen, jonka pelinjohto tarkistaa ennen peliä.
+      .column.medium-6.padded
+        img(src="/characters.png", width="100%")
 
   // Ilmoittautuminen
   a.anchor#ilmoittautuminen
   article#register.featurette(rel="ilmoittautuminen")
     .row
-      .column.medium-6
+      .column.medium-6.padded
         figure#countdown
-          h6 Ilmoittautumisaikaa jäljellä
+          p.day-count
+            span.above Jäljellä<br>
+            span.days 30
+            span.below <br>päivää
           
-      .column.small-12.medium-6
+      .column.small-12.medium-6.padded
         h2.featurette-title <span class="digit">05</span> Ilmoittautuminen
         p Pelimaksu on 10€ <a href="http://rolli.org/" target="_blank">Rovaniemen live-roolipelaajat ry</a>:n jäsenille ja 15€ muille. Paikalla voi myös liittyä Rollin jäseneksi. NPC-pelaajille pelimaksu on 5€, jolla katetaan ruoka- ja juomatarjoilut.
         p Ilmoittautuminen on avoinna <strong>perjantaihin 28.2.2014 saakka</strong>. Ohjeet ilmoittautumista varten löydät tapahtumat Facebook sivulta:

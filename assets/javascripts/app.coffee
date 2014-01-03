@@ -26,8 +26,16 @@ getOffsetTop = (elem) ->
       offsetTop += elem.offsetTop
   return offsetTop
 
+getOffsetLeft = (elem) ->
+  offsetLeft = 0
+  if !isNaN(elem.offsetLeft)
+    offsetLeft += elem.offsetLeft
+  while(elem = elem.offsetParent)
+    if !isNaN(elem.offsetLeft)
+      offsetLeft += elem.offsetLeft
+  return offsetLeft
+
 toggleCurrentSection = (sectionId) ->
-  console.log sectionId
   sections.filter("[rel=#{sectionId}]").classed "seen", true
   d3.selectAll(".nav-list .current").classed "current", false
   d3.selectAll(".nav-list [href='##{sectionId}']").classed "current", true
@@ -54,3 +62,38 @@ currentSectionId = scroll.throttle(100)
 currentSectionId.onValue toggleCurrentSection
 $(".nav-list a").click (e) ->
   toggleCurrentSection $(e.target).attr("href").substring(1)
+
+# Render countdown ring
+start = new Date("November 29, 2013 14:40:00")
+now = new Date().getTime()
+end = new Date("February 29, 2014 00:00:00")
+ratio = (now - start) / (end - start)
+
+days = [100 * ratio, 100 - 100 * ratio]
+
+width = 350
+height = 300
+radius = Math.max(width, height) / 2
+colors = ["#333333", "#33CC99"]
+pie = d3.layout.pie().sort(null)
+arc = d3.svg.arc().innerRadius(radius - 65).outerRadius(radius - 50)
+svg = d3.select("#countdown").append("svg")
+  .attr("id", "countdown-graph")
+  .attr("width", width)
+  .attr("height", height)
+  .append("g")
+  .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+
+titles = [
+  "Ilmoittautumisaikaa kulunut #{Math.floor((now - start) / (24 * 60 * 60 * 1000))} päivää."
+  "Ilmoittautumisaikaa jäljellä #{Math.floor((end - now) / (24 * 60 * 60 * 1000))} päivää."
+]
+
+path = svg.selectAll("path")
+  .data(pie(days))
+  .enter()
+  .append("path")
+  .attr("fill", (d, i) -> colors[i])
+  .attr("d", arc)
+
+d3.select(".days").text(Math.floor((end - now) / (24 * 60 * 60 * 1000)))

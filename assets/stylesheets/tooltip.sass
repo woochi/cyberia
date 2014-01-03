@@ -1,0 +1,13 @@
+.tooltip
+  $font-size: 13px
+  +adjust-font-size-to($font-size, 1)
+  width: auto
+  white-space: nowrap
+  position: absolute
+  text-align: center
+  padding: rhythm(0.25, $font-size) rhythm(0.5, $font-size)
+  background: $green-light
+  border-radius: $global-radius
+  pointer-events: none
+  z-index: $zindex-tooltip
+  color: $gray-darker

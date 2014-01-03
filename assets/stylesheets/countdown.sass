@@ -1,9 +1,33 @@
 #countdown
+  margin: 0
 
-#countdown-time
-  +adjust-font-size-to(64px)
-  letter-spacing: 4px
+#countdown-graph
+  display: block
+  margin: 0 auto
+
+.day-count
+  position: absolute
+  left: 50%
+  top: 50%
+  text-transform: uppercase
+  text-align: center
+  letter-spacing: 2px
+  margin: rhythm(-2.5) 0 0 rhythm(-1.40)
+
+.days
+  +adjust-font-size-to(70px, 3)
+  position: relative
+  top: -1px
+  letter-spacing: 1px
+  font-weight: 300
+  color: $white
+
+.above
+  +adjust-font-size-to(14px, 1)
+  letter-spacing: 2px
+  color: $body-font-color-alt
   font-weight: 300
 
-.unit
-  +adjust-font-size-to(28px, 2, 64px)
+.below
+  @extend .above
+  letter-spacing: 4px
