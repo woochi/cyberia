@@ -1,0 +1,28 @@
+.featurette
+  padding: rhythm(2) 0 rhythm(1)
+  +leading-border(1px, 2)
+  border-color: $gray-darker
+
+.featurette-title
+  //+trailing-border(1px, 0.5, $h2-font-size)
+  font-weight: 300
+  border-color: $gray
+
+.digit
+  color: $body-font-color-alt
+
+  &:after
+    content: " | "
+
+.row-separator
+  margin: rhythm(1) 0 rhythm(2) !important
+  border-color: $gray-darker
+
+@media #{$medium-up}
+
+  .featurette
+    padding: rhythm(4) 0 rhythm(3)
+    +leading-border(1px, 4)
+
+  .row-separator
+    margin: rhythm(3) 0 rhythm(4) !important

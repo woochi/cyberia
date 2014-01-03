@@ -1,0 +1,43 @@
+#hero
+  position: relative
+  height: rhythm(24)
+  background: #161616 url("/hero.jpg") center no-repeat
+  background-size: cover
+  text-align: center
+
+#cyberia-video
+  display: block
+  display: none
+  height: 100%
+  margin: 0 auto
+  opacity: 0.5
+
+#scroll-button
+  position: absolute
+  left: 50%
+  bottom: rhythm(2)
+  z-index: $zindex-tooltip
+  width: rhythm(6.5)
+  margin-left: rhythm(-3.25)
+
+#description
+  position: absolute
+  bottom: rhythm(10)
+  width: 100%
+  text-transform: uppercase
+  letter-spacing: 2px
+  font-weight: 600
+  color: $body-font-color-alt
+
+  &:before, &:after
+    content: " - "
+
+@media #{$medium-up}
+
+  #hero
+    height: rhythm(28)
+
+@media #{$large-up}
+
+  #hero
+    height: rhythm(32)

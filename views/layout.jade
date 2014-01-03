@@ -11,12 +11,12 @@ html.no-js
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    title Cyberia 2020
+    title Cyberia 2020 Live-roolipeli
     meta(name='description', content='Cyberia Experience 2020 live-roolipeli Rovaniemellä 12.4.2014-13.4.2014')
     meta(name="keywords", content="Cyberia2020, Cyberia, 2020, Experience, live-roolipeli, roolipeli, Rolli, Rovaniemi, tiedekeskus, Pilke, cyberpunk, soolo, rokkari, dekkeri, media, pukumies, fixeri, kyttä, tekno, lekuri, kulkuri")
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel="stylesheet", href="/stylesheets/app.css")
-    //-script(src='javascripts/vendor/modernizr-2.6.2.min.js')
+    link( href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel="stylesheet")
   body
     //if lt IE 7
       p.browsehappy
@@ -25,14 +25,34 @@ html.no-js
         | to improve your experience.
 
     //- Add your site or application content here
-    header
-      nav
-        ul
+    header#hero
       block header
+    nav#nav
+      .row
+        .column.small-12
+          ul.nav-list.inline-list
+            li <a href="#cyberpunk">Mitä on Cyberpunk?</a> 
+            li <a href="#cyberia">Club Cyberia</>
+            li <a href="#hahmot">Hahmot</a>
+            li <a href="#ilmoittautuminen">Ilmoittautuminen</a>
+            li <a href="#info">Käytännön info</a>
+    nav#nav-sticky.hidden
+      .row
+        .column.small-12
+          ul.nav-list.inline-list
+            li <a href="#cyberpunk">Mitä on Cyberpunk?</a> 
+            li <a href="#cyberia">Club Cyberia</>
+            li <a href="#hahmot">Hahmot</a>
+            li <a href="#ilmoittautuminen">Ilmoittautuminen</a>
+            li <a href="#info">Käytännön info</a>
     block content
+    footer#footer
+      .row
+        .column.small-12.text-center
+          p &copy; 2013 <a href="http://rolli.org/">Rovaniemen live-roolipelaajat ry</a>
 
     script(src="http://localhost:35729/livereload.js")
-    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js', defer)
+    script(src='/javascripts/jquery-2.0.3.min.js', defer)
     script(src="/javascripts/app.js", defer)
 
     //- Google Analytics: change UA-XXXXX-X to be your site's ID.

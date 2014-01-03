@@ -18,7 +18,8 @@ app.use express.logger("dev")
 app.use express.bodyParser()
 app.use express.methodOverride()
 app.use app.router
-app.use express.static(path.join(__dirname, "public"))
+app.use express.static(path.join(__dirname, "assets", "images"))
+app.use express.static(path.join(__dirname, "assets", "videos"))
 app.use "/stylesheets", express.static(__dirname + "/build/stylesheets")
 app.use "/javascripts", express.static(__dirname + "/build/javascripts")
 
@@ -29,7 +30,6 @@ app.use express.errorHandler()  if "development" is app.get("env")
 app.get "/javascripts/*", serveAsset
 app.get "/stylesheets/*", serveAsset
 app.get "/", routes.index
-app.get "/*", routes.index
   
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")

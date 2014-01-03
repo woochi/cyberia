@@ -1,10 +1,101 @@
 extends layout
 
+block header
+  video#cyberia-video
+    source(src="/big_buck_bunny.mp4", poster="/hero.jpg")
+    p Not supported.
+  p#description Live-roolipeli Rovaniemellä 12.4.2014
+  a#scroll-button.button
+    | Lue lisää&nbsp;
+    i.fa.fa-caret-down
+
 block content
-  .center-group
+
+  // Cyberpunkista
+  a.anchor#cyberpunk
+  article.featurette(rel="cyberpunk")
     .row
-      .column.small-10.medium-8.small-centered.text-center
-        h1.hero-title Cyberia 2020
-        p Cyberia Experience 2020 on Cyberpunkin maailmaan sijoittuva live-roolipeli. <br> Peli pelataan 12. - 13.4.2014 Rovaniemellä Tiedekeskus Pilkkeen tiloissa. 
-        p
-         a.button(href="https://www.facebook.com/events/201324050055482/") Lisätietoja Facebookissa
+      .column.small-12.medium-6
+        h2.featurette-title <span class="digit">01</span> Mitä on Cyberpunk?
+        p Nimi Cyberpunk tulee kahdesta sanasta: <em>Cyber</em> termistä kyberneettinen tai lihan ja koneteknologian fuusio. <em>Punk</em> varhaisen 1980-luvun rock-trendi, joka julisti väkivaltaa, kapinaa ja yhteiskunnallista toimintaa nihilistiseen tyyliin. Cyberpunk on usein hienosäädetty sekoitus rokkia, poppia, seksiä, huumeita ja korkeamman asteen teknologiaa. 
+        blockquote
+          p Cyberpunkin maailma on väkivaltainen ja vaarallinen paikka täynnä hemmoja, jotka mieluiten repivät kätesi irti ja grillasivat sen mikrossa TV-dinneriksi itse lainkaan kipua tuntematta. Terve järki on korvannut hyvän ja pahan perinteiset käsitteet - teet mitä henkesi pitimiksi täytyy. Jos saat samalla jotain hyvää aikaan, hieno juttu. Mutta älä ota sitä tavaksi.
+          p - Lainaus Cyberpunk 2.0.2.0. -roolipelistä.
+
+      .column.small-12.medium-6.hidden
+        .info-box#cyberpunk-rules
+          h4.info-box-title &sect; Cyberpunkin säännöt
+          ol
+            li
+              h6 Tyyli Ennen Tarkoitusta
+              p Sillä mitä teet, ei ole mitään väliä, niin kauan kuin näytät hyvältä sitä tehdessäsi.
+            li
+              h6 Asenne Ennen Kaikkea
+              p Jos ajattelet vaarallisesti, olet vaarallinen. Jos ajattelet heikosti, olet heikko.
+            li
+              h6 Elä Aina Reunalla
+              p Naura vaaralle ja vedä sitä daijuun. Älä koskaan pelaa varman päälle. Omistaudu Reunalle.
+            li
+              h6.underlined Riko Aina Sääntöjä
+              <i class="caret"></i>
+
+  // Maailmankartta
+  figure#map.featurette(rel="cyberia")
+    .row
+      .column.small-12
+        img#map-img(src="map_animation.gif")
+  // Cyberiasta
+  a.anchor#cyberia
+  article.featurette(rel="cyberia")
+    .row
+      .column.small-12
+        h2.featurette-title <span class="digit">02</span> Club Cyberia
+        .row
+          .column.medium-6
+            p Cyberia, yksi <strong>Night Cityn</strong> suosituimmista, tunnetuimmista ja tällä hetkellä vanhimmista yökerhoista, sijaitsee 27th Streetin ja Sterlingin kulmassa, 28th Streetin puiston laitamilla - keskiluokan alueen ja pahamaineisen sotatoimialueen välimaastossa. Tässä kaupunginosassa virkavaltaa ei pahemmin näy, rikokset ovat arkipäivää ja vain selviytyjät menestyvät. Cyberia taas on kuin keidas keskellä aavikkoa. Yökerhon maineikas omistaja <strong>Mean Cat</strong> ja paikan turvallisuuspäällikkö <strong>Gruesom Max</strong> ovat saaneet luotua turvallisen ja suhteellisen ystävällismielisen kulttuurien kohtaamispaikan. Täällä voit nauttia drinkkisi rauhassa, olitpa sitten poskettoman rikas tai rutiköyhä.
+          .column.medium-6
+            p Tavallisena iltana paikan täyttävät normaalit kaduntallaajat, jotka haluavat irtioton arjesta, erikoisiltoina voit tavata jopa megatähtiä, jotka kulkevat rahvaan keskuudessa kuin tavalliset kansalaiset. Yläkerran VIP-tilat takaavat rauhallisen illan, poissa pohjasakan seurasta. Alakerran klubitilat taas ovat avoimena kaikelle kansalle - tai ainakin niille, joilla on varaa kalliisiin pääsylippuihin. Baaritiskiltä voit saada juomaa, päihteitä tai luksusseuraa. Ei ole aivan tavatonta, että paikalla liikkuu muunlaisiakin fixereitä, jotka hoitavat tarpeesi korvausta vastaan, oli se sitten aseita tai uusia implantteja. Sanotaan, että mitä Cyberiasta ei saa, sitä ei tarvitse. 
+    .row
+      .column.small-12
+        hr.row-separator
+    .row
+      .column.small-12.medium-6
+      .column.small-12.medium-6
+        h2.featurette-title <span class="digit">03</span> Tänään
+        p Tänään Cyberia viettää viisivuotissyntymäpäiväänsä. Viisi vuotta on todella pitkä aika selviytyä tällaisessa maailmassa ja sitä halutaan juhlia kunnolla. Mean Cat on hoitanut paikalle kaiken tarvittavan ja saanut jopa tällä hetkellä kovimmassa nousussa olevat artistit, <strong>Typhonin</strong> ja <strong>Alexioksen</strong>, heittämään keikan juhlan kunniaksi. Jotkut ovat säästäneet rahaa jopa kuukausia saadakseen pääsyliput tähän spektaakkeliin. Mean Cat järjesti arvonnan, jonka onnekas voittaja seuralaisineen saa palkinnoksi VIP kohtelun koko illaksi.
+        p Tämä ilta tulee siis olemaan mahtava tilaisuus vaikkapa hoitaa vanhoja kaunoja, etsiä kadonneita ihmisiä, hankkia uusia kontakteja tai vain pitää hauskaa vuoden kovimmissa bileissä.
+
+  // Pelaajat ja hahmot
+  a.anchor#players
+  article.featurette(rel="hahmot")
+    .row
+      .column.small-12.medium-6
+        h2.featurette-title <span class="digit">04</span> Hahmot
+        p Pelaajat saavat ilmoittautumisen päätyttyä hahmorungon, jota noudattaen he tekevät oman hahmonsa. Runko sisältää mm. valmiiksi määritettyjä luonteenpiirteitä, historiaa ja kontakteja. Pelinjohto tarkastaa ja mahdollisesti muokkaa vielä pelaajan hahmoa. Voit myös pyytää täysin valmista hahmoa.
+        p Peliin otetaan myös NPC-pelaajia ihan vain bilettäjiksi. Näiden pelaajien pelimaksu on hieman halvempi ja pelinjohto ei tarjoa heille valmiita hahmoja. Halutessaan NPC-pelaajat voivat kirjoittaa itselleen oikean hahmon alusta alkaen, jonka pelinjohto tarkistaa ennen peliä.
+
+  // Ilmoittautuminen
+  a.anchor#ilmoittautuminen
+  article#register.featurette(rel="ilmoittautuminen")
+    .row
+      .column.medium-6
+        figure#countdown
+          h6 Ilmoittautumisaikaa jäljellä
+          
+      .column.small-12.medium-6
+        h2.featurette-title <span class="digit">05</span> Ilmoittautuminen
+        p Pelimaksu on 10€ <a href="http://rolli.org/" target="_blank">Rovaniemen live-roolipelaajat ry</a>:n jäsenille ja 15€ muille. Paikalla voi myös liittyä Rollin jäseneksi. NPC-pelaajille pelimaksu on 5€, jolla katetaan ruoka- ja juomatarjoilut.
+        p Ilmoittautuminen on avoinna <strong>perjantaihin 28.2.2014 saakka</strong>. Ohjeet ilmoittautumista varten löydät tapahtumat Facebook sivulta:
+        p <a href="https://www.facebook.com/events/201324050055482/" target="_blank" class="button">Ilmoittautumisohjeet Facebookissa <i class="fa fa-caret-right"></i></a>
+
+  // Käytännön info
+  a.anchor#info
+  article.featurette(rel="info")
+    .row
+      .column.small-12.medium-8.medium-centered
+        h2.featurette-title <span class="digit">06</span> Käytännön info
+        p Peli pelataan Rovaniemellä, <a href="http://www.tiedekeskus-pilke.fi/" target="_blank">tiedekeskus Pilkeen</a> tiloissa, lauantaina 12.4.2014. Peli kestää noin 6-8 tuntia ja jatkuu yön tuntien puolelle. Yleisen hengailun nimissä paikalle voi saapua jo perjantaina. Aikataulut selviävät myöhemmin. Pelipaikalla ei välttämättä ole mahdollista yöpyä, mutta paikalliset larppaajat auttavat majoitusasioissa. 
+        p Pelissä tarjoillaan ruokaa, juomaa ja naposteltavia.
+        p <strong><em>Peli on k-18 rankkojen teemojensa vuoksi.</em></strong> Pelin sääntöjärjestelmänä käytetään <a href="http://oiei.fi/index.php?page=norules">OIEIn NoRulesia</a>.
+        p Pelipaikalle ei saa missään tapauksessa tuoda alkoholia tai muita päihteitä. Pelipaikalle ei missään tapauksessa saa tulla päihtyneenä. Tapahtuma on täysin päihteetön. Tupakointi on sallittu sille osoitetussa paikassa. 
+        p Jokainen pelajaa vastaa itse itsestään ja teoistaan. Suosittelemme vapaa-ajan/tapaturmavakuutusta. Jos rikot ikkunan, korvaat sen. Jos rikot ittes, maksat itse lääkärilaskusi. Jos rikot jonkun muun olemuksen, maksat sen korjaamisen.

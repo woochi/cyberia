@@ -50,7 +50,13 @@ h6
   @extend %header
   +adjust-font-size-to($h6-font-size)
   margin: 0 0 rhythm(1, $h6-font-size)
+  font-weight: 500
   text-transform: uppercase
+
+  li &
+    display: inline-block
+    margin: 0
+    font-weight: bold
 
 .hero-title
   $font-size: 65px
@@ -61,7 +67,8 @@ h6
 //-------------------------------------
 
 strong, b
-  font-weight: 600
+  font-weight: 900
+  color: $white !important
 
 code
   font-family: $monospace-font-family
@@ -81,6 +88,9 @@ q
 
 .light
   font-weight: 300
+
+.underlined
+  border-bottom: 1px solid $body-font-color
 
 // Text blocks
 //-------------------------------------
@@ -107,9 +117,14 @@ blockquote
 //-------------------------------------
 
 a
-  +link-colors($link-color, $link-color-hover, $link-color-active, $link-color-visited, $link-color-focus)
   cursor: pointer
   text-decoration: none
+  border-bottom: 1px solid $link-color
+  color: $link-color
+
+  &:hover
+    color: $link-color-hover
+    border-color: $link-color-hover
 
 // Lists
 //-------------------------------------
@@ -117,6 +132,14 @@ a
 ul, ol, dl
   @extend %default-margin
   padding-left: rhythm(1)
+
+.inline-list
+  +clearfix
+  list-style: none
+
+  li
+    float: left
+    margin-right: rhythm(1)
 
 // Rules
 

@@ -26,6 +26,22 @@ module.exports = (grunt) ->
           "build/assets/javascripts/app.js": ["assets/javascripts/app.coffee"]
         options:
           transform: ["coffeeify"]
+          shim:
+            bacon:
+              path: "assets/javascripts/libs/bacon.min.js"
+              exports: "Bacon"
+            d3:
+              path: "assets/javascripts/libs/d3.min.js"
+              exports: "d3"
+    copy:
+      build:
+        files: [
+          expand: true
+          flatten: true
+          src: ["assets/javascripts/libs/*.js"]
+          dest: "build/assets/javascripts"
+          filter: "isFile"
+        ]
     watch:
       options:
         livereload: true
@@ -39,5 +55,5 @@ module.exports = (grunt) ->
         files: ["views/**/*.jade"]
         tasks: []
 
-  grunt.registerTask "default", ["browserify", "sass", "express:dev", "watch"]
-  grunt.registerTask "deploy", ["browserify", "sass"]
+  grunt.registerTask "default", ["browserify", "copy", "sass", "express:dev", "watch"]
+  grunt.registerTask "deploy", ["browserify", "copy", "sass"]

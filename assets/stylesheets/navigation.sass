@@ -1,0 +1,37 @@
+%navigation
+  width: 100%
+  padding: rhythm(1) 0
+  background: rgba($body-background-color, 0.9)
+  border-color: $gray-darker
+  z-index: $zindex-nav
+
+#nav
+  @extend %navigation
+  +leading-border(1px, 1)
+
+#nav-sticky
+  @extend %navigation
+  +trailing-border(1px, 1)
+  position: fixed
+  top: 0
+  left: 0
+
+.nav-list
+  margin: 0
+  padding: 0
+
+  li
+    width: 20%
+    text-align: center
+    margin: 0
+
+    a
+      +transition(all 0.1s linear)
+      font-weight: 600
+      border: none
+      color: $gray-dark
+      text-transform: uppercase
+      letter-spacing: 1px
+
+    a.current
+      color: $header-font-color
