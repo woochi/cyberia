@@ -17,6 +17,12 @@ set :log_level, :debug
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 2
 
+# RVM Setup
+set :rvm_ruby_string, :local
+set :rvm_autolibs_flag, "read-only"
+before 'deploy:setup', 'rvm:install_rvm'
+before 'deploy:setup', 'rvm:install_ruby'
+
 # Grunt options
 set :grunt_tasks, 'deploy'
 set :grunt_file, -> { release_path.join('Gruntfile.coffee') }

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem "capistrano", "~> 3.0.1"
+gem 'rvm-capistrano'
 gem 'capistrano-rvm'
 gem 'capistrano-bundler'
 gem 'capistrano-grunt', github: 'roots/capistrano-grunt'
