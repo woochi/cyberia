@@ -67,7 +67,7 @@ $(".nav-list a").click (e) ->
 # Render countdown ring
 start = new Date("November 29, 2013 14:40:00")
 now = new Date().getTime()
-end = new Date("February 29, 2014 00:00:00")
+end = new Date("February 01, 2014 00:00:00")
 ratio = (now - start) / (end - start)
 
 days = [100 * ratio, 100 - 100 * ratio]
@@ -84,11 +84,6 @@ svg = d3.select("#countdown").append("svg")
   .attr("height", height)
   .append("g")
   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-
-titles = [
-  "Ilmoittautumisaikaa kulunut #{Math.floor((now - start) / (24 * 60 * 60 * 1000))} päivää."
-  "Ilmoittautumisaikaa jäljellä #{Math.floor((end - now) / (24 * 60 * 60 * 1000))} päivää."
-]
 
 path = svg.selectAll("path")
   .data(pie(days))
