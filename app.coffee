@@ -29,7 +29,7 @@ serveAsset = (req, res, next) ->
 app.use express.errorHandler()  if "development" is app.get("env")
 app.get "/javascripts/*", serveAsset
 app.get "/stylesheets/*", serveAsset
-app.get "/", routes.index
+app.get "/test", routes.index
   
 http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
