@@ -4,6 +4,7 @@ d3 = require("d3")
 win = document.body
 hero = d3.select("#hero")[0][0]
 nav = d3.select("#nav-sticky")
+staticNav = d3.select("#nav")
 navList = d3.selectAll(".nav-list")
 sticky = false
 
@@ -97,3 +98,14 @@ path = svg.selectAll("path")
   .attr("d", arc)
 
 d3.select(".days").text(Math.floor((end - now) / (24 * 60 * 60 * 1000)))
+
+d3.select("#scroll-button").on "click", ->
+  navPos = getOffsetTop(d3.select("#nav")[0][0])
+  scrollTo(navPos)
+
+scrollTo = (pos) ->
+  if win.scrollTop < pos
+    document.body.scrollTop += 20
+    setTimeout ->
+      scrollTo(pos)
+    , 5
