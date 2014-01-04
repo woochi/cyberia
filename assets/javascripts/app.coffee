@@ -7,12 +7,14 @@ nav = d3.select("#nav-sticky")
 staticNav = d3.select("#nav")
 navList = d3.selectAll(".nav-list")
 sticky = false
+doc = document.documentElement
 
 toggleSticky = ->
-  if not sticky and win.scrollTop > hero.offsetHeight
+  top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
+  if not sticky and top > hero.offsetHeight
     nav.classed "hidden", false
     sticky = true
-  else if sticky and win.scrollTop <= hero.offsetHeight
+  else if sticky and top <= hero.offsetHeight
     nav.classed "hidden", true
     sticky = false
 
@@ -43,7 +45,7 @@ toggleCurrentSection = (sectionId) ->
 
 getSectionId = ->
   winHeight = win.offsetHeight
-  midScroll = win.scrollTop + winHeight * 0.5
+  midScroll = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0) + winHeight * 0.5
   offset = null
   section = "cyberpunk"
   for el in sections[0]
@@ -99,8 +101,8 @@ d3.select("#scroll-button").on "click", ->
   scrollTo(navPos)
 
 scrollTo = (pos) ->
-  if win.scrollTop < pos
-    document.body.scrollTop += 20
+  if (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0) < pos
+    document.documentElement.scrollTop += 20
     setTimeout ->
       scrollTo(pos)
     , 5
