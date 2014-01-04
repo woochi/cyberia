@@ -102,7 +102,7 @@ d3.select("#scroll-button").on "click", ->
 
 scrollTo = (pos) ->
   if (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0) < pos
-    document.documentElement.scrollTop += 20
+    window.scrollBy(0, 20)
     setTimeout ->
       scrollTo(pos)
     , 5
