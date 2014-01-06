@@ -1,0 +1,5 @@
+task :grunt do
+  on roles(:all) do |host|
+    execute "cd #{fetch(:release_path)} && grunt deploy"
+  end
+end

@@ -19,12 +19,6 @@ set :log_level, :debug
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 2
 
-# RVM Setup
-
-# Grunt options
-set :grunt_tasks, 'deploy'
-set :grunt_file, -> { release_path.join('Gruntfile.coffee') }
-
 # Node options
 set :node_binary, "/usr/bin/coffee"
 set :app_command, "app.coffee"
