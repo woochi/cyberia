@@ -27,7 +27,7 @@ set :upstart_job_name, "cyberia"
 before "deploy", "deploy:create_release_dir"
 before "deploy", "node:create_upstart_config"
 before "deploy:updated", "node:install_packages"
-after "deploy:updated", "node:restart"
+after "deploy:restart", "node:restart"
 after "deploy:rollback", "node:restart"
 
 namespace :deploy do
