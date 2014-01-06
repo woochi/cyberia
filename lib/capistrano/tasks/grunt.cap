@@ -1,5 +1,5 @@
 task :grunt do
   on roles(:all) do |host|
-    execute "cd #{fetch(:release_path)} && grunt deploy"
+    execute "cd #{fetch(:release_path)} && /home/deploy/.rvm/bin/rvm 2.0.0-p353 do bundle exec grunt deploy"
   end
 end
