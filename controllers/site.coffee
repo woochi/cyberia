@@ -9,4 +9,4 @@ exports.timeline = (req, res) ->
   res.render "timeline"
 
 exports.app = (req, res) ->
-  res.render "app"
+  res.render "app", user: {name: req.user.name}
