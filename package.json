@@ -17,7 +17,7 @@
     "coffeeify": "*"
   },
   "dependencies": {
-    "express": "3.2.6",
+    "express": "3.4.7",
     "jade": "*",
     "stylus": "*",
     "coffee-script": "*",
@@ -33,6 +33,17 @@
     "grunt-contrib-copy": "*",
     "grunt-contrib-sass": "*",
     "grunt-browserify": "*",
-    "coffeeify": "*"
+    "coffeeify": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "validator": "*",
+    "crypto": "*",
+    "winston": "*",
+    "connect-mongo": "*",
+    "connect-flash": "*",
+    "view-helpers": "*",
+    "async": "*"
   }
 }

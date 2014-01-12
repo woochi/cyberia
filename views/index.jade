@@ -1,12 +1,31 @@
-extends layout
-
-block header
-  p#description Live-roolipeli Rovaniemellä 12.4.2014
-  a#scroll-button.button
-    | Lue lisää&nbsp;
-    i.fa.fa-caret-down
+extends layouts/site
 
 block content
+
+  // Hero
+  header#hero
+    p#description Live-roolipeli Rovaniemellä 12.4.2014
+    a#scroll-button.button
+      | Lue lisää&nbsp;
+      i.fa.fa-caret-down
+  nav#nav
+    .row
+      .column.small-12
+        ul.nav-list.inline-list
+          li <a href="#cyberpunk">Mitä on Cyberpunk?</a> 
+          li <a href="#cyberia">Club Cyberia</>
+          li <a href="#hahmot">Hahmot</a>
+          li <a href="#ilmoittautuminen">Ilmoittautuminen</a>
+          li <a href="#info">Käytännön info</a>
+  nav#nav-sticky.hidden
+    .row
+      .column.small-12
+        ul.nav-list.inline-list
+          li <a href="#cyberpunk">Mitä on Cyberpunk?</a> 
+          li <a href="#cyberia">Club Cyberia</>
+          li <a href="#hahmot">Hahmot</a>
+          li <a href="#ilmoittautuminen">Ilmoittautuminen</a>
+          li <a href="#info">Käytännön info</a>
 
   // Cyberpunkista
   a.anchor#cyberpunk

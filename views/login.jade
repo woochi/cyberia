@@ -1,0 +1,15 @@
+extends layouts/site
+
+block content
+  form#login-form(method="post", action="/login")
+    input(type="hidden", name="_csrf", value="#{csrf_token}")
+    fieldset.inputs
+      ul
+        li
+          input(type="text", name="name", placeholder="Nimi")
+        li
+          input(type="text", name="password", placeholder="Salasana")
+    fieldset.buttons
+      ul
+        li
+          input.button(type="submit", value="Kirjaudu sisään")

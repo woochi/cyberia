@@ -3,44 +3,46 @@
 Module dependencies.
 ###
 express = require("express")
-routes = require("./routes")
-user = require("./routes/user")
 http = require("http")
-https = require("https")
+fs = require('fs')
 path = require("path")
+mongoose = require("mongoose")
+passport = require("passport")
 app = express()
 fs = require("fs")
 
-# all environments
-app.set "port", process.env.PORT or 3000
-app.set "views", __dirname + "/views"
-app.set "view engine", "jade"
-app.use express.favicon(path.join(__dirname, "assets", "images", "favicon_256.png"))
-app.use express.logger("dev")
-app.use express.bodyParser()
-app.use express.methodOverride()
-app.use app.router
-app.use express.static(path.join(__dirname, "assets", "images"))
-app.use express.static(path.join(__dirname, "assets", "videos"))
-app.use "/stylesheets", express.static(__dirname + "/build/stylesheets")
-app.use "/javascripts", express.static(__dirname + "/build/javascripts")
+env = process.env.NODE_ENV or "development"
+config = require("./config/config")[env]
 
-serveAsset = (req, res, next) ->
-  res.sendfile path.join(__dirname, "build", "assets", req.url)
+# Bootstrap db connection
+# Connect to mongodb
+connect = ->
+  options = server:
+    socketOptions:
+      keepAlive: 1
+  mongoose.connect config.db, options
 
-app.use express.errorHandler()  if "development" is app.get("env")
-app.get "/javascripts/*", serveAsset
-app.get "/stylesheets/*", serveAsset
-app.get "/", routes.index
+connect()
 
-###
-options =
-  key: fs.readFileSync('/etc/haproxy/certs/cyberia2020.key', "utf8")
-  cert: fs.readFileSync('/etc/haproxy/certs/cyberia2020.crt', "utf8")
-  ca: fs.readFileSync('/etc/haproxy/certs/cyberia2020-intermediate.pem', "utf8")
-###
+# Error handler
+mongoose.connection.on "error", (err) ->
+  console.log err
 
-httpServer = http.createServer(app).listen app.get("port"), ->
+# Reconnect when closed
+mongoose.connection.on "disconnected", ->
+  connect()
+
+models_path = __dirname + "/models"
+fs.readdirSync(models_path).forEach (file) ->
+  require(models_path + "/" + file)  if ~file.indexOf(".coffee")
+
+# Configuration
+require('./config/passport')(passport, config)
+require('./config/express')(app, config, passport)
+require('./config/routes')(app, passport)
+
+port = process.env.PORT || config.port
+app.set "port", port
+
+http.createServer(app).listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")
-#httpsServer = https.createServer(options, app).listen app.get("port"), ->
-#  console.log "Express http server listening on port " + app.get("port")
