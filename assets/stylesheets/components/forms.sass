@@ -1,4 +1,4 @@
-$input-width: rhythm(12)
+$input-width: rhythm(14)
 $textarea-height: rhythm(6)
 
 legend
@@ -28,18 +28,18 @@ input
 
 input[type="text"]
   +appearance(none)
-  +rhythm-borders(2px, 0.5)
+  +rhythm-borders(1px, 0.5)
   display: block
-  width: $input-width
+  width: 100%
   margin: 0 0 rhythm(0.5)
   background: transparent
-  border-color: $gray-light
+  border-color: $gray-dark
   border-radius: $global-radius
   outline: 0
   resize: none
 
   &:focus
-    border-color: $gray-dark
+    border-color: $green-light
 
   &.search-input
     width: 100%
@@ -77,3 +77,8 @@ input[type="range"]::-webkit-slider-thumb
   background-color: $gray-dark
   border: 1px solid $white
   border-radius: 50%
+
+@media #{$medium-up}
+
+  input[type="text"]
+    width: $input-width
