@@ -69,6 +69,7 @@ module.exports = (app, config, passport) ->
     
     # adds CSRF support
     app.use express.csrf()
+    app.use require('connect-csrf-cookie')()
 
     # This could be moved to view-helpers :-)
     app.use (req, res, next) ->

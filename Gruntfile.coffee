@@ -35,6 +35,18 @@ module.exports = (grunt) ->
             d3:
               path: "assets/javascripts/libs/d3.min.js"
               exports: "d3"
+            backbone:
+              path: "assets/javascripts/libs/backbone-min.js"
+              exports: "Backbone"
+            underscore:
+              path: "assets/javascripts/libs/underscore-min.js"
+              exports: "_"
+            marionette:
+              path: "assets/javascripts/libs/backbone.marionette.min.js"
+              exports: "Marionette"
+            moment:
+              path: "assets/javascripts/libs/moment.min.js"
+              exports: "moment"
     copy:
       build:
         files: [

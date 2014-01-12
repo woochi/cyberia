@@ -37,12 +37,16 @@ input[type="text"]
   border-radius: $global-radius
   outline: 0
   resize: none
+  letter-spacing: 1px
 
   &:focus
     border-color: $green-light
 
   &.search-input
     width: 100%
+
+input[type="password"]
+  @extend input[type="text"]
 
 select
   @extend input[type="text"]
