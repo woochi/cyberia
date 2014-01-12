@@ -1,0 +1,79 @@
+$input-width: rhythm(12)
+$textarea-height: rhythm(6)
+
+legend
+  @extend h4
+  +trailing-border(2px, 0.5, $h4-font-size)
+  display: block
+  width: 100%
+  border-color: $gray-light
+  
+label
+  font-weight: 500
+
+fieldset
+  @extend %default-margin
+  padding: 0
+  border: none
+
+  > ul
+    list-style: none
+    padding: 0
+
+    > li
+      margin: 0 0 rhythm(0.5)
+
+input
+  @extend %reset-font
+
+input[type="text"]
+  +appearance(none)
+  +rhythm-borders(2px, 0.5)
+  display: block
+  width: $input-width
+  margin: 0 0 rhythm(0.5)
+  background: transparent
+  border-color: $gray-light
+  border-radius: $global-radius
+  outline: 0
+  resize: none
+
+  &:focus
+    border-color: $gray-dark
+
+  &.search-input
+    width: 100%
+
+select
+  @extend input[type="text"]
+  cursor: pointer
+
+  &:hover
+    border-color: $gray-dark
+
+input[type="radio"]
+  width: rhythm(0.5)
+  height: rhythm(0.5)
+  margin: 0 rhythm(0.25) 0 0
+
+textarea
+  @extend input[type="text"]
+  height: $textarea-height
+
+input[type="range"]
+  -webkit-appearance: none
+  display: block
+  width: $input-width
+  height: rhythm(0.5)
+  margin: rhythm(0.25) 0
+  background-color: $gray-light
+  border-radius: rhythm(0.25)
+  outline: 0
+
+input[type="range"]::-webkit-slider-thumb
+  -webkit-appearance: none
+  width: rhythm(0.5)
+  height: rhythm(0.5)
+  background-color: $gray-dark
+  border: 1px solid $white
+  border-radius: 50%

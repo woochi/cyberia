@@ -20,10 +20,12 @@ module.exports = (grunt) ->
       build:
         files:
           "build/assets/stylesheets/app.css": "assets/stylesheets/app.sass"
+          "build/assets/stylesheets/site.css": "assets/stylesheets/site.sass"
     browserify:
       build:
         files:
           "build/assets/javascripts/app.js": ["assets/javascripts/app.coffee"]
+          "build/assets/javascripts/site.js": ["assets/javascripts/site.coffee"]
         options:
           transform: ["coffeeify"]
           shim:
