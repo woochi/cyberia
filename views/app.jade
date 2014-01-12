@@ -1,3 +1,8 @@
 extends layouts/app
 
 block content
+  != "<script id='bootstrap' type='text/javascript'>"
+  != "window.user = "
+  != JSON.stringify(user)
+  != ";"
+  != "</script>"
