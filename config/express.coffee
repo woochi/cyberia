@@ -62,7 +62,7 @@ module.exports = (app, config, passport) ->
     app.use passport.session()
     
     # connect flash for flash messages - should be declared after sessions
-    #app.use flash()
+    app.use flash()
     
     # should be declared after session and flash
     #app.use helpers(pkg.name)

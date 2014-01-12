@@ -1,3 +1,6 @@
+button
+  @extend %reset-font
+
 %button
   +transition(all 0.01s linear)
   +user-select(none)
@@ -5,11 +8,13 @@
   text-decoration: none
   text-transform: uppercase
   letter-spacing: 2px
+  outline: none !important
 
 .button
   @extend %button
   +rhythm-borders(1px, 0.5)
   display: inline-block
+  width: 100%
   padding-left: rhythm(1)
   padding-right: rhythm(1)
   border-color: $white
@@ -26,3 +31,8 @@
   @extend .button
   background: transparent
   color: $white
+
+@media #{$medium-up}
+
+  .button
+    width: auto
