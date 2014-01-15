@@ -9,6 +9,7 @@ path = require("path")
 mongoose = require("mongoose")
 passport = require("passport")
 app = express()
+server = http.createServer(app)
 
 env = process.env.NODE_ENV or "development"
 config = require("./config/config")[env]
@@ -39,9 +40,10 @@ fs.readdirSync(models_path).forEach (file) ->
 require('./config/passport')(passport, config)
 require('./config/express')(app, config, passport)
 require('./config/routes')(app, passport)
+require('./config/sockets')(server, passport)
 
 port = process.env.PORT || config.port
 app.set "port", port
 
-http.createServer(app).listen app.get("port"), ->
+server.listen app.get("port"), ->
   console.log "Express server listening on port " + app.get("port")

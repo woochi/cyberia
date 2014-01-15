@@ -1,0 +1,18 @@
+.profile
+  +animation(fade-in-left 0.2s)
+
+.profile-name
+  +adjust-font-size-to($h4-font-size, 1)
+  letter-spacing: 1px
+
+.profile-group
+  @extend %uppercase
+  margin: 0 0 rhythm(1)
+  color: $body-font-color-alt
+
+.profile-image
+  width: 100%
+  height: auto
+  min-height: rhythm(6)
+  margin: 0 0 rhythm(1)
+  border: 1px solid $gray-darker

@@ -1,6 +1,6 @@
 class AppController
 
   index: ->
-    console.log "index"
+    App.postsRouter.controller.index()
 
 module.exports = AppController

@@ -17,3 +17,18 @@ exports.session = (req, res) ->
 exports.logout = (req, res) ->
   req.logout()
   res.redirect "/login"
+
+exports.read = (req, res, next) ->
+  if req.model.id
+    User.findById req.model.id, (err, user) ->
+      return next(err) if err
+      return next(new Error("The user could not be found.")) if !user
+      res.end talent
+  else
+    User.find {}, (err, users) ->
+      return next(err) if err
+      return next(new Error("Users could not be fetched.")) if !users
+      res.end users
+
+exports.update = (req, res, next) ->
+  # TODO

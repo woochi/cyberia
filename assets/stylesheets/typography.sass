@@ -12,8 +12,7 @@ body
   font-family: $header-font-family
   font-weight: $header-font-weight
   color: $header-font-color
-  text-transform: uppercase
-  letter-spacing: 2px
+  -webkit-font-smoothing: antialiased
 
 %default-margin
   margin: 0 0 rhythm(1)
@@ -70,6 +69,12 @@ strong, b
   font-weight: 900
   color: $white !important
 
+small, .small
+  font-size: 16px
+
+sup, sub
+  letter-spacing: 0 !important
+
 code
   font-family: $monospace-font-family
 
@@ -102,7 +107,7 @@ p
   @extend %default-margin
 
   &.lead
-    +adjust-font-size-to(20px, 1.5)
+    +adjust-font-size-to(18px, 1)
 
 pre
   @extend %default-margin

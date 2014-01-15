@@ -8,8 +8,10 @@ validatePresenceOf = (value) ->
 
 UserSchema = new Schema
   name: {type: String, default: "", unique: true}
-  hashed_password: { type: String, default: '' }
-  salt: { type: String, default: '' }
+  hashed_password: {type: String, default: "", select: false}
+  salt: {type: String, default: "", select: false}
+  status: {type: String, default: ""}
+  group: {type: String, default: ""}
 
 UserSchema.virtual("password").set((password) ->
   @_password = password

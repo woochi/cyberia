@@ -16,19 +16,13 @@ Expose routes
 module.exports = (app, passport) ->
 
   # Static pages
-  app.get "/", site.index
+  app.get "/", auth.redirectLoggedIn, site.index
   app.get "/app", auth.requiresLogin, site.app
-  #app.get "/timeline", site.timeline
+  app.get "/app*", auth.requiresLogin, site.app
 
   # Sessions
-  app.get '/login', users.login
+  app.get '/login', auth.redirectLoggedIn, users.login
   app.get '/logout', users.logout
   app.post '/login', passport.authenticate('local',
     successRedirect: '/app'
     failureRedirect: '/login'), users.session
-
-  # Users
-  #app.post "/users", users.create
-  #app.get "/users", users.list
-  #app.get "/users/:id", users.show
-  #app.put "/users/:id", users.update

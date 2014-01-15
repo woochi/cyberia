@@ -9,7 +9,7 @@ module.exports = (passport, config) ->
     done null, user.id
 
   passport.deserializeUser (id, done) ->
-    User.findOne _id: id, (err, user) ->
+    User.findOne _id: id, "+hashed_password +salt", (err, user) ->
       done err, user
   
   # use local strategy
@@ -17,7 +17,7 @@ module.exports = (passport, config) ->
     usernameField: "name"
     passwordField: "password"
   , (name, password, done) ->
-    User.findOne name: name, (err, user) ->
+    User.findOne name: name, "+hashed_password +salt", (err, user) ->
       return done(err) if err
       unless user
         return done(null, false, message: "Unknown user")

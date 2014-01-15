@@ -1,14 +1,15 @@
-extends layouts/site
+extends layouts/app
 
 block content
   .row
-    .column.medium-4.medium-centered
+    .column.medium-7.large-5.medium-centered
       form#login-form(method="post", action="/login")
+        h4.login-title Verkkoyhteyspiste <sup class="green small">3.18-X</sup>
         input(type="hidden", name="_csrf", value="#{csrf_token}")
         fieldset.inputs
           ul
             li
-              input(type="text", name="name", placeholder="Nimi")
+              input(type="text", name="name", placeholder="Nimi", autofocus)
             li
               input(type="password", name="password", placeholder="Salasana")
         fieldset.buttons
