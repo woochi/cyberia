@@ -19,14 +19,17 @@ $nav-separator-color: #2A2A2A
   @extend .block-list
 
   a
-    $font-size: 14px
+    $font-size: 13px
     @extend %uppercase
     +transition(all 0.1s)
     +adjust-font-size-to($font-size)
     display: block
-    padding: rhythm(1, $font-size)
+    padding: rhythm(1.25, $font-size) rhythm(1, $font-size)
     border-color: $nav-separator-color
     text-align: center
+    letter-spacing: 1px
+    font-weight: 600
+    color: $gray
 
     &:hover
       color: $white
@@ -36,7 +39,14 @@ $nav-separator-color: #2A2A2A
     color: $green-light
 
 .nav-icon
-  +adjust-font-size-to(24px, 2)
+  +adjust-font-size-to(24px, 1.5)
+  color: $gray-light
+
+  &:hover &
+    color: $white
+
+  .current &
+    color: $green-light
 
 .nav-footer
   $font-size: 14px
