@@ -1,3 +1,17 @@
+#user-list-header
+  padding: rhythm(0.5) rhythm(1)
+  +trailing-border(1px, 0.5)
+  border-color: $nav-separator-color
+  font-weight: 600
+  color: $body-font-color-alt
+
+.search-users
+  display: inline-block
+
+.user-list-title
+  @extend %uppercase
+  +adjust-font-size-to(12px)
+
 #user-list
   @extend .block-list
 
@@ -7,7 +21,7 @@
     $font-size: 14px
     +adjust-font-size-to($font-size, 1)
     display: block
-    padding: rhythm(0.25, $font-size) rhythm(1, $font-size)
+    padding: rhythm(0.5, $font-size) rhythm(1, $font-size)
     border: none
     color: $body-font-color-alt
 

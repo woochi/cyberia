@@ -1,18 +1,15 @@
-$sidebar-width: rhythm(8)
-$additional-width: $sidebar-width
-$sidebar-background: #1C1A1A
+$sidebar-width: rhythm(7)
+$additional-width: rhythm(9)
+$sidebar-background: #1b1a1b
 
 #sidebar
   float: left
   position: relative
   width: $sidebar-width
   height: 100%
-  border-right: 1px solid $gray-darker
   background: $sidebar-background
 
 #additional
   @extend #sidebar
   float: right
   width: $additional-width
-  border-left: 1px solid $gray-darker
-  border-right: none

@@ -9,17 +9,22 @@ $nav-separator-color: #2A2A2A
 .nav-prefix
   @extend %uppercase
   +adjust-font-size-to(12px, 1)
-  color: $body-font-color-alt
+  color: $green-light
+  font-weight: 600
 
 .nav-name
   letter-spacing: 2px
   font-weight: 600
 
+%current-link
+  color: $white
+  background: #101010
+
 .nav-list
   @extend .block-list
 
   a
-    $font-size: 13px
+    $font-size: 12px
     @extend %uppercase
     +transition(all 0.1s)
     +adjust-font-size-to($font-size)
@@ -30,23 +35,22 @@ $nav-separator-color: #2A2A2A
     letter-spacing: 1px
     font-weight: 600
     color: $gray
+    border: none
 
     &:hover
-      color: $white
+      @extend %current-link
 
   .current a
-    +box-shadow(2px 0 0 $green-light inset)
-    color: $green-light
+    //+box-shadow(2px 0 0 $green-light inset)
+    @extend %current-link
 
 .nav-icon
-  +adjust-font-size-to(24px, 1.5)
+  +transition(all 0.1s)
+  +adjust-font-size-to(38px, 2)
   color: $gray-light
 
-  &:hover &
-    color: $white
-
-  .current &
-    color: $green-light
+  .nav-list a:hover &, .current &
+    color: $green-light !important
 
 .nav-footer
   $font-size: 14px
