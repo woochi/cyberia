@@ -2,13 +2,14 @@ button
   @extend %reset-font
 
 %button
-  +transition(all 0.01s linear)
+  +transition(all 0.02s linear)
   +user-select(none)
   cursor: pointer
   text-decoration: none
   text-transform: uppercase
   letter-spacing: 2px
   outline: none !important
+  text-align: center
 
 .button
   @extend %button
@@ -22,15 +23,33 @@ button
   color: $black
   background: $body-font-color
 
-  &:hover
+  &:hover:not(:disabled)
     color: $body-background-color
     background-color: $white
     border-color: $white
 
+  &:disabled
+    background-color: $gray
+    border-color: $gray
+
 .button-alt
   @extend .button
   background: transparent
-  color: $white
+  color: $gray-dark
+  border-color: $gray-dark
+
+.button-small
+  @extend .button
+  $font-size: 14px
+  +adjust-font-size-to(14px)
+  +rhythm-borders(1px, 0.25, $font-size)
+  padding-left: rhythm(0.5, $font-size)
+  padding-right: rhythm(0.5, $font-size)
+  background: transparent
+
+.button-small-alt
+  @extend .button-alt
+  @extend .button-small
 
 @media #{$medium-up}
 

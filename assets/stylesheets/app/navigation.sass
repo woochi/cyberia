@@ -1,0 +1,57 @@
+$nav-separator-color: #2A2A2A
+
+.nav-header
+  padding: rhythm(1)
+  +trailing-border(1px, 1)
+  border-color: $nav-separator-color
+  text-align: center
+
+.nav-prefix
+  @extend %uppercase
+  +adjust-font-size-to(12px, 1)
+  color: $body-font-color-alt
+
+.nav-name
+  letter-spacing: 2px
+  font-weight: 600
+
+.nav-list
+  @extend .block-list
+
+  a
+    $font-size: 14px
+    @extend %uppercase
+    +transition(all 0.1s)
+    +adjust-font-size-to($font-size)
+    display: block
+    padding: rhythm(1, $font-size)
+    border-color: $nav-separator-color
+    text-align: center
+
+    &:hover
+      color: $white
+
+  .current a
+    +box-shadow(2px 0 0 $green-light inset)
+    color: $green-light
+
+.nav-icon
+  +adjust-font-size-to(24px, 2)
+
+.nav-footer
+  $font-size: 14px
+  @extend %uppercase
+  +adjust-font-size-to($font-size)
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
+  padding: rhythm(0.5, $font-size) rhythm(1, $font-size)
+  border-top: 1px solid $nav-separator-color
+  text-align: center
+  color: $gray-dark
+  text-shadow: 0 -1px 0 $black
+  background: $sidebar-background
+
+#logout-button
+  width: 100%

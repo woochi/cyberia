@@ -1,0 +1,16 @@
+#user-list
+  @extend .block-list
+
+.user
+
+  a
+    $font-size: 14px
+    +adjust-font-size-to($font-size, 1)
+    display: block
+    padding: rhythm(0.25, $font-size) rhythm(1, $font-size)
+    border: none
+    color: $body-font-color-alt
+
+    &:hover
+      color:  $white
+      background: $nav-separator-color

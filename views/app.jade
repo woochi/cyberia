@@ -1,6 +1,12 @@
 extends layouts/app
 
 block content
+  #sidebar
+  #additional
+  #content-wrapper
+    .row
+      #content.columns.medium-10.medium-centered
+  #overlay
   != "<script id='bootstrap' type='text/javascript'>"
   != "window.user = "
   != JSON.stringify(user)

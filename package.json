@@ -45,6 +45,8 @@
     "connect-flash": "*",
     "view-helpers": "*",
     "async": "*",
-    "connect-csrf-cookie": "*"
+    "connect-csrf-cookie": "*",
+    "simple-jadeify": "*",
+    "backbone.io": "*"
   }
 }

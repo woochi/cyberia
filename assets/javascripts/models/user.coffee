@@ -1,9 +1,10 @@
 Backbone = require("backbone")
 
 class User extends Backbone.Model
-  urlRoot: "/users"
   defaults:
-    name: "John doe"
-    groups: ["Unknown"]
+    name: "John Doe"
+    status: "Lorem ipsum dolor sit amet."
+    group: "Archangels"
+    class: "Decker"
 
 module.exports = User

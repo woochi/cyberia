@@ -27,7 +27,7 @@ module.exports = (grunt) ->
           "build/assets/javascripts/app.js": ["assets/javascripts/app.coffee"]
           "build/assets/javascripts/site.js": ["assets/javascripts/site.coffee"]
         options:
-          transform: ["coffeeify"]
+          transform: ["coffeeify", "simple-jadeify"]
           shim:
             bacon:
               path: "assets/javascripts/libs/bacon.min.js"
@@ -38,6 +38,12 @@ module.exports = (grunt) ->
             backbone:
               path: "assets/javascripts/libs/backbone-min.js"
               exports: "Backbone"
+            backboneio:
+              path: "assets/javascripts/libs/backbone.io.js"
+              exports: "Backbone.io"
+            "backbone.io":
+              path: "assets/javascripts/libs/backbone.io.js"
+              exports: "backboneio"
             underscore:
               path: "assets/javascripts/libs/underscore-min.js"
               exports: "_"
@@ -63,11 +69,11 @@ module.exports = (grunt) ->
         files: ["assets/stylesheets/**/*.sass", "assets/stylesheets/**/*.scss"]
         tasks: ["sass"]
       browserify:
-        files: ["assets/javascripts/**/*.coffee"]
+        files: ["assets/javascripts/**/*.coffee", "assets/javascripts/templates/**/*.jade"]
         tasks: ["browserify"]
       views:
         files: ["views/**/*.jade"]
         tasks: []
 
-  grunt.registerTask "default", ["browserify", "copy", "sass", "express:dev", "watch"]
-  grunt.registerTask "deploy", ["browserify", "copy", "sass"]
+  grunt.registerTask "default", ["copy", "browserify", "sass", "express:dev", "watch"]
+  grunt.registerTask "deploy", ["copy", "browserify", "sass"]

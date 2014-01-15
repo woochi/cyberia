@@ -3,6 +3,10 @@ exports.requiresLogin = (req, res, next) ->
   req.session.returnTo = req.originalUrl if req.method is "GET"
   res.redirect "/login"
 
+exports.redirectLoggedIn = (req, res, next) ->
+  return next() unless req.user
+  res.redirect "/app"
+
 exports.user = hasAuthorization: (req, res, next) ->
   unless req.profile.id is req.user.id
     req.flash "info", "You are not authorized"
