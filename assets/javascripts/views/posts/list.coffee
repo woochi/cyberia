@@ -1,10 +1,11 @@
 Marionette = require("marionette")
 
-class PostsList extends Marionette.CollectionView
+class PostsList extends Marionette.CompositeView
+  template: require("../../templates/posts/list.jade")
+  itemViewContainer: "#post-list"
   itemView: require("./item.coffee")
   emptyView: require("./empty.coffee")
-  tagName: "ul"
-  id: "post-list"
+  id: "posts"
 
   onBeforeItemAdded: (itemView) ->
     itemView.$el.addClass "animate-in"

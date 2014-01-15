@@ -36,7 +36,7 @@ $ ->
       pushState: true
       root: "/app"
   App.addInitializer (options) ->
-    @sidebar.show new Navigation()
+    @sidebar.show new Navigation(model: @user)
   App.addRegions
     content: "#content"
     sidebar: "#sidebar"

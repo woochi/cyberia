@@ -1,17 +1,29 @@
+#post-list-header
+  margin: 0 0 rhythm(1)
+  padding: rhythm(1) 0
+  +trailing-border(3px, 1)
+  border-color: $gray-dark
+  border-bottom-style: double
+
+.new-post
+  margin: rhythm(0.5) 0
+  color: $green-light
+  border-color: $green-light
+
 #post-list
   @extend .block-list
 
 .post
+  +h-borders(1px, 0.5)
   position: relative
-  padding: rhythm(1) 0
-  +trailing-border(1px, 1)
+  margin: 0 0 rhythm(0.5)
   border-color: $gray-darker
 
   &.animate-in
     +animation(fade-in-left 0.3s)
 
 .post-author
-  +adjust-font-size-to(18px, 1)
+  //+adjust-font-size-to(17px, 1)
   font-weight: 600
 
 .post-timestamp
@@ -20,6 +32,7 @@
   color: $body-font-color-alt
 
 .post-text
+  +adjust-font-size-to(17px, 1)
   clear: both
   color: $body-font-color-alt
 
@@ -31,4 +44,5 @@
   .post-timestamp
     position: absolute
     right: 0
-    top: rhythm(1, 12px)
+    top: rhythm(0.5, 12px)
+    //right: rhythm(1, 12px)
