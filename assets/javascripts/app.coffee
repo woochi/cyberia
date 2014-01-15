@@ -36,7 +36,12 @@ $ ->
       pushState: true
       root: "/app"
   App.addInitializer (options) ->
+    User = require("./models/user.coffee")
+    Users = require("./collections/users.coffee")
+    UserList = require("./views/users/list.coffee")
+    users = new Users((new User() for i in [0..10]))
     @sidebar.show new Navigation(model: @user)
+    @additional.show new UserList(collection: users)
   App.addRegions
     content: "#content"
     sidebar: "#sidebar"

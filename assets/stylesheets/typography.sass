@@ -63,7 +63,9 @@ h6
   margin: 0 0 rhythm(0.5, $font-size)
 
 .header-title
+  @extend %uppercase
   margin: 0
+  font-weight: 300
 
 // Inline styles
 //-------------------------------------
@@ -96,6 +98,7 @@ q
 
 .light
   font-weight: 300
+  color: $body-font-color-alt
 
 .underlined
   border-bottom: 1px solid $body-font-color
