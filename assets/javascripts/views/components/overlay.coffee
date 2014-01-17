@@ -6,16 +6,18 @@ class Overlay extends Marionette.ItemView
 
   open: ->
     $("body").append @mask
-    @mask.on "click", @close.bind(@)
+    @container.on "click", @_tryClose.bind(@)
     @render()
 
-  close: ->
-    super
-    @mask.off "click"
+  onClose: ->
+    @container.remove()
     @mask.remove()
 
   onRender: ->
-    $("body").append @$el.addClass("overlay-content")
-    @$el.wrap @container
+    @container.append @$el.addClass("overlay-content")
+    $("body").append @container
+
+  _tryClose: (e) ->
+    @close() if $(e.target).is(".overlay-container")
 
 module.exports = Overlay
