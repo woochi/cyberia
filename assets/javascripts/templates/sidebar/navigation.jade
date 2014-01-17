@@ -4,8 +4,17 @@ header.nav-header
     .nav-name.dropdown-toggle #{name} <i class="fa fa-caret-down"></i>
     .dropdown-menu
 ul.nav-list
-  li <a class="show-posts"><div class="fa fa-list fa-fw nav-icon"></div><br>Päivitykset</a>
-  li <a class="show-profile"><div class="fa fa-male fa-fw nav-icon"></div><br>Profiili</a>
-  li <a class="show-hacking"><div class="fa fa-laptop fa-fw nav-icon"></div><br>Hakkerointi</a>
+  li
+    a.nav-link.show-posts(rel="posts")
+      .link-icon.fa.fa-list.fa-fw
+      .link-title Päivitykset
+  li
+    a.nav-link.show-profile(rel="profile")
+      .link-icon.fa.fa-male.fa-fw
+      .link-title Profiili
+  li
+    a.nav-link.show-hacking(rel="hacking")
+      .link-icon.fa.fa-laptop.fa-fw
+      .link-title Hakkerointi
 footer.nav-footer
   | Cyberia

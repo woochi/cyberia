@@ -23,7 +23,7 @@ fieldset
     > li
       margin: 0 0 rhythm(0.5)
 
-input
+input, textarea
   @extend %reset-font
 
 input[type="text"]
@@ -81,6 +81,10 @@ input[type="range"]::-webkit-slider-thumb
   background-color: $gray-dark
   border: 1px solid $white
   border-radius: 50%
+
+textarea
+  @extend input[type="text"]
+  width: 100%
 
 @media #{$medium-up}
 

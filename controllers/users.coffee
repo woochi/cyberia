@@ -23,7 +23,7 @@ exports.read = (req, res, next) ->
     User.findById req.model.id, (err, user) ->
       return next(err) if err
       return next(new Error("The user could not be found.")) if !user
-      res.end talent
+      res.end user
   else
     User.find {}, (err, users) ->
       return next(err) if err
