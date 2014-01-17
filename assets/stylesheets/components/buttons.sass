@@ -13,7 +13,7 @@ button
 
 .button
   @extend %button
-  +rhythm-borders(1px, 0.5)
+  +rhythm-borders(2px, 0.5)
   display: inline-block
   width: 100%
   padding-left: rhythm(1)
@@ -32,11 +32,24 @@ button
     background-color: $gray
     border-color: $gray
 
+.ok-button
+  @extend .button
+  border-color: $green-light
+  color: $green-light
+
+  &:hover
+    border-color: $green-light
+    color: $green-light
+
 .button-alt
   @extend .button
   background: transparent
-  color: $gray-dark
-  border-color: $gray-dark
+  color: $gray
+  border-color: $gray
+
+  &:hover
+    color: $white
+    border-color: $white
 
 .button-small
   @extend .button
@@ -50,6 +63,15 @@ button
 .button-small-alt
   @extend .button-alt
   @extend .button-small
+
+.ok-button-alt
+  @extend .button-alt
+  border-color: $green-light
+  color: $green-light
+
+  &:hover
+    border-color: $green-light
+    color: $green-light
 
 @media #{$medium-up}
 

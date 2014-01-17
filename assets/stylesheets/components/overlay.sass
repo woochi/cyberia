@@ -11,6 +11,21 @@
   background: none
 
 .overlay-content
-  +rhythm-borders(1px, 2)
+  +rhythm-borders(2px, 2)
   background: $black
-  border-color: rgba($green-light, 0.25)
+  border-color: $gray-dark
+
+.overlay-title
+  @extend %uppercase
+  margin: 0
+  color: $green-light
+
+.overlay-lead
+  @extend .lead
+  color: $body-font-color-alt
+
+@media #{$large-up}
+
+  .overlay-content
+    max-width: 60%
+    margin: rhythm(2) auto

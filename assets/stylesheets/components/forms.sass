@@ -82,11 +82,14 @@ input[type="range"]::-webkit-slider-thumb
   border: 1px solid $white
   border-radius: 50%
 
-textarea
+input[type="file"]
   @extend input[type="text"]
-  width: 100%
 
 @media #{$medium-up}
 
   input[type="text"]
     width: $input-width
+
+  textarea
+    @extend input[type="text"]
+    width: 100%
