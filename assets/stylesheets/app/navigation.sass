@@ -10,50 +10,53 @@ $nav-separator-color: #2A2A2A
   @extend %uppercase
   +adjust-font-size-to(12px, 1)
   color: $green-light
-  font-weight: 600
 
 .nav-name
   letter-spacing: 2px
   font-weight: 600
 
-%current-link
-  color: $white
-  background: #101010
-
 .nav-list
   @extend .block-list
 
-  a
-    $font-size: 12px
-    @extend %uppercase
-    +transition(all 0.1s)
-    +adjust-font-size-to($font-size)
-    display: block
-    padding: rhythm(1.25, $font-size) rhythm(1, $font-size)
-    border-color: $nav-separator-color
-    text-align: center
-    letter-spacing: 1px
-    font-weight: 600
-    color: $gray
-    border: none
+.nav-link
+  +user-select(none)
+  +transition(all 0.1s ease)
+  display: block
+  position: relative
+  padding: rhythm(1.25) rhythm(1)
+  text-align: center
+  border: none
 
-    &:hover
-      @extend %current-link
+  &:hover, .current &
+    background: #101010
 
-  .current a
-    //+box-shadow(2px 0 0 $green-light inset)
-    @extend %current-link
+.link-title
+  $font-size: 12px
+  @extend %uppercase
+  +transition(all 0.1s ease)
+  +adjust-font-size-to($font-size)
+  padding-top: rhythm(2.5)
+  color: $gray-dark
+  font-weight: 600
+  letter-spacing: 1px
 
-.nav-icon
-  +transition(all 0.1s)
-  +adjust-font-size-to(38px, 2)
+  a:hover &, .current &
+    color: $white
+
+.link-icon
+  +transition(all 0.1s ease)
+  +adjust-font-size-to(40px, 2)
+  position: absolute
+  left: 0
+  width: 100%
   color: $gray-light
 
-  .nav-list a:hover &, .current &
-    color: $green-light !important
+  a:hover &, .current &
+    +adjust-font-size-to(45px, 2)
+    color: $green-light
 
 .nav-footer
-  $font-size: 14px
+  $font-size: 12px
   @extend %uppercase
   +adjust-font-size-to($font-size)
   position: absolute
@@ -66,6 +69,7 @@ $nav-separator-color: #2A2A2A
   color: $gray-dark
   text-shadow: 0 -1px 0 $black
   background: $sidebar-background
+  letter-spacing: 6px
 
 #logout-button
   width: 100%

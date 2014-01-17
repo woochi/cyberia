@@ -3,19 +3,31 @@ Post = mongoose.model("Post")
 
 exports.read = (req, res, next) ->
   if req.model.id
-    Post.findById req.model.id, (err, post) ->
-      return next(err) if err
-      return next(new Error("Post could not be found.")) if !post
-      res.end talent
+    Post.findById(req.model.id)
+      .populate("author")
+      .exec (err, post) ->
+        return next(err) if err
+        return next(new Error("Post could not be found.")) if !post
+        res.end post
   else
-    Post.find {}, (err, posts) ->
-      return next(err) if err
-      return next(new Error("Posts could not be fetched.")) if !posts
-      res.end posts
+    Post.find({})
+      .populate("author")
+      .exec (err, posts) ->
+        return next(err) if err
+        return next(new Error("Posts could not be fetched.")) if !posts
+        res.end posts
 
 exports.create = (req, res, next) ->
-  console.log req.model
-  # TODO
+  post = new Post
+    author: req.model.author._id
+    text: req.model.text
+    sent: new Date()
+  post.save (err, model) ->
+    return next(err) if err
+    Post.populate model, {path: "author"}, (err, model) ->
+      return next(err) if err
+      console.log model
+      res.end model
 
 exports.delete = (req, res, next) ->
   console.log req.model

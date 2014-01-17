@@ -11,6 +11,9 @@ class Navigation extends Marionette.ItemView
     "click .show-hacking": "showHacking"
     "click #logout-button": "logout"
 
+  onRender: ->
+    @setCurrent @$("a[rel='#{Backbone.history.fragment}']")[0]
+
   setCurrent: (target) ->
     @$("li.current").removeClass "current"
     $(target).closest("li").addClass "current"

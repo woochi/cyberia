@@ -11,19 +11,15 @@ User = require("./models/user.coffee")
 Users = require("./collections/users.coffee")
 Posts = require("./collections/posts.coffee")
 Navigation = require("./views/sidebar/navigation.coffee")
+PostForm = require("./views/posts/form.coffee")
 
 $ ->
   window.App = new Marionette.Application()
   App.addInitializer (options) ->
     @user = new User(window.user)
     @users = new Users(window.users)
-    posts = new Posts()
-    posts.create {author: @user, text: "Whadap y'all"}
-    setTimeout ->
-      posts.fetch
-        success: (data, a) -> console.log data, a
-    , 2000
     delete window.user
+    delete window.users
     $("#bootstrap").remove()
   App.addInitializer (options) ->
     @appRouter = new AppRouter()
@@ -42,6 +38,8 @@ $ ->
     users = new Users((new User() for i in [0..10]))
     @sidebar.show new Navigation(model: @user)
     @additional.show new UserList(collection: users)
+    form = new PostForm()
+    form.open()
   App.addRegions
     content: "#content"
     sidebar: "#sidebar"

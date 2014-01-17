@@ -1,3 +1,5 @@
+$post-spacing: 0.75
+
 #post-list-header
   margin: 0 0 rhythm(1)
   padding: rhythm(1) 0
@@ -13,16 +15,22 @@
   @extend .block-list
 
 .post
-  +h-borders(1px, 0.5)
+  +trailing-border(1px, $post-spacing)
+  +clearfix()
   position: relative
-  margin: 0 0 rhythm(0.5)
+  margin: 0 0 rhythm($post-spacing)
   border-color: $gray-darker
 
-  &.animate-in
-    +animation(fade-in-left 0.3s)
+.post-avatar
+  display: none
+  float: left
+  width: rhythm(2)
+  height: rhythm(2)
+  margin-right: rhythm($post-spacing)
+  background: $gray-darker
 
 .post-author
-  //+adjust-font-size-to(17px, 1)
+  +adjust-font-size-to(17px, 1)
   font-weight: 600
 
 .post-timestamp
@@ -32,16 +40,18 @@
 
 .post-text
   +adjust-font-size-to(17px, 1)
-  clear: both
   color: $body-font-color-alt
 
 .attachment-separator
   margin: rhythm(0.5) 0
 
-@media #{$medium-up}
+@media #{$large-up}
+
+  .post-avatar
+    display: block
 
   .post-timestamp
     position: absolute
     right: 0
-    top: rhythm(0.5, 12px)
+    top: 0
     //right: rhythm(1, 12px)
