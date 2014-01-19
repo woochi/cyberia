@@ -11,7 +11,9 @@
   background: none
 
 .overlay-content
-  +rhythm-borders(2px, 2)
+  width: 100%
+  height: 100%
+  padding: rhythm(1)
   background: $black
   border-color: $gray-dark
 
@@ -27,5 +29,8 @@
 @media #{$large-up}
 
   .overlay-content
+    +animation(fade-in-scale 0.2s)
+    +rhythm-borders(2px, 2)
     max-width: 60%
-    margin: rhythm(2) auto
+    height: auto
+    margin: rhythm(6) auto

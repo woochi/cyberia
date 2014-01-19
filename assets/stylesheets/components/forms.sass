@@ -37,6 +37,7 @@ input[type="text"]
   border-radius: $global-radius
   outline: 0
   resize: none
+  font-family: monospace
   letter-spacing: 1px
 
   &:focus
@@ -60,10 +61,6 @@ input[type="radio"]
   height: rhythm(0.5)
   margin: 0 rhythm(0.25) 0 0
 
-textarea
-  @extend input[type="text"]
-  height: $textarea-height
-
 input[type="range"]
   -webkit-appearance: none
   display: block
@@ -84,6 +81,12 @@ input[type="range"]::-webkit-slider-thumb
 
 input[type="file"]
   @extend input[type="text"]
+
+textarea
+  @extend input[type="text"]
+  height: $textarea-height
+  padding: 0
+  border: none
 
 @media #{$medium-up}
 

@@ -1,0 +1,54 @@
+#tools
+  +animation(fade-in-down 0.2s)
+
+#tool-list
+  @extend .block-list
+
+.tool-link
+  +transition(background 0.2s)
+  display: block
+  padding: rhythm(1) 0
+  +trailing-border(1px, 1)
+  border-color: $gray
+
+  .tool:first-child &
+    +leading-border(1px, 1)
+
+  &:hover
+    //background: rgba($green-light, 0.95)
+
+.tool-icon
+  +transition(all 0.2s)
+  display: none
+  $font-size: 32px
+  +adjust-font-size-to($font-size, 3)
+  float: left
+  width: rhythm(4, $font-size)
+  margin-right: rhythm(1, $font-size)
+  text-align: center
+
+  .tool-link:hover &
+    $font-size: 38px
+    +adjust-font-size-to($font-size, 3)
+    width: rhythm(4, $font-size)
+    margin-right: rhythm(1, $font-size)
+    color: $green-light
+
+.tool-title
+  +transition(all 0.2s)
+  margin: 0
+
+  .tool-link:hover &
+    color: $green-light
+
+.tool-lead
+  +transition(all 0.2s)
+  margin: 0
+
+  .tool-link:hover &
+    color: $white
+
+@media #{$large-up}
+
+  .tool-icon
+    display: block

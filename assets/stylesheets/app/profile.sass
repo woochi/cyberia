@@ -1,4 +1,5 @@
 .profile
+  +animation(fade-in-down 0.2s)
 
 .profile-name
   +adjust-font-size-to($h4-font-size, 1)
@@ -9,9 +10,50 @@
   margin: 0 0 rhythm(1)
   color: $body-font-color-alt
 
+.profile-title
+  @extend %uppercase
+  +trailing-border(1px, 0.5)
+  margin: 0 0 rhythm(1.5)
+  color: $green-light
+
 .profile-image
   width: 100%
   height: auto
-  min-height: rhythm(6)
+  min-height: rhythm(8)
   margin: 0 0 rhythm(1)
   border: 1px solid $gray-darker
+
+.profile-status
+  white-space: pre-line
+
+.profile-status-edit
+  +adjust-font-size-to(13px, 1)
+  height: rhythm(8)
+
+.profile-level
+  +adjust-font-size-to(140px, 4)
+  text-align: center
+  color: $green-light
+  font-weight: 300
+
+.profile-level-annotation
+  @extend %uppercase
+  margin-top: rhythm(1)
+  color: $body-font-color-alt
+
+.profile-level-container
+  +rhythm-borders(1px, 2)
+  text-align: center
+  border-color: $gray-dark
+
+#profile-content
+  display: block
+
+  .editing &
+    display: none
+
+#profile-edit-form
+  display: none
+
+  .editing &
+    display: block

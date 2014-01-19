@@ -1,21 +1,13 @@
 Backbone = require("backbone")
+User = require("./user.coffee")
 
 class Post extends Backbone.Model
   idAttribute: "_id"
+  backend: "posts"
   defaults:
-    author: "Anonyymi"
+    author: {}
     text: "Sisältöä ei ole saatavilla."
-    sent: new Date()
+    sent: {}
     attachment: null
-
-  parse: (response, options) ->
-    if response.author._id = App.user.id
-      response.author = App.user
-    else
-      response.author = App.users.get(response.author._id)
-    super(response)
-
-  toJSON: (options) ->
-    _.extend super(options), author: @get("author").toJSON()
 
 module.exports = Post

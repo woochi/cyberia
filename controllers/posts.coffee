@@ -21,12 +21,10 @@ exports.create = (req, res, next) ->
   post = new Post
     author: req.model.author._id
     text: req.model.text
-    sent: new Date()
   post.save (err, model) ->
     return next(err) if err
     Post.populate model, {path: "author"}, (err, model) ->
       return next(err) if err
-      console.log model
       res.end model
 
 exports.delete = (req, res, next) ->
