@@ -1,9 +1,25 @@
 .row
-  .column.medium-4
-    img.profile-image(width="100%")
-  .column.medium-8
-    .profile-name= name
-    .profile-group #{group}
-    .profile-status
-      = status
-      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  .column.medium-12.medium-centered
+    h6.profile-title Cyberia public profile
+    .row
+      .column.medium-4
+        .profile-level-container
+          .profile-level= level
+          .profile-level-annotation Access Class
+      .column.medium-8
+        .profile-name= name
+        .profile-group #{group}
+        #profile-content
+          p.profile-status= status
+          a.button-small-alt.edit-profile Edit profile
+        form#profile-edit-form
+          fieldset.inputs
+            ul
+              li
+                textarea.profile-status-edit(name="status", autofocus)= status
+          fieldset.buttons
+            ul.inline-list
+              li
+                a.ok-button-small-alt.save-profile Save profile
+              li
+                a.button-small-alt.cancel-edit Cancel

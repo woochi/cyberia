@@ -1,15 +1,17 @@
+express = require("express")
 backboneio = require("backbone.io")
+passportSocketIo = require("passport.socketio")
 users = require("../controllers/users")
 posts = require("../controllers/posts")
 messages = require("../controllers/messages")
+articles = require("../controllers/articles")
 
-module.exports = (server, passport) ->
+module.exports = (server, passport, sessionStore, config) ->
 
   usersBackend = backboneio.createBackend()
   postsBackend = backboneio.createBackend()
   messagesBackend = backboneio.createBackend()
-
-  # TODO: Access control
+  articleBackend = backboneio.createBackend()
 
   # Users
   usersBackend.use "read", users.read
@@ -24,7 +26,18 @@ module.exports = (server, passport) ->
   messagesBackend.use "read", messages.read
   messagesBackend.use "create", messages.create
 
-  backboneio.listen server,
+  # Articles
+  articlesBackend.use "read", articles.read
+
+  io = backboneio.listen server,
     users: usersBackend
     posts: postsBackend
     messages: messagesBackend
+    articles: articlesBackend
+
+  io.set "authorization", passportSocketIo.authorize(
+    cookieParser: express.cookieParser
+    key: config.sessionKey
+    secret: config.sessionSecret
+    store: sessionStore
+  )

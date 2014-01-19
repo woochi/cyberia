@@ -4,12 +4,28 @@
   to
     opacity: 1
 
-@include keyframes(fade-in-up)
+@include keyframes(fade-in-down)
   from
     +transform(translateY(25px))
     opacity: 0
   to
     +transform(translateY(0px))
+    opacity: 1
+
+@include keyframes(fade-in-up)
+  from
+    +transform(translateY(-25px))
+    opacity: 0
+  to
+    +transform(translateY(0px))
+    opacity: 1
+
+@include keyframes(fade-in-right)
+  from
+    +transform(translateX(50px))
+    opacity: 0
+  to
+    +transform(translateX(0))
     opacity: 1
 
 @include keyframes(fade-in-scale)
@@ -30,13 +46,13 @@
     +transform(scale(1))
     opacity: 0
 
-@include keyframes(fade-in-left)
-  from
-    +transform(translateX(50px))
-    opacity: 0
-  to
-    +transform(translateX(0))
-    opacity: 1
+@include keyframes(window-in)
+  0%
+    +transform(scaleX(0.1) scaleY(0.05))
+  50%
+    +transform(scaleX(1.0) scaleY(0.05))
+  100%
+    +transform(scaleX(1.0) scaleY(1.0))
 
 @include keyframes(blink)
   0%
@@ -109,6 +125,12 @@
     opacity: 0.5
   to
     opacity: 0.5
+
+// Animation classes
+//-------------------------------------
+
+.fade-in-right
+  +animation(fade-in-right 0.2s)
 
 .flicker
   +animation(flicker 3s linear infinity)

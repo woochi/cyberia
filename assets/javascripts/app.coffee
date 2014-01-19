@@ -11,15 +11,16 @@ User = require("./models/user.coffee")
 Users = require("./collections/users.coffee")
 Posts = require("./collections/posts.coffee")
 Navigation = require("./views/sidebar/navigation.coffee")
-PostForm = require("./views/posts/form.coffee")
 
 $ ->
   window.App = new Marionette.Application()
   App.addInitializer (options) ->
     @user = new User(window.user)
     @users = new Users(window.users)
+    @posts = new Posts(window.posts.reverse())
     delete window.user
     delete window.users
+    delete window.posts
     $("#bootstrap").remove()
   App.addInitializer (options) ->
     @appRouter = new AppRouter()
@@ -35,11 +36,8 @@ $ ->
     User = require("./models/user.coffee")
     Users = require("./collections/users.coffee")
     UserList = require("./views/users/list.coffee")
-    users = new Users((new User() for i in [0..10]))
     @sidebar.show new Navigation(model: @user)
-    @additional.show new UserList(collection: users)
-    form = new PostForm()
-    form.open()
+    @additional.show new UserList(collection: @users)
   App.addRegions
     content: "#content"
     sidebar: "#sidebar"

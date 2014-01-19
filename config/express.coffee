@@ -2,7 +2,6 @@
 Module dependencies.
 ###
 express = require("express")
-mongoStore = require("connect-mongo")(express)
 flash = require("connect-flash")
 winston = require("winston")
 helpers = require("view-helpers")
@@ -10,7 +9,7 @@ pkg = require("../package.json")
 path = require("path")
 env = process.env.NODE_ENV or "development"
 
-module.exports = (app, config, passport) ->
+module.exports = (app, config, passport, sessionStore) ->
   #app.set "showStackError", true
 
   # Static assets
@@ -50,11 +49,9 @@ module.exports = (app, config, passport) ->
     
     # express/mongo session storage
     app.use express.session(
-      secret: pkg.name
-      store: new mongoStore(
-        url: config.db
-        collection: "sessions"
-      )
+      key: config.sessionKey
+      secret: config.sessionSecret
+      store: sessionStore
     )
     
     # use passport session
@@ -75,7 +72,6 @@ module.exports = (app, config, passport) ->
     app.use (req, res, next) ->
       res.locals.csrf_token = req.csrfToken()
       next()
-
     
     # routes should be at the last
     app.use app.router

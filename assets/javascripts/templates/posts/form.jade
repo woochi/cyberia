@@ -1,11 +1,11 @@
 h4.overlay-title Kirjoita uusi viesti
-p.overlay-lead Jaa fiiliksesi tekstillä tai kuvalla. Anna itsesi näkyä!
+p.overlay-lead Jaa fiiliksesi tekstillä tai kuvalla.
 fieldset.inputs
   ul
     li
-      textarea.text-input(name="text")
+      textarea.text-input(name="text", placeholder="Kirjoita viesti", autofocus)
     li
-      input.attachment-input(name="attachment", type="file")
+      input.attachment-input.hidden(name="attachment", type="file")
 fieldset.buttons
   ul
     li

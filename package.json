@@ -47,6 +47,8 @@
     "async": "*",
     "connect-csrf-cookie": "*",
     "simple-jadeify": "*",
-    "backbone.io": "*"
+    "backbone.io": "*",
+    "async": "*",
+    "passport.socketio": "*"
   }
 }
