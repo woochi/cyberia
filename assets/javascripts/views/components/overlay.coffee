@@ -7,9 +7,11 @@ class Overlay extends Marionette.ItemView
   open: ->
     $("body").append @mask
     @container.on "click", @_tryClose.bind(@)
+    $(document).on "keyup", @_keyClose.bind(@)
     @render()
 
   onClose: ->
+    $(document).off "keyup"
     @container.remove()
     @mask.remove()
 
@@ -19,5 +21,8 @@ class Overlay extends Marionette.ItemView
 
   _tryClose: (e) ->
     @close() if $(e.target).is(".overlay-container")
+
+  _keyClose: (e) ->
+    @close() if e.keyCode is 27
 
 module.exports = Overlay
