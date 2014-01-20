@@ -11,7 +11,7 @@ module.exports = (server, passport, sessionStore, config) ->
   usersBackend = backboneio.createBackend()
   postsBackend = backboneio.createBackend()
   messagesBackend = backboneio.createBackend()
-  articleBackend = backboneio.createBackend()
+  articlesBackend = backboneio.createBackend()
 
   # Users
   usersBackend.use "read", users.read
