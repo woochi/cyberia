@@ -1,0 +1,51 @@
+#chat
+  +animation(fade-in-right 0.2s)
+  height: 100%
+
+#list-wrapper
+  height: 100%
+
+#message-form
+  +leading-border(1px, 1)
+  border-color: $gray-dark
+
+#message-input
+  width: 100%
+
+.input-item
+  overflow: hidden
+  padding-right: rhythm(0.5)
+
+.message-list
+  @extend .block-list
+
+.message
+  +trailing-border(1px, 0.5)
+  position: relative
+  padding-top: rhythm(0.5)
+  border-color: $gray-darker
+
+  &.self
+    text-align: right
+
+.message-timestamp
+  @extend .post-timestamp
+
+  .self &
+    right: auto
+    left: 0
+
+.message-author
+  @extend .post-author
+
+.message-avatar
+  @extend .post-avatar
+
+  .self &
+    float: right
+    margin: 0 0 0 rhythm(0.5)
+
+@media #{$medium-up}
+
+  .message-list
+    margin: 0
