@@ -3,18 +3,27 @@ header.nav-header
   .dropdown
     .nav-name.dropdown-toggle #{name} <i class="fa fa-caret-down"></i>
     .dropdown-menu
+
 ul.nav-list
   li
     a.nav-link.show-posts(rel="posts")
-      .link-icon.fa.fa-list.fa-fw
+      .link-icon.fa.fa-align-justify.fa-fw
       .link-title Päivitykset
+  li
+    a.nav-link.show-discussions(rel="messages")
+      .link-icon.fa.fa-arrows-alt.fa-fw
+      .link-title Viestit
   li
     a.nav-link.show-profile(rel="profile")
       .link-icon.fa.fa-male.fa-fw
       .link-title Profiili
   li
     a.nav-link.show-hacking(rel="hacking")
-      .link-icon.fa.fa-laptop.fa-fw
+      .link-icon.fa.fa-keyboard-o.fa-fw
       .link-title Hakkerointi
-footer.nav-footer
-  | Cyberia
+  li
+    a.nav-link.show-admin(rel="admin")
+      .link-icon.fa.fa-gavel.fa-fw
+      .link-title Hallinnoi
+
+footer.nav-footer Cyberia

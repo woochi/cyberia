@@ -7,6 +7,7 @@ PostsRouter = require("./routers/posts.coffee")
 UsersRouter = require("./routers/users.coffee")
 HackingRouter = require("./routers/hacking.coffee")
 MessagesRouter = require("./routers/messages.coffee")
+AdminRouter = require("./routers/admin.coffee")
 User = require("./models/user.coffee")
 Users = require("./collections/users.coffee")
 Posts = require("./collections/posts.coffee")
@@ -23,21 +24,22 @@ $ ->
     delete window.posts
     $("#bootstrap").remove()
   App.addInitializer (options) ->
+    User = require("./models/user.coffee")
+    Users = require("./collections/users.coffee")
+    UserList = require("./views/users/list.coffee")
+    @sidebar.show new Navigation(model: @user)
+    # @additional.show new UserList(collection: @users)
+  App.addInitializer (options) ->
     @appRouter = new AppRouter()
     @postsRouter = new PostsRouter()
     @usersRouter = new UsersRouter()
     @hackingRouter = new HackingRouter()
     @messagesRouter = new MessagesRouter()
+    @adminRouter = new AdminRouter() if !@user.admin
     $("#loader").remove()
     Backbone.history.start
       pushState: true
       root: "/app"
-  App.addInitializer (options) ->
-    User = require("./models/user.coffee")
-    Users = require("./collections/users.coffee")
-    UserList = require("./views/users/list.coffee")
-    @sidebar.show new Navigation(model: @user)
-    @additional.show new UserList(collection: @users)
   App.addRegions
     content: "#content"
     sidebar: "#sidebar"

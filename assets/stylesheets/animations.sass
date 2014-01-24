@@ -64,6 +64,14 @@
   100%
     opacity: 0
 
+@include keyframes(pulse)
+  0%
+    opacity: 1
+  50%
+    opacity: 0
+  100%
+    opacity: 1
+
 @include keyframes(flicker)
   from
     opacity: 0.5
@@ -85,10 +93,13 @@
     opacity: 0.70
   17%
     opacity: 0.55
+    +transform(translate3d(0, 0, 0))
   19%
-    opacity: 0.5
+    opacity: 0.4 /*low*/
+    +transform(translate3d(1px, 5px, 0))
   20%
     opacity: 0.5
+    +transform(translate3d(0, 0, 0))
   24%
     opacity: 0.5
   26%
@@ -103,10 +114,13 @@
     opacity: 0.6
   44%
     opacity: 0.5
+    +transform(translate3d(0, 0, 0))
   46%
-    opacity: 0.5
+    opacity: 0.4 /*low*/
+    +transform(translate3d(-2px, 5px, 0))
   56%
     opacity: 0.5
+    +transform(translate3d(0, 0, 0))
   58%
     opacity: 0.75
   60%
@@ -114,13 +128,13 @@
   68%
     opacity: 0.5
   70%
-    opacity: .6 /*peak*/
+    opacity: .7 /*peak*/
   72%
     opacity: 0.5
   93%
     opacity: 0.5
   95%
-    opacity: .6 /*peak*/
+    opacity: .7 /*peak*/
   97%
     opacity: 0.5
   to
@@ -133,4 +147,4 @@
   +animation(fade-in-right 0.2s)
 
 .flicker
-  +animation(flicker 3s linear infinity)
+  +animation(flicker 3s linear infinite)

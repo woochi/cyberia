@@ -9,11 +9,19 @@ body
   > .row
     height: 100%
 
+%section
+  padding-top: rhythm(1)
+
+#inner
+  @extend %section
+
 @media #{$medium-up}
+
+  %section
+    padding-top: rhythm(2)
 
   #content
     height: 100%
-    padding-top: rhythm(2)
 
   #inner
     +animation(fade-in-right 0.2s)

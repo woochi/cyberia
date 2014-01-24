@@ -1,0 +1,33 @@
+#game
+  width: 100%
+  height: 100%
+  padding: rhythm(1)
+
+%ui
+  @extend %uppercase
+  +user-select(none)
+  +adjust-font-size-to($h6-font-size)
+  position: absolute
+  color: $green-light
+  text-shadow: 0 0 10px $green-light
+
+#game-loader
+  @extend %ui
+  +animation(pulse 1s infinite)
+  top: 50%
+  left: 50%
+  width: rhythm(10, $h6-font-size)
+  margin: rhythm(-0.5, $h6-font-size) 0 0 rhythm(-5, $h6-font-size)
+
+#disconnect
+  @extend %ui
+  +transition(all 0.2s)
+  top: rhythm(2, $h6-font-size)
+  left: 0
+  padding: rhythm(0.5, $h6-font-size) rhythm(1, $h6-font-size)
+  border: 1px solid $gray-dark
+  border-width: 1px 1px 1px 0
+
+  &:hover
+    cursor: pointer
+    border-color: $green-light

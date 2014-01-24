@@ -9,6 +9,8 @@ class Navigation extends Marionette.ItemView
     "click .show-profile": "showProfile"
     "click .show-messages": "showMessages"
     "click .show-hacking": "showHacking"
+    "click .show-discussions": "showDiscussions"
+    "click .show-admin": "showAdmin"
     "click #logout-button": "logout"
 
   onRender: ->
@@ -33,6 +35,14 @@ class Navigation extends Marionette.ItemView
   showHacking: (e) ->
     @setCurrent(e.target)
     App.hackingRouter.controller.index()
+
+  showDiscussions: (e) ->
+    @setCurrent(e.target)
+    App.messagesRouter.controller.index()
+
+  showAdmin: (e) ->
+    @setCurrent(e.target)
+    App.adminRouter.controller.index()
 
   logout: ->
     window.location = "/logout"

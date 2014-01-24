@@ -1,4 +1,5 @@
 #tools
+  @extend %section
   +animation(fade-in-down 0.2s)
 
 #tool-list
@@ -20,19 +21,21 @@
 .tool-icon
   +transition(all 0.2s)
   display: none
-  $font-size: 32px
+  $font-size: 38px
   +adjust-font-size-to($font-size, 3)
   float: left
   width: rhythm(4, $font-size)
-  margin-right: rhythm(1, $font-size)
   text-align: center
 
   .tool-link:hover &
-    $font-size: 38px
+    $font-size: 46px
     +adjust-font-size-to($font-size, 3)
     width: rhythm(4, $font-size)
     margin-right: rhythm(1, $font-size)
     color: $green-light
+
+  .danger &
+    color: $red !important
 
 .tool-title
   +transition(all 0.2s)
@@ -40,6 +43,9 @@
 
   .tool-link:hover &
     color: $green-light
+
+  .danger &
+    color: $red !important
 
 .tool-lead
   +transition(all 0.2s)
