@@ -1,16 +1,33 @@
 #chat
   +animation(fade-in-right 0.2s)
+  position: relative
   height: 100%
 
 #list-wrapper
   height: 100%
+  overflow-y: auto
+
+#form-wrapper
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 0
 
 #message-form
+  padding: rhythm(1) 0
   +leading-border(1px, 1)
   border-color: $gray-dark
+  background-color: $body-background-color
+
+  fieldset, ul, li
+    margin: 0
 
 #message-input
   width: 100%
+  margin: 0
+
+#send-button
+  display: none
 
 .input-item
   overflow: hidden
@@ -18,6 +35,7 @@
 
 .message-list
   @extend .block-list
+  padding-bottom: rhythm(4)
 
 .message
   +trailing-border(1px, 0.5)
@@ -30,6 +48,7 @@
 
 .message-timestamp
   @extend .post-timestamp
+  top: rhythm(0.5, 12px)
 
   .self &
     right: auto
@@ -37,6 +56,9 @@
 
 .message-author
   @extend .post-author
+
+  .self &
+    color: $green-light
 
 .message-avatar
   @extend .post-avatar
@@ -46,6 +68,9 @@
     margin: 0 0 0 rhythm(0.5)
 
 @media #{$medium-up}
+
+  #send-button
+    display: block
 
   .message-list
     margin: 0

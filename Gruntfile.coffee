@@ -53,6 +53,9 @@ module.exports = (grunt) ->
             moment:
               path: "assets/javascripts/libs/moment.min.js"
               exports: "moment"
+            pixi:
+              path: "assets/javascripts/libs/pixi.js"
+              exports: "PIXI"
     copy:
       build:
         files: [

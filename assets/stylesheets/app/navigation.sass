@@ -1,5 +1,28 @@
 $nav-separator-color: #2A2A2A
 
+$sidebar-width: rhythm(7)
+$additional-width: rhythm(8)
+$sidebar-background: #1b1a1b
+
+#sidebar
+  display: none
+  float: left
+  position: relative
+  height: 100%
+
+#nav
+  width: $sidebar-width
+  height: 100%
+  background: $sidebar-background
+
+#additional
+  @extend #sidebar
+  float: right
+
+#users
+  @extend #nav
+  width: $additional-width
+
 .nav-header
   padding: rhythm(1)
   +trailing-border(1px, 1)
@@ -23,7 +46,7 @@ $nav-separator-color: #2A2A2A
   +transition(all 0.1s ease)
   display: block
   position: relative
-  padding: rhythm(1.25) rhythm(1)
+  padding: rhythm(1) rhythm(1)
   text-align: center
   border: none
 
@@ -49,7 +72,8 @@ $nav-separator-color: #2A2A2A
   position: absolute
   left: 0
   width: 100%
-  color: $gray-light
+  color: $gray-dark
+  text-shadow: 0 -1px 0 $black
 
   a:hover &, .current &
     +adjust-font-size-to(45px, 2)
@@ -73,3 +97,8 @@ $nav-separator-color: #2A2A2A
 
 #logout-button
   width: 100%
+
+@media #{$medium-up}
+
+  #sidebar
+    display: block

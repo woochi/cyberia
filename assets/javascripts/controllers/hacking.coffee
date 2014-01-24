@@ -6,6 +6,15 @@ class HackingController
     App.appRouter.navigate "hacking"
 
   level: ->
+    GameView = require("../views/hacking/game.coffee")
+    Navigation = require("../views/sidebar/navigation.coffee")
+    UserList = require("../views/users/list.coffee")
+    App.sidebar.close()
+    App.additional.close()
+    gameView = new GameView()
+    gameView.on "close", ->
+      App.sidebar.show new Navigation(model: App.user)
+    App.content.show gameView
     App.appRouter.navigate "hacking/level"
 
   search: (query) ->
