@@ -1,16 +1,8 @@
 class MessagesController
 
   index: ->
-    User = require("../models/user.coffee")
-    Users = require("../collections/users.coffee")
-    UserList = require("../views/users/list.coffee")
-    Messages = require("../collections/messages.coffee")
-    MessageCenter = require("../views/messages/center.coffee")
-    center = new MessageCenter(collection: new Messages())
-    center.on "close", -> App.additional.close()
-    App.content.show center
-    App.additional.show new UserList(collection: App.users)
-    App.appRouter.navigate "messages"
+    conversation = if @currentConversation then @currentConversation else App.users.at(0).id
+    @showConversation(conversation)
 
   showConversation: (userId) ->
     User = require("../models/user.coffee")
@@ -24,17 +16,26 @@ class MessagesController
     MessageCenter = require("../views/messages/center.coffee")
 
     layout = new ChatLayout()
-    messages = new Messages((new Message() for i in [0..10]))
-    messages.at(5).set "from", App.user.toJSON()
-    message = new Message()
-    messageList = new MessageList(collection: messages)
-    messageList.on "close", -> App.additional.close()
+    to = App.users.get(userId)
+    messages = new Messages()
+    message = new Message(from: App.user, to: to)
+    messageList = new MessageList(model: to, collection: messages)
+
+    App.sidebar.currentView.clearCurrent()
+    App.additional.currentView.toggleCurrent to
+
+    layout.once "close", ->
+      App.additional.currentView.clearCurrent()
 
     App.content.show layout
-    App.additional.show new UserList(collection: App.users)
     layout.list.show messageList
-    layout.form.show new MessageForm(model: message)
+    layout.form.show new MessageForm(model: message, collection: messages)
 
+    messages.fetch
+      from: userId
+      to: App.user.id
+      success: (data) -> console.log data
+      error: (err) -> console.log err
     App.appRouter.navigate "messages/#{userId}"
 
 module.exports = MessagesController

@@ -5,6 +5,7 @@ users = require("../controllers/users")
 posts = require("../controllers/posts")
 messages = require("../controllers/messages")
 articles = require("../controllers/articles")
+events = require("../controllers/events")
 
 module.exports = (server, passport, sessionStore, config) ->
 
@@ -12,6 +13,7 @@ module.exports = (server, passport, sessionStore, config) ->
   postsBackend = backboneio.createBackend()
   messagesBackend = backboneio.createBackend()
   articlesBackend = backboneio.createBackend()
+  eventsBackend = backboneio.createBackend()
 
   # Users
   usersBackend.use "read", users.read
@@ -29,11 +31,16 @@ module.exports = (server, passport, sessionStore, config) ->
   # Articles
   articlesBackend.use "read", articles.read
 
+  # Events
+  eventsBackend.use "read", events.read
+  eventsBackend.use "create", events.create
+
   io = backboneio.listen server,
     users: usersBackend
     posts: postsBackend
     messages: messagesBackend
     articles: articlesBackend
+    events: eventsBackend
 
   io.set "authorization", passportSocketIo.authorize(
     cookieParser: express.cookieParser

@@ -11,6 +11,7 @@ exports.read = (req, res, next) ->
         res.end post
   else
     Post.find({})
+      .sort(sent: -1).limit(10)
       .populate("author")
       .exec (err, posts) ->
         return next(err) if err

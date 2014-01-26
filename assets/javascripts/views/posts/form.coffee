@@ -19,7 +19,7 @@ class PostForm extends Overlay
       success: (model) =>
         App.posts.add model
         @close()
-      error: (model, response, b) ->
+      error: (model, response) ->
         # TODO show errors in UI
         console.error "Error saving post: ", response.error.message
 

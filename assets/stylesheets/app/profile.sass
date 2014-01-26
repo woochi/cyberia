@@ -1,9 +1,8 @@
 .profile
   @extend %section
-  +animation(fade-in-down 0.2s)
 
 .profile-name
-  +adjust-font-size-to($h4-font-size, 1)
+  +adjust-font-size-to($h3-font-size, 1.5)
   letter-spacing: 1px
 
 .profile-group
@@ -13,9 +12,10 @@
 
 .profile-title
   @extend %uppercase
-  +trailing-border(1px, 0.5)
-  margin: 0 0 rhythm(1.5)
+  +trailing-border(1px, 1, $h6-font-size)
+  margin: 0 0 rhythm(1, $h6-font-size)
   color: $green-light
+  border-color: $gray-dark
 
 .profile-image
   width: 100%
@@ -48,7 +48,10 @@
   border-color: $gray-dark
 
 #profile-content
+  @extend %default-margin
+  +trailing-border(1px, 2)
   display: block
+  border-color: $gray-dark
 
   .editing &
     display: none
@@ -58,3 +61,23 @@
 
   .editing &
     display: block
+
+.profile-detail
+  padding: rhythm(1) 0
+  text-align: center
+  border-color: $gray-dark
+
+.detail-value
+  +adjust-font-size-to(36px, 2)
+  color: $green-light
+
+.detail-name
+  text-transform: uppercase
+  letter-spacing: 2px
+  font-weight: 600
+  color: $gray-dark
+
+@media #{$small-only}
+
+  .profile-detail
+    +trailing-border(1px, 1)

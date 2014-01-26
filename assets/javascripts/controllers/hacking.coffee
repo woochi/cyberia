@@ -14,6 +14,7 @@ class HackingController
     gameView = new GameView()
     gameView.on "close", ->
       App.sidebar.show new Navigation(model: App.user)
+      App.additional.show new UserList(collection: App.users)
     App.content.show gameView
     App.appRouter.navigate "hacking/level"
 

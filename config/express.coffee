@@ -19,7 +19,7 @@ module.exports = (app, config, passport, sessionStore) ->
   app.use "/javascripts", express.static(config.root + "/build/assets/javascripts")
 
   # Favicon
-  app.use express.favicon(path.join(config.root, "assets", "images", "favicon.ico"))
+  app.use express.favicon(path.join(config.root, "assets", "images", "favicon_256.png"))
 
   # Logging
   # Use winston on production
