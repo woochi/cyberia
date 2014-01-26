@@ -20,7 +20,7 @@ exports.read = (req, res, next) ->
 
 exports.create = (req, res, next) ->
   post = new Post
-    author: req.model.author._id
+    author: req.user._id
     text: req.model.text
   post.save (err, model) ->
     return next(err) if err
