@@ -19,12 +19,19 @@ exports.article = hasAuthorization: (req, res, next) ->
     return res.redirect("/articles/" + req.article.id)
   next()
 
-exports.comment = hasAuthorization: (req, res, next) ->
-  
-  # if the current user is comment owner or article owner
-  # give them authority to delete
-  if req.user.id is req.comment.user.id or req.user.id is req.article.user.id
-    next()
-  else
-    req.flash "info", "You are not authorized"
-    res.redirect "/articles/" + req.article.id
+exports.post =
+  canRead: (req, res, next) ->
+  canCreate: (req, res, next) ->
+  canDelete: (req, res, next) ->
+
+exports.message =
+  canRead: (req, res, next) ->
+  canCreate: (req, res, next) ->
+
+exports.event =
+  canRead: (req, res, next) ->
+  canCreate: (req, res, next) ->
+
+exports.article =
+  canRead: (req, res, next) ->
+  canCreate: (req, res, next) ->
