@@ -1,4 +1,5 @@
 body
+  overflow: hidden
   background: #090b0a
 
 #content-wrapper
@@ -18,6 +19,7 @@ body
 @media #{$medium-up}
 
   %section
+    +animation(fade-in 0.4s)
     padding-top: rhythm(2)
 
   #content

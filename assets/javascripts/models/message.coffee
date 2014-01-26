@@ -3,6 +3,7 @@ User = require("./user.coffee")
 
 class Message extends Backbone.Model
   idAttribute: "_id"
+  backend: "messages"
   defaults:
     from: new User().toJSON()
     to: new User().toJSON()

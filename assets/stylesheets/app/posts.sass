@@ -2,12 +2,11 @@ $post-spacing: 0.75
 
 #posts
   @extend %section
-  +animation(fade-in-down 0.2s linear)
 
 #post-list-header
   margin: 0 0 rhythm(1)
   +trailing-border(1px, 1)
-  border-color: $green-light
+  border-color: $gray-dark
 
 .new-post
   margin: 0 0 rhythm(1, 14px)
@@ -47,7 +46,6 @@ $post-spacing: 0.75
 
 .post-author
   +transition(all 0.2s)
-  +adjust-font-size-to(18px, 1)
   font-weight: 600
 
   .post:first-child &
@@ -66,15 +64,11 @@ $post-spacing: 0.75
   +transition(all 0.2s)
   +adjust-font-size-to(16px, 1)
   overflow: hidden
+  min-height: rhythm(1, 16px)
   color: $body-font-color-alt
 
 .attachment-separator
   margin: rhythm(0.5) 0
-
-@media #{$medium-up}
-
-  .new-post
-    margin: rhythm(0.25, 14px) 0
 
 @media #{$large-up}
 

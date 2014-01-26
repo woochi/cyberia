@@ -1,5 +1,5 @@
 #chat
-  +animation(fade-in-right 0.2s)
+  +animation(fade-in 0.2s)
   position: relative
   height: 100%
 
@@ -16,7 +16,7 @@
 #message-form
   padding: rhythm(1) 0
   +leading-border(1px, 1)
-  border-color: $gray-dark
+  border-color: $gray-darker
   background-color: $body-background-color
 
   fieldset, ul, li
@@ -35,6 +35,7 @@
 
 .message-list
   @extend .block-list
+  padding-top: rhythm(1)
   padding-bottom: rhythm(4)
 
 .message
@@ -43,16 +44,9 @@
   padding-top: rhythm(0.5)
   border-color: $gray-darker
 
-  &.self
-    text-align: right
-
 .message-timestamp
   @extend .post-timestamp
   top: rhythm(0.5, 12px)
-
-  .self &
-    right: auto
-    left: 0
 
 .message-author
   @extend .post-author
@@ -63,9 +57,26 @@
 .message-avatar
   @extend .post-avatar
 
-  .self &
-    float: right
-    margin: 0 0 0 rhythm(0.5)
+.message-text
+  @extend .post-text
+
+.empty-icon
+  +adjust-font-size-to($h1-font-size, 2)
+  float: left
+  width: rhythm(2, $h1-font-size)
+  margin-right: rhythm(1, $h1-font-size)
+  color: $green-light
+  text-align: center
+
+.empty-message
+  +trailing-border(1px, 1)
+  border-color: $gray-darker
+
+.empty-title, .empty-text
+  margin: 0
+
+.empty-text
+  overflow: hidden
 
 @media #{$medium-up}
 

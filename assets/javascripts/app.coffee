@@ -28,7 +28,7 @@ $ ->
     Users = require("./collections/users.coffee")
     UserList = require("./views/users/list.coffee")
     @sidebar.show new Navigation(model: @user)
-    # @additional.show new UserList(collection: @users)
+    @additional.show new UserList(collection: @users)
   App.addInitializer (options) ->
     @appRouter = new AppRouter()
     @postsRouter = new PostsRouter()
@@ -40,11 +40,15 @@ $ ->
     Backbone.history.start
       pushState: true
       root: "/app"
+    fragments = Backbone.history.fragment.split("/")
+    if fragments[0] is "messages"
+      @additional.currentView.toggleCurrent @users.get(fragments[1])
+    else
+      @sidebar.currentView.toggleCurrent fragments[0]
   App.addRegions
     content: "#content"
     sidebar: "#sidebar"
     additional: "#additional"
   App.socket = Backbone.io.connect()
   App.socket.on "connect", ->
-    console.log "connected to the socket"
     App.start()

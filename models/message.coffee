@@ -5,7 +5,7 @@ Schema = mongoose.Schema
 MessageSchema = new Schema
   from: {type: Schema.ObjectId, ref: "User"}
   to: {type: Schema.ObjectId, ref: "User"}
-  text: {type: String}
+  text: {type: String, required: true}
   sent: {type: Date, required: true, default: Date}
 
 mongoose.model "Message", MessageSchema

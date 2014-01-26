@@ -14,6 +14,7 @@ $sidebar-background: #1b1a1b
   width: $sidebar-width
   height: 100%
   background: $sidebar-background
+  border-right: 1px solid lighten($sidebar-background, 3%)
 
 #additional
   @extend #sidebar
@@ -22,6 +23,7 @@ $sidebar-background: #1b1a1b
 #users
   @extend #nav
   width: $additional-width
+  border-left: 1px solid lighten($sidebar-background, 3%)
 
 .nav-header
   padding: rhythm(1)
@@ -51,6 +53,7 @@ $sidebar-background: #1b1a1b
   border: none
 
   &:hover, .current &
+    +box-shadow(1px 0 0 #101010)
     background: #101010
 
 .link-title
@@ -73,7 +76,6 @@ $sidebar-background: #1b1a1b
   left: 0
   width: 100%
   color: $gray-dark
-  text-shadow: 0 -1px 0 $black
 
   a:hover &, .current &
     +adjust-font-size-to(45px, 2)
@@ -86,7 +88,7 @@ $sidebar-background: #1b1a1b
   position: absolute
   bottom: 0
   left: 0
-  right: 0
+  right: 1px
   padding: rhythm(0.5, $font-size) rhythm(1, $font-size)
   border-top: 1px solid $nav-separator-color
   text-align: center

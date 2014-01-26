@@ -1,15 +1,11 @@
 .row
-  .column.medium-11.medium-centered
+  .column.medium-9.medium-centered
     h6.profile-title Cyberia public profile
     .row
-      .column.medium-4
-        .profile-level-container
-          .profile-level= level
-          .profile-level-annotation Access Class
-      .column.medium-8
-        .profile-name= name
-        .profile-group #{group}
+      .column.medium-12.medium-centered
         #profile-content
+          .profile-name= name
+          .profile-group #{group}
           p.profile-status= status
           a.button-small-alt.edit-profile Edit profile
         form#profile-edit-form
@@ -23,3 +19,16 @@
                 a.ok-button-small-alt.save-profile Save profile
               li
                 a.button-small-alt.cancel-edit Cancel
+    .row
+      .column.medium-4
+        .profile-detail
+          .detail-value Class #{level}
+          .detail-name Access Level
+      .column.medium-4
+        .profile-detail
+          .detail-value 3927
+          .detail-name Credits
+      .column.medium-4
+        .profile-detail
+          .detail-value 10381
+          .detail-name Something
