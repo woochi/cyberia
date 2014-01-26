@@ -1,13 +1,13 @@
 express = require("express")
 backboneio = require("backbone.io")
 passportSocketIo = require("passport.socketio")
-users = require("../controllers/users")
-posts = require("../controllers/posts")
-messages = require("../controllers/messages")
-articles = require("../controllers/articles")
-events = require("../controllers/events")
 
 module.exports = (server, passport, sessionStore, config) ->
+  messages = require("../controllers/messages")(sessionStore.client)
+  users = require("../controllers/users")
+  posts = require("../controllers/posts")
+  articles = require("../controllers/articles")
+  events = require("../controllers/events")
 
   usersBackend = backboneio.createBackend()
   postsBackend = backboneio.createBackend()
@@ -48,3 +48,11 @@ module.exports = (server, passport, sessionStore, config) ->
     secret: config.sessionSecret
     store: sessionStore
   )
+
+  io.on "connection", (socket) ->
+    if socket.handshake.user.logged_in
+      console.log "connection:", socket.id, socket.handshake.user._id
+      sessionStore.client.set socket.id, socket.handshake.user._id
+
+      socket.on "disconnect", ->
+        sessionStore.client.del socket.id
