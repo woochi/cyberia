@@ -77,9 +77,6 @@ module.exports = (grunt) ->
       views:
         files: ["views/**/*.jade"]
         tasks: []
-      express:
-        files: ["app.coffee", "config/*.coffee", "controllers/*.coffee", "models/*.coffee"]
-        tasks: ["express:dev:stop", "express:dev"]
       self:
         files: "Gruntfile.coffee"
         tasks: ["default"]

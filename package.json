@@ -49,6 +49,9 @@
     "simple-jadeify": "*",
     "backbone.io": "*",
     "async": "*",
-    "passport.socketio": "*"
+    "passport.socketio": "*",
+    "redis": "*",
+    "hiredis": "*",
+    "connect-redis": "*"
   }
 }

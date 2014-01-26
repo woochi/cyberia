@@ -3,12 +3,12 @@
 Module dependencies.
 ###
 express = require("express")
-mongoStore = require("connect-mongo")(express)
 http = require("http")
 fs = require('fs')
 path = require("path")
 mongoose = require("mongoose")
 passport = require("passport")
+redis = require("redis")
 app = express()
 server = http.createServer(app)
 
@@ -38,11 +38,11 @@ models_path = __dirname + "/models"
 fs.readdirSync(models_path).forEach (file) ->
   require(models_path + "/" + file)  if ~file.indexOf(".coffee")
 
-sessionStore = new mongoStore(
-  url: config.db
-  collection: "sessions"
-  auto_reconnect: true
-)
+RedisStore = require("connect-redis")(express)
+redisClient = redis.createClient()
+sessionStore = new RedisStore
+  client: redisClient
+  host: "localhost"
 
 # Configuration
 require('./config/passport')(passport, config)
