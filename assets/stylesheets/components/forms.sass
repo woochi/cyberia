@@ -23,7 +23,7 @@ fieldset
     > li
       margin: 0 0 rhythm(0.5)
 
-input, textarea
+input, textarea, select
   @extend %reset-font
 
 input[type="text"]
@@ -87,6 +87,13 @@ textarea
   height: $textarea-height
   padding: 0
   border: none
+
+select
+  @extend input[type="text"]
+
+label
+  @extend %uppercase
+  color: $green-light
 
 @media #{$medium-up}
 

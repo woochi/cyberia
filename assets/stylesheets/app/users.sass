@@ -12,6 +12,9 @@
   @extend %uppercase
   +adjust-font-size-to(12px)
 
+.user-list
+  @extend .block-list
+
 #user-list
   @extend .block-list
 
@@ -28,3 +31,18 @@
   a:hover, &.current a
     +box-shadow(-1px 0 0 #101010)
     background: #101010
+
+.detailed-user
+  +clearfix()
+  +trailing-border(1px, 0.5)
+  margin: 0 0 rhythm(0.5)
+  border-color: $gray-darker
+
+.user-avatar
+  @extend .post-avatar
+
+.user-name
+  margin: 0
+
+.user-description
+  margin: 0

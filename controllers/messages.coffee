@@ -12,9 +12,11 @@ exports.read = (req, res, next) ->
           return next(new Error("The message could not be found."))
         res.end message
   else
-    unless req.options.from
-      return next(new Error("Must define a from parameter."))
-    userId = if req.user.admin then req.model.from._id else req.user._id
+    if req.user.admin and not (req.options.from and req.options.to)
+      return next(new Error("Must define 'from' and 'to' parameters."))
+    if not req.options.to
+      return next(new Error("Must define a 'to' parameter."))
+    userId = if req.user.admin then req.options.from else req.user._id
     Message.find()
       .where("from").in([userId, req.options.to])
       .where("to").in([req.options.from, userId])
