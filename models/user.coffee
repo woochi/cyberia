@@ -13,6 +13,7 @@ UserSchema = new Schema
   admin: {type: Boolean, default: false, required: true}
   status: {type: String, default: "", required: true}
   group: {type: String, default: "", required: true}
+  online: {type: Boolean, default: false, required: true}
 
 UserSchema.virtual("password").set((password) ->
   @_password = password

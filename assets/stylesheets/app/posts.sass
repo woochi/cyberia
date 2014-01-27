@@ -47,6 +47,10 @@ $post-spacing: 0.75
 .post-author
   +transition(all 0.2s)
   font-weight: 600
+  color: $green-light
+
+  .self &
+    color: $white
 
   .post:first-child &
     +adjust-font-size-to(20px, 1)
