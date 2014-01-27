@@ -14,9 +14,10 @@ exports.read = (req, res, next) ->
   else
     unless req.options.from
       return next(new Error("Must define a from parameter."))
+    userId = if req.user.admin then req.model.from._id else req.user._id
     Message.find()
-      .where("from").in([req.user._id, req.options.to])
-      .where("to").in([req.options.from, req.user._id])
+      .where("from").in([userId, req.options.to])
+      .where("to").in([req.options.from, userId])
       .sort(sent: -1).limit(10)
       .populate("from to")
       .exec (err, messages) ->

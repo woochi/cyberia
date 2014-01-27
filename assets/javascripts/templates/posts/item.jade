@@ -1,8 +1,14 @@
-.post-avatar= author.name[0]
-.post-author= author.name
 timestamp.post-timestamp
   | <span class="time">#{sent}</span>
   | <i class="fa fa-clock-o"></i>
+if canDelete
+  .post-menu.dropdown
+    a.dropdown-toggle <i class="fa fa-lg fa-caret-square-o-down"></i>
+    .dropdown-menu
+      li
+        a.delete-post <i class="icon-trash-o"></i> Delete post
+.post-avatar= author.name[0]
+.post-author= author.name
 .post-text= text
 if attachment
   img.post-attachment(width="#{attachment.width}", height="#{attachment.height}")

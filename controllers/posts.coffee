@@ -29,5 +29,6 @@ exports.create = (req, res, next) ->
       res.end model
 
 exports.delete = (req, res, next) ->
-  console.log req.model
-  # TODO
+  Post.findByIdAndRemove req.model._id, (err, model) ->
+    return next(err) if err
+    res.end model

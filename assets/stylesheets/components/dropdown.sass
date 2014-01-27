@@ -1,0 +1,53 @@
+.dropdown
+  position: relative
+
+.dropdown-toggle
+  +user-select(none)
+  text-align: center
+  border: none
+
+  &:hover
+    color: $green-light
+
+  // .fa
+  //   pointer-events: none
+
+.dropdown-menu
+  +animation(fade-in-up 0.08s ease-out both)
+  display: none
+  list-style: none
+  position: absolute
+  right: 0
+  top: 100%
+  z-index: $zindex-menu
+  min-width: rhythm(10)
+  margin-top: rhythm(0.5)
+  padding: rhythm(0.25) 0
+  background: $white
+  border: 1px solid $gray-lighter
+  border-radius: $global-radius
+
+  .open &
+    display: block
+
+  a
+    display: block
+    padding: rhythm(0.25) rhythm(0.5)
+    border: none
+
+    &:hover
+      background: $green-light
+      color: $white
+
+  .separator
+    margin: rhythm(0.25) 0
+    border-top: 1px solid $gray-lighter
+
+  .header
+    @extend %uppercase
+    +adjust-font-size-to(12px, 1)
+    margin-top: rhythm(-0.25, 12px)
+    padding: rhythm(0.25, 12px) rhythm(0.5, 12px)
+    +trailing-border(1px, 0.25, 12px)
+    border-color: $gray-lighter
+    font-weight: 600

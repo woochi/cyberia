@@ -14,7 +14,8 @@ exports.redirectLoggedIn = (req, res, next) ->
 exports.user =
   canRead: (req, res, next) -> next()
   canUpdate: (req, res, next) ->
-    return next(new Error("Unauthorized.")) unless req.user._id is req.model.id
+    if req.user._id isnt req.model.id or not req.user.admin
+      return next(new Error("Unauthorized."))
     next()
 
 exports.post =
@@ -22,6 +23,7 @@ exports.post =
   canCreate: (req, res, next) -> next()
   canDelete: (req, res, next) ->
     if req.model.id
+      return next() if req.user.admin
       Post.findById req.model.id, (err, post) ->
         return next(err) if err
         return next(new Error("Post could not be found.")) unless post
@@ -32,6 +34,7 @@ exports.post =
 exports.message =
   canRead: (req, res, next) ->
     if req.model.id
+      return next() if req.user.admin
       Message.findById req.model.id, (err, message) ->
         return next(err) if err
         if not message or req.user not in [message.from, message.to]
