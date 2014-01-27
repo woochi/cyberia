@@ -1,4 +1,5 @@
 .dropdown
+  display: inline-block
   position: relative
 
 .dropdown-toggle
@@ -24,19 +25,26 @@
   margin-top: rhythm(0.5)
   padding: rhythm(0.25) 0
   background: $white
-  border: 1px solid $gray-lighter
-  border-radius: $global-radius
+  text-align: left
+
+  &.pull-left
+    right: auto
+    left: 0
 
   .open &
     display: block
 
   a
+    $font-size: 13px
+    @extend %uppercase
+    +adjust-font-size-to($font-size, 1)
     display: block
-    padding: rhythm(0.25) rhythm(0.5)
+    padding: rhythm(0.25, $font-size) rhythm(0.5, $font-size)
     border: none
+    color: $gray-darker
 
     &:hover
-      background: $green-light
+      background: $green
       color: $white
 
   .separator

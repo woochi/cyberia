@@ -6,6 +6,11 @@ class UserItem extends Marionette.ItemView
   className: "user"
   events:
     "click": "openConversation"
+  modelEvents:
+    "change": "onRender"
+
+  onRender: (model, changes) ->
+    @$(".status-icon").toggleClass "green", @model.get("online")
 
   openConversation: ->
     App.messagesRouter.controller.showConversation @model.id

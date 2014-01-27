@@ -1,8 +1,10 @@
 header.nav-header
   .nav-prefix Tervetuloa
   .dropdown
-    .nav-name.dropdown-toggle #{name} <i class="fa fa-caret-down"></i>
-    .dropdown-menu
+    a.nav-name.dropdown-toggle #{name} <i class="fa fa-caret-down"></i>
+    ul.dropdown-menu.pull-left
+      li
+        a.logout <i class="fa fa-fw fa-power-off"></i> Sulje verkkoyhteys
 
 ul.nav-list
   li

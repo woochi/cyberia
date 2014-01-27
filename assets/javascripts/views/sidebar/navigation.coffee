@@ -10,7 +10,9 @@ class Navigation extends Marionette.ItemView
     "click .show-messages": "showMessages"
     "click .show-hacking": "showHacking"
     "click .show-admin": "showAdmin"
-    "click #logout-button": "logout"
+    "click .logout": "logout"
+    "click .dropdown-toggle": "toggleMenu"
+    "mouseleave": "closeMenu"
 
   onRender: ->
     @toggleCurrent @$("a[rel='#{Backbone.history.fragment}']")[0]
@@ -40,5 +42,11 @@ class Navigation extends Marionette.ItemView
 
   logout: ->
     window.location = "/logout"
+
+  toggleMenu: ->
+    @$(".dropdown").toggleClass "open"
+
+  closeMenu: ->
+    @$(".dropdown").removeClass "open"
 
 module.exports = Navigation

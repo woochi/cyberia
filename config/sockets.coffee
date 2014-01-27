@@ -8,6 +8,9 @@ articles = require("../controllers/articles")
 events = require("../controllers/events")
 auth = require("../middleware/authorization")
 
+mongoose = require("mongoose")
+User = mongoose.model("User")
+
 module.exports = (server, passport, sessionStore, config) ->
   UserMap = require("../middleware/user_map")(sessionStore.client)
 
@@ -69,6 +72,14 @@ module.exports = (server, passport, sessionStore, config) ->
   io.on "connection", (socket) ->
     if socket.handshake.user.logged_in
       sessionStore.client.set socket.id, socket.handshake.user._id
+      User.findByIdAndUpdate socket.handshake.user._id,
+        online: true
+      , (err, user) ->
+        usersBackend.emit "updated", {_id: user._id, online: true}
 
       socket.on "disconnect", ->
         sessionStore.client.del socket.id
+        User.findByIdAndUpdate socket.handshake.user._id,
+          online: false
+        , (err, user) ->
+          usersBackend.emit "updated", {_id: user._id, online: false}
