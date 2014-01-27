@@ -8,7 +8,7 @@ class UserList extends Marionette.CompositeView
 
   toggleCurrent: (model) ->
     @clearCurrent()
-    @children.findByModel(model)?.$el.addClass "current"
+    @children.findByModel(model).$el.addClass "current"
 
   clearCurrent: ->
     @$(".user.current").removeClass "current"
