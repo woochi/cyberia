@@ -1,0 +1,11 @@
+.row
+  .column.medium-6
+    label From user
+    select.conversation-select.from
+      - each user in users
+        option(value="#{user._id}")= user.name
+  .column.medium-6
+    label To user
+    select.conversation-select.to
+      - each user in users
+        option(value="#{user._id}")= user.name

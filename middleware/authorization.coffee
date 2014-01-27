@@ -1,6 +1,7 @@
 mongoose = require("mongoose")
 Post = mongoose.model("Post")
 Message = mongoose.model("Message")
+ObjectId = mongoose.Types.ObjectId
 
 exports.requiresLogin = (req, res, next) ->
   return next() if req.isAuthenticated()
@@ -14,7 +15,7 @@ exports.redirectLoggedIn = (req, res, next) ->
 exports.user =
   canRead: (req, res, next) -> next()
   canUpdate: (req, res, next) ->
-    if req.user._id isnt req.model.id or not req.user.admin
+    if not req.user._id.equals(new ObjectId req.model._id)
       return next(new Error("Unauthorized."))
     next()
 
@@ -22,8 +23,7 @@ exports.post =
   canRead: (req, res, next) -> next()
   canCreate: (req, res, next) -> next()
   canDelete: (req, res, next) ->
-    if req.model.id
-      return next() if req.user.admin
+    if req.model.id and not req.user.admin
       Post.findById req.model.id, (err, post) ->
         return next(err) if err
         return next(new Error("Post could not be found.")) unless post
@@ -33,11 +33,11 @@ exports.post =
 
 exports.message =
   canRead: (req, res, next) ->
-    if req.model.id
-      return next() if req.user.admin
+    if req.model.id and not req.user.admin
       Message.findById req.model.id, (err, message) ->
         return next(err) if err
-        if not message or req.user not in [message.from, message.to]
+        conversationParty = req.user._id.equals(new ObectId message.from) or req.user._id.equals(new ObjectId message.to)
+        if not message or not conversationParty
           return next(new Error("Message could not be found."))
     next()
 

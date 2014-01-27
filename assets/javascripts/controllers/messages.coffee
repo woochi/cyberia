@@ -32,8 +32,8 @@ class MessagesController
       App.additional.currentView.clearCurrent()
 
     messages.fetch
-      from: userId
-      to: App.user.id
+      from: App.user.id
+      to: to.id
       error: (collection, response) -> console.error response.error.message
     App.appRouter.navigate "messages/#{userId}"
 

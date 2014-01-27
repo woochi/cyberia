@@ -1,13 +1,16 @@
+#profile-header
+  +clearfix()
+  margin: 0 0 rhythm(1)
+
 .profile
   @extend %section
 
 .profile-name
-  +adjust-font-size-to($h3-font-size, 1.5)
+  +adjust-font-size-to($h2-font-size, 2)
   letter-spacing: 1px
 
 .profile-group
   @extend %uppercase
-  margin: 0 0 rhythm(1)
   color: $body-font-color-alt
 
 .profile-title
@@ -23,6 +26,14 @@
   min-height: rhythm(8)
   margin: 0 0 rhythm(1)
   border: 1px solid $gray-darker
+
+.profile-avatar
+  $font-size: 28px
+  @extend .post-avatar
+  +adjust-font-size-to($font-size, 3)
+  width: rhythm(3, $font-size)
+  height: rhythm(3, $font-size)
+  margin-right: rhythm(1, $font-size)
 
 .profile-status
   white-space: pre-line
@@ -49,7 +60,7 @@
 
 #profile-content
   @extend %default-margin
-  +trailing-border(1px, 2)
+  +trailing-border(1px, 1)
   display: block
   border-color: $gray-dark
 
@@ -57,15 +68,22 @@
     display: none
 
 #profile-edit-form
+  @extend #profile-content
   display: none
+  padding-bottom: 0
 
   .editing &
     display: block
 
 .profile-detail
+  width: 33.33%
+  float: left
   padding: rhythm(1) 0
   text-align: center
-  border-color: $gray-dark
+  border-right: 1px solid $gray-dark
+
+  &:last-child
+    border-right: none
 
 .detail-value
   +adjust-font-size-to(36px, 2)
