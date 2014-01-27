@@ -60,6 +60,9 @@ $post-spacing: 0.75
   .post:first-child &
     color: $white
 
+.post-menu
+  display: none
+
 .post-text
   +transition(all 0.2s)
   +adjust-font-size-to(16px, 1)
@@ -79,4 +82,13 @@ $post-spacing: 0.75
     position: absolute
     right: 0
     top: 0
-    //right: rhythm(1, 12px)
+
+    .post.self:hover &
+      display: none
+
+  .post-menu
+    @extend .post-timestamp
+    margin: -5px 0 0
+
+    .post.self:hover &
+      display: block
