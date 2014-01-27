@@ -25,10 +25,6 @@
     border: none
     color: $body-font-color-alt
 
-    &:hover
-      color:  $white
-      background: $nav-separator-color
-
-  &.current a
-    color: $white
-    background: $nav-separator-color
+  a:hover, &.current a
+    +box-shadow(-1px 0 0 #101010)
+    background: #101010
