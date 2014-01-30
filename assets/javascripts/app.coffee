@@ -94,7 +94,7 @@ path = svg.selectAll("path")
   .attr("fill", (d, i) -> colors[i])
   .attr("d", arc)
 
-d3.select(".days").text(Math.floor((end - now) / (24 * 60 * 60 * 1000)))
+d3.select(".days").text(Math.ceil((end - now) / (24 * 60 * 60 * 1000)))
 
 d3.select("#scroll-button").on "click", ->
   navPos = getOffsetTop(d3.select("#nav")[0][0])
