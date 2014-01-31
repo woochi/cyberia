@@ -69,7 +69,7 @@ $(".nav-list a").click (e) ->
 # Render countdown ring
 start = new Date("November 29, 2013 14:40:00")
 now = new Date().getTime()
-end = new Date("February 01, 2014 00:00:00")
+end = new Date("February 02, 2014 00:00:00")
 ratio = (now - start) / (end - start)
 
 days = [100 * ratio, 100 - 100 * ratio]
