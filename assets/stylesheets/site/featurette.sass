@@ -1,7 +1,10 @@
 .featurette
+  height: rhythm(32)
   padding: rhythm(2) 0 rhythm(1)
   +leading-border(1px, 2)
   border-color: $gray-darker
+  background-size: cover
+  background-position: center
 
 .featurette-title
   //+trailing-border(1px, 0.5, $h2-font-size)
@@ -17,9 +20,20 @@
     content: " | "
     color: $body-font-color-alt
 
+.featurette-subtitle
+  @extend .featurette-title
+  +trailing-border(1px, 0.5, $h4-font-size)
+  margin: 0 0 rhythm(0.5, $h4-font-size)
+  border-color: $body-font-color
+
 .row-separator
   margin: rhythm(1) 0 rhythm(2) !important
   border-color: $gray-darker
+
+@for $i from 1 through 6
+
+  .offset-#{$i}
+    padding-top: rhythm($i)
 
 @media #{$small-only}
 

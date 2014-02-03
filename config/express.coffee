@@ -7,10 +7,12 @@ winston = require("winston")
 helpers = require("view-helpers")
 pkg = require("../package.json")
 path = require("path")
+helpers = require('view-helpers')
 env = process.env.NODE_ENV or "development"
 
 module.exports = (app, config, passport, sessionStore) ->
   #app.set "showStackError", true
+  app.use helpers()
 
   # Static assets
   app.use express.static(path.join(config.root, "assets", "images"))

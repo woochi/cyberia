@@ -1,0 +1,25 @@
+include mixins
+
+extends layout
+
+block header
+  link(rel="stylesheet", href="/stylesheets/site.css")
+
+block body
+  nav#nav-sticky
+    #info-logo.left Cyberia
+    ul.nav-list.right
+      +nav-item("Peli-info", "/info/general")
+      +nav-item("Hahmokuvaus", "/info/character")
+      +nav-item("Maailmankuvaus", "/info/world")
+      +nav-item("Maailmankuvaus", "/info/corporations")
+      +nav-item("Aikajana", "/info/timeline")
+      +nav-item("Kirjaudu ulos", "/logout")
+
+  #page
+    block content
+    #page-footer
+  footer#footer
+    .row
+      .column.small-12.text-center
+        p &copy; 2013 <a href="http://rolli.org/" target="_blank">Rovaniemen live-roolipelaajat ry</a> &nbsp;&mdash;&nbsp; <a href="mailto:cyberiaexperience@gmail.com">cyberiaexperience@gmail.com</a>

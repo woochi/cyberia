@@ -1,0 +1,14 @@
+extends layouts/info
+
+block content
+
+  article.featurette
+    .row
+      .column.medium-8.medium-centered.offset-4
+        h2.featurette-title.char-name= character.name
+        .char-class #{character.affiliation} | #{character.class}
+        p.char-description= character.description
+        h4.featurette-subtitle Tavoitteet
+        ul.char-goals
+        h4.featurette-subtitle Kontaktit
+        ul.char-contacts

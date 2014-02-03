@@ -1,7 +1,7 @@
 %navigation
   width: 100%
   padding: rhythm(1) 0
-  background: rgba($body-background-color, 0.9)
+  background: $white
   border-color: $gray-darker
   z-index: $zindex-nav
 
@@ -17,26 +17,28 @@
   position: fixed
   top: 0
   left: 0
+  padding: rhythm(1) rhythm(2)
 
 .nav-list
+  @extend .inline-list
   margin: 0
   padding: 0
 
   li
-    width: 20%
     text-align: center
-    margin: 0
+    margin: 0 rhythm(1) 0 0
 
-    a
-      +transition(all 0.1s linear)
-      font-weight: 600
-      border: none
-      color: $gray-dark
-      text-transform: uppercase
-      letter-spacing: 1px
+.nav-link
+  padding: 2px 0
+  font-weight: 600
+  border: none
+  color: $gray-dark
+  text-transform: uppercase
+  letter-spacing: 1px
 
-    a.current, a:hover
-      color: $header-font-color
+  .active &, &:hover
+    color: $gray-dark
+    border-bottom: 1px solid $gray-dark
 
 @media #{$medium-up}
 

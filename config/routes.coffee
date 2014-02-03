@@ -17,12 +17,17 @@ module.exports = (app, passport) ->
 
   # Static pages
   app.get "/", auth.redirectLoggedIn, site.index
-  app.get "/app", auth.requiresLogin, site.app
-  app.get "/app*", auth.requiresLogin, site.app
+  #app.get "/app", auth.requiresLogin, site.app
+  #app.get "/app*", auth.requiresLogin, site.app
+
+  app.get "/info/general", auth.requiresLogin, site.general
+  app.get "/info/world", auth.requiresLogin, site.world
+  app.get "/info/timeline", auth.requiresLogin, site.timeline
+  app.get "/info/character", auth.requiresLogin, site.character
 
   # Sessions
   app.get '/login', auth.redirectLoggedIn, users.login
   app.get '/logout', users.logout
   app.post '/login', passport.authenticate('local',
-    successRedirect: '/app'
+    successRedirect: '/info/general'
     failureRedirect: '/login'), users.session

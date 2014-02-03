@@ -10,7 +10,7 @@ exports.requiresLogin = (req, res, next) ->
 
 exports.redirectLoggedIn = (req, res, next) ->
   return next() unless req.user
-  res.redirect "/app"
+  res.redirect "/app/info"
 
 exports.user =
   canRead: (req, res, next) -> next()
