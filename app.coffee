@@ -6,8 +6,10 @@ express = require("express")
 routes = require("./routes")
 user = require("./routes/user")
 http = require("http")
+https = require("https")
 path = require("path")
 app = express()
+fs = require("fs")
 
 # all environments
 app.set "port", process.env.PORT or 3000
@@ -30,6 +32,16 @@ app.use express.errorHandler()  if "development" is app.get("env")
 app.get "/javascripts/*", serveAsset
 app.get "/stylesheets/*", serveAsset
 app.get "/", routes.index
-  
-http.createServer(app).listen app.get("port"), ->
-  console.log "Express server listening on port " + app.get("port")
+
+if app.get("env") is "production"
+  options =
+    key: fs.readFileSync('/etc/haproxy/certs/cyberia2020-key.pem')
+    cert: fs.readFileSync('/etc/haproxy/certs/cyberia2020-cert.pem')
+    ca: fs.readFileSync('/etc/haproxy/certs/cyberia2020-intermediate.pem')
+
+  https.createServer(options, app).listen app.get("port"), ->
+    console.log "Express server listening on port " + app.get("port")
+
+else
+  http.createServer(app).listen app.get("port"), ->
+    console.log "Express server listening on port " + app.get("port")
