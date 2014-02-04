@@ -33,15 +33,14 @@ app.get "/javascripts/*", serveAsset
 app.get "/stylesheets/*", serveAsset
 app.get "/", routes.index
 
-if app.get("env") is "production"
-  options =
-    key: fs.readFileSync('/etc/haproxy/certs/cyberia2020-key.pem')
-    cert: fs.readFileSync('/etc/haproxy/certs/cyberia2020-cert.pem')
-    ca: fs.readFileSync('/etc/haproxy/certs/cyberia2020-intermediate.pem')
+###
+options =
+  key: fs.readFileSync('/etc/haproxy/certs/cyberia2020.key', "utf8")
+  cert: fs.readFileSync('/etc/haproxy/certs/cyberia2020.crt', "utf8")
+  ca: fs.readFileSync('/etc/haproxy/certs/cyberia2020-intermediate.pem', "utf8")
+###
 
-  https.createServer(options, app).listen app.get("port"), ->
-    console.log "Express server listening on port " + app.get("port")
-
-else
-  http.createServer(app).listen app.get("port"), ->
-    console.log "Express server listening on port " + app.get("port")
+httpServer = http.createServer(app).listen app.get("port"), ->
+  console.log "Express server listening on port " + app.get("port")
+#httpsServer = https.createServer(options, app).listen app.get("port"), ->
+#  console.log "Express http server listening on port " + app.get("port")
