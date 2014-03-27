@@ -19,9 +19,10 @@ ul.nav-list
     a.nav-link.show-hacking(rel="hacking")
       .link-icon.fa.fa-keyboard-o.fa-fw
       .link-title Hakkerointi
-  li
-    a.nav-link.show-admin(rel="admin")
-      .link-icon.fa.fa-gavel.fa-fw
-      .link-title Hallinnoi
+  if admin
+    li
+      a.nav-link.show-admin(rel="admin")
+        .link-icon.fa.fa-gavel.fa-fw
+        .link-title Hallinnoi
 
 footer.nav-footer Cyberia

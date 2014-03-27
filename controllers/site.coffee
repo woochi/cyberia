@@ -19,6 +19,11 @@ exports.app = (req, res) ->
       .exec callback
   , (err, result) ->
     res.render "app",
-      user: {_id: req.user._id, name: req.user.name, status: req.user.status}
+      user:
+        _id: req.user._id
+        name: req.user.name
+        status: req.user.status
+        admin: req.user.admin
+        group: req.user.group
       users: result.users
       posts: result.posts
