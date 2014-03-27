@@ -7,12 +7,13 @@ validatePresenceOf = (value) ->
   value && value.length
 
 UserSchema = new Schema
-  name: {type: String, default: "", unique: true, required: true}
-  hashed_password: {type: String, default: "", select: false, required: true}
-  salt: {type: String, default: "", select: false, required: true}
-  admin: {type: Boolean, default: false, required: true}
-  status: {type: String, default: "", required: true}
-  group: {type: String, default: "", required: true}
+  name: {type: String, required: true}
+  username: {type: String, unique: true, required: true}
+  hashed_password: {type: String, select: false, required: true}
+  salt: {type: String, select: false, required: true}
+  admin: {type: Boolean}
+  status: {type: String}
+  group: {type: String}
   online: {type: Boolean, default: false, required: true}
 
 UserSchema.virtual("password").set((password) ->
@@ -21,7 +22,7 @@ UserSchema.virtual("password").set((password) ->
   @hashed_password = @encryptPassword(password)
 ).get -> @_password
 
-UserSchema.path("name").validate (name) ->
+UserSchema.path("username").validate (name) ->
   validator.isAlphanumeric(name)
 , "Invalid name"
 

@@ -14,10 +14,11 @@ module.exports = (passport, config) ->
   
   # use local strategy
   passport.use new LocalStrategy(
-    usernameField: "name"
+    usernameField: "username"
     passwordField: "password"
-  , (name, password, done) ->
-    User.findOne name: name, "+hashed_password +salt", (err, user) ->
+  , (username, password, done) ->
+    User.findOne username: username, "+hashed_password +salt", (err, user) ->
+      console.log err, user
       return done(err) if err
       unless user
         return done(null, false, message: "Unknown user")
