@@ -28,15 +28,34 @@ module.exports = (grunt) ->
           "build/assets/javascripts/site.js": ["assets/javascripts/site.coffee"]
         options:
           transform: ["coffeeify", "simple-jadeify"]
-          alias: [
-            "assets/javascripts/libs/bacon.min.js:bacon"
-            "assets/javascripts/libs/d3.min.js:d3"
-            "assets/javascripts/libs/backbone-min.js:backbone"
-            "assets/javascripts/libs/backbone.io.js:backbone.io"
-            "assets/javascripts/libs/underscore-min.js:underscore"
-            "assets/javascripts/libs/backbone.marionette.min.js:marionette"
-            "assets/javascripts/libs/moment.min.js:moment"
-          ]
+          shim:
+            bacon:
+              path: "assets/javascripts/libs/bacon.min.js"
+              exports: "Bacon"
+            d3:
+              path: "assets/javascripts/libs/d3.min.js"
+              exports: "d3"
+            backbone:
+              path: "assets/javascripts/libs/backbone-min.js"
+              exports: "Backbone"
+            backboneio:
+              path: "assets/javascripts/libs/backbone.io.js"
+              exports: "Backbone.io"
+            "backbone.io":
+              path: "assets/javascripts/libs/backbone.io.js"
+              exports: "backboneio"
+            underscore:
+              path: "assets/javascripts/libs/underscore-min.js"
+              exports: "_"
+            marionette:
+              path: "assets/javascripts/libs/backbone.marionette.min.js"
+              exports: "Marionette"
+            moment:
+              path: "assets/javascripts/libs/moment.min.js"
+              exports: "moment"
+            pixi:
+              path: "assets/javascripts/libs/pixi.js"
+              exports: "PIXI"
     copy:
       build:
         files: [

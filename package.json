@@ -13,7 +13,7 @@
     "grunt-express-server": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-sass": "*",
-    "grunt-browserify": "*",
+    "grunt-browserify": "1.3.2",
     "coffeeify": "*"
   },
   "dependencies": {
@@ -32,7 +32,7 @@
     "connect-assets": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-sass": "*",
-    "grunt-browserify": "*",
+    "grunt-browserify": "1.3.2",
     "coffeeify": "*",
     "passport": "*",
     "passport-local": "*",
@@ -48,7 +48,6 @@
     "connect-csrf-cookie": "*",
     "simple-jadeify": "*",
     "backbone.io": "*",
-    "async": "*",
     "passport.socketio": "*",
     "redis": "*",
     "hiredis": "*",
