@@ -17,7 +17,7 @@
     "coffeeify": "*"
   },
   "dependencies": {
-    "express": "3.4.7",
+    "express": "3.5.0",
     "jade": "*",
     "stylus": "*",
     "coffee-script": "*",
@@ -52,6 +52,6 @@
     "passport.socketio": "*",
     "redis": "*",
     "hiredis": "*",
-    "connect-redis": "*"
+    "connect-redis": "1.4.7"
   }
 }
