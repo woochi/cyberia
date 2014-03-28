@@ -27,7 +27,7 @@ module.exports = (grunt) ->
           "build/assets/javascripts/app.js": ["assets/javascripts/app.coffee"]
           "build/assets/javascripts/site.js": ["assets/javascripts/site.coffee"]
         options:
-          transform: ["coffeeify", "simple-jadeify"]
+          transform: ["coffeeify", "jadeify"]
           shim:
             bacon:
               path: "assets/javascripts/libs/bacon.min.js"
