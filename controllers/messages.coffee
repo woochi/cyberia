@@ -16,10 +16,15 @@ exports.read = (req, res, next) ->
       return next(new Error("Must define 'from' and 'to' parameters."))
     if not req.options.to
       return next(new Error("Must define a 'to' parameter."))
-    userId = if req.user.admin then req.options.from else req.user._id
+    userId =
+      if req.user.admin and req.options.from
+      then req.options.from
+      else req.user._id
+    userId = userId + ""
+
     Message.find()
-      .where("from").in([userId, req.options.to])
-      .where("to").in([req.options.from, userId])
+      .where("from").in([userId, req.options.from, req.options.to])
+      .where("to").in([req.options.to, req.options.from, userId])
       .sort(sent: -1).limit(10)
       .populate("from to")
       .exec (err, messages) ->
@@ -33,7 +38,7 @@ exports.create = (req, res, next) ->
     from: req.user._id
     to: req.model.to._id
     text: req.model.text
-  console.log "SAVING MESSAGE TO:", req.receiver
+
   message.save (err, message) ->
     return next(err) if err
     Message.populate message, {path: "from to"}, (err, message) ->
