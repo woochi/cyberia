@@ -33,6 +33,7 @@ exports.create = (req, res, next) ->
     from: req.user._id
     to: req.model.to._id
     text: req.model.text
+  console.log "SAVING MESSAGE TO:", req.receiver
   message.save (err, message) ->
     return next(err) if err
     Message.populate message, {path: "from to"}, (err, message) ->

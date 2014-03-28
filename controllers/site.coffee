@@ -22,6 +22,7 @@ exports.app = (req, res) ->
       user:
         _id: req.user._id
         name: req.user.name
+        username: req.user.username
         status: req.user.status
         admin: req.user.admin
         group: req.user.group

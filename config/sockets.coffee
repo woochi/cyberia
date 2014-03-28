@@ -12,13 +12,21 @@ mongoose = require("mongoose")
 User = mongoose.model("User")
 
 module.exports = (server, passport, sessionStore, config) ->
-  UserMap = require("../middleware/user_map")(sessionStore.client)
 
   usersBackend = backboneio.createBackend()
   postsBackend = backboneio.createBackend()
   messagesBackend = backboneio.createBackend()
   articlesBackend = backboneio.createBackend()
   eventsBackend = backboneio.createBackend()
+
+  io = backboneio.listen server,
+    users: usersBackend
+    posts: postsBackend
+    messages: messagesBackend
+    articles: articlesBackend
+    events: eventsBackend
+
+  UserMap = require("../middleware/user_map")(server, io, sessionStore.client)
 
   # Users
   usersBackend.use UserMap.populate
@@ -41,6 +49,7 @@ module.exports = (server, passport, sessionStore, config) ->
   messagesBackend.use "read", auth.message.canRead
   messagesBackend.use "read", messages.read
   messagesBackend.use "create", auth.message.canCreate
+  messagesBackend.use "create", UserMap.mapReceiver
   messagesBackend.use "create", messages.create
 
   # Articles
@@ -55,13 +64,6 @@ module.exports = (server, passport, sessionStore, config) ->
   eventsBackend.use "create", auth.event.canCreate
   eventsBackend.use "create", events.create
 
-  io = backboneio.listen server,
-    users: usersBackend
-    posts: postsBackend
-    messages: messagesBackend
-    articles: articlesBackend
-    events: eventsBackend
-
   io.set "authorization", passportSocketIo.authorize(
     cookieParser: express.cookieParser
     key: config.sessionKey
@@ -71,15 +73,18 @@ module.exports = (server, passport, sessionStore, config) ->
 
   io.on "connection", (socket) ->
     if socket.handshake.user.logged_in
-      sessionStore.client.set socket.id, socket.handshake.user._id
-      User.findByIdAndUpdate socket.handshake.user._id,
+      userId = socket.handshake.user._id
+      sessionStore.client.set socket.id, userId
+      sessionStore.client.set userId, socket.id
+      User.findByIdAndUpdate userId,
         online: true
       , (err, user) ->
         usersBackend.emit "updated", {_id: user._id, online: true}
 
       socket.on "disconnect", ->
         sessionStore.client.del socket.id
-        User.findByIdAndUpdate socket.handshake.user._id,
+        sessionStore.client.del userId
+        User.findByIdAndUpdate userId,
           online: false
         , (err, user) ->
           usersBackend.emit "updated", {_id: user._id, online: false}

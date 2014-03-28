@@ -12,13 +12,12 @@ class MessageForm extends Marionette.ItemView
 
   sendMessage: (e) ->
     e.preventDefault()
-    message = new Message
+    @collection.create
       from: @model.get("from").toJSON()
       to: @model.get("to").toJSON()
       text: @ui.input.val()
-    message.save {},
+    ,
       success: (model) =>
-        @collection.add model
         @clearInput()
       error: (model, response) ->
         console.error "Error saving message: ", response.error.message

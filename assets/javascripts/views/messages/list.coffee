@@ -1,10 +1,13 @@
 Marionette = require("marionette")
+Message = require("../../models/message.coffee")
 
 class MessageList extends Marionette.CollectionView
   itemView: require("./item.coffee")
   emptyView: require("./empty.coffee")
   tagName: "ul"
   className: "message-list"
+  collectionEvents:
+    "backend:create": "onCreate"
 
   showEmptyView: ->
     EmptyView = @getEmptyView()
@@ -24,5 +27,10 @@ class MessageList extends Marionette.CollectionView
     wrapper = @$el.closest("#list-wrapper")
     padding = parseInt(@$el.css("padding-bottom"))
     wrapper.scrollTop(@el.scrollHeight + padding)
+
+  onCreate: (response) ->
+    if response.from._id is @collection.to.id
+      message = new Message(response)
+      @collection.add message
 
 module.exports = MessageList

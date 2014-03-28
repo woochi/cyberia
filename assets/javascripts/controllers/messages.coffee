@@ -17,7 +17,7 @@ class MessagesController
 
     layout = new ChatLayout()
     to = App.users.get(userId)
-    messages = new Messages()
+    messages = new Messages([], from: App.user, to: to)
     message = new Message(from: App.user, to: to)
     messageList = new MessageList(model: to, collection: messages)
 
