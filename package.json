@@ -6,24 +6,12 @@
     "start": "coffee app.coffee"
   },
   "engine": "node 0.10.26",
-  "devDependencies": {
-    "grunt-contrib-stylus": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-coffee": "*",
-    "grunt-express-server": "*",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-sass": "*",
-    "grunt-browserify": "1.3.2",
-    "coffeeify": "*"
-  },
   "dependencies": {
     "express": "3.5.0",
     "jade": "*",
     "stylus": "*",
     "coffee-script": "1.7.1",
     "grunt": "0.4.4",
-    "grunt-cli": "0.1.13",
     "matchdep": "*",
     "grunt-express-server": "*",
     "connect-assets": "*",
@@ -46,6 +34,15 @@
     "passport.socketio": "*",
     "redis": "*",
     "hiredis": "*",
-    "connect-redis": "1.4.7"
+    "connect-redis": "1.4.7",
+    "grunt-contrib-stylus": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-express-server": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-sass": "git://github.com/JanSauer/grunt-contrib-sass#f5d86a8",
+    "grunt-browserify": "1.3.2",
+    "coffeeify": "*"
   }
 }

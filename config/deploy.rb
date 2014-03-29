@@ -16,8 +16,11 @@ set :log_level, :debug
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+#set :default_env, { path: "/home/deploy/.rvm/gems/ruby-2.1.1/bin/:$PATH" }
 set :keep_releases, 3
+
+# Ruby
+set :rvm1_ruby_version, "2.1.1"
 
 # Node options
 set :node_binary, "/usr/bin/coffee"
@@ -26,13 +29,12 @@ set :upstart_job_name, "cyberia"
 
 before "deploy", "deploy:create_release_dir"
 before "deploy", "node:create_upstart_config"
-before "deploy:updated", "node:install_packages"
+before 'deploy', 'rvm1:install:gems'
+before "deploy:updated", "grunt"
 after "deploy:publishing", "node:restart"
 after "deploy:rollback", "node:restart"
 
 namespace :deploy do
-
-  before :updated, 'grunt'
 
   desc 'Restart application'
   task :restart do

@@ -1,8 +1,8 @@
 set :stage, :production
 
-set :rvm_type, :user
-set :rvm_ruby_version, '2.0.0-p353'
-set :rvm_custom_path, '/home/deploy/.rvm'
+#set :rvm_type, :user
+#set :rvm_ruby_version, '2.1.1p76'
+#set :rvm_custom_path, '/home/deploy/.rvm'
 
 # Simple Role Syntax
 # ==================

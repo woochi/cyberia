@@ -17,4 +17,3 @@ node_modules
 .sass-cache
 build
 videos
-config.coffee
