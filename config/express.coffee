@@ -65,13 +65,15 @@ module.exports = (app, config, passport, sessionStore) ->
     #app.use helpers(pkg.name)
     
     # adds CSRF support
-    app.use express.csrf()
-    app.use require('connect-csrf-cookie')()
+    #app.use express.csrf()
+    #app.use require('connect-csrf-cookie')()
 
     # This could be moved to view-helpers :-)
+    ###
     app.use (req, res, next) ->
       res.locals.csrf_token = req.csrfToken()
       next()
+    ###
     
     # routes should be at the last
     app.use app.router
