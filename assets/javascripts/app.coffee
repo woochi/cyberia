@@ -49,6 +49,9 @@ $ ->
     content: "#content"
     sidebar: "#sidebar"
     additional: "#additional"
-  App.socket = Backbone.io.connect()
+
+  origin = window.location.origin
+  options = if origin.indexOf("https") > -1 then secure: true else undefined
+  App.socket = Backbone.io.connect(window.location.origin, options)
   App.socket.on "connect", ->
     App.start()

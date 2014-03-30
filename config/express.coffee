@@ -51,6 +51,7 @@ module.exports = (app, config, passport, sessionStore) ->
     # express/mongo session storage
     app.use express.session
       secret: config.sessionSecret
+      store: sessionStore
     
     # connect flash for flash messages - should be declared after sessions
     app.use flash()

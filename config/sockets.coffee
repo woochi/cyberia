@@ -11,7 +11,7 @@ auth = require("../middleware/authorization")
 mongoose = require("mongoose")
 User = mongoose.model("User")
 
-module.exports = (server, passport, sessionStore, config) ->
+module.exports = (server, passport, sessionStore, socketStore, config) ->
 
   usersBackend = backboneio.createBackend()
   postsBackend = backboneio.createBackend()
@@ -66,7 +66,6 @@ module.exports = (server, passport, sessionStore, config) ->
 
   io.set "authorization", passportSocketIo.authorize(
     cookieParser: express.cookieParser
-    key: config.sessionKey
     secret: config.sessionSecret
     store: sessionStore
   )
@@ -74,16 +73,16 @@ module.exports = (server, passport, sessionStore, config) ->
   io.on "connection", (socket) ->
     if socket.handshake.user.logged_in
       userId = socket.handshake.user._id
-      sessionStore.client.set socket.id, userId
-      sessionStore.client.set userId, socket.id
+      socketStore.client.set socket.id, userId
+      socketStore.client.set userId, socket.id
       User.findByIdAndUpdate userId,
         online: true
       , (err, user) ->
         usersBackend.emit "updated", {_id: user._id, online: true}
 
       socket.on "disconnect", ->
-        sessionStore.client.del socket.id
-        sessionStore.client.del userId
+        socketStore.client.del socket.id
+        socketStore.client.del userId
         User.findByIdAndUpdate userId,
           online: false
         , (err, user) ->

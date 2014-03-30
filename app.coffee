@@ -4,6 +4,7 @@ Module dependencies.
 ###
 
 express = require("express")
+MongoStore = require('connect-mongo')(express)
 http = require("http")
 fs = require('fs')
 path = require("path")
@@ -41,15 +42,17 @@ fs.readdirSync(models_path).forEach (file) ->
 
 RedisStore = require("connect-redis")(express)
 redisClient = redis.createClient()
-sessionStore = new RedisStore
+socketStore = new RedisStore
   client: redisClient
   host: "localhost"
+sessionStore = new MongoStore
+  db: "cyberia"
 
 # Configuration
 require('./config/passport')(passport, config)
 require('./config/express')(app, config, passport, sessionStore)
 require('./config/routes')(app, passport)
-require('./config/sockets')(server, passport, sessionStore, config)
+require('./config/sockets')(server, passport, sessionStore, socketStore, config)
 
 port = process.env.PORT || config.port
 app.set "port", port
