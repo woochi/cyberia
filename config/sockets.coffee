@@ -26,7 +26,7 @@ module.exports = (server, passport, sessionStore, socketStore, config) ->
     articles: articlesBackend
     events: eventsBackend
 
-  UserMap = require("../middleware/user_map")(server, io, sessionStore.client)
+  UserMap = require("../middleware/user_map")(server, io, socketStore.client)
 
   # Users
   usersBackend.use UserMap.populate
