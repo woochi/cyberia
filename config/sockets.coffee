@@ -11,7 +11,7 @@ auth = require("../middleware/authorization")
 mongoose = require("mongoose")
 User = mongoose.model("User")
 
-module.exports = (server, passport, sessionStore, socketStore, config) ->
+module.exports = (server, passport, sessionStore, redisClient, config) ->
 
   usersBackend = backboneio.createBackend()
   postsBackend = backboneio.createBackend()
@@ -26,7 +26,7 @@ module.exports = (server, passport, sessionStore, socketStore, config) ->
     articles: articlesBackend
     events: eventsBackend
 
-  UserMap = require("../middleware/user_map")(server, io, socketStore.client)
+  UserMap = require("../middleware/user_map")(server, io, redisClient)
 
   # Users
   usersBackend.use UserMap.populate
@@ -49,7 +49,7 @@ module.exports = (server, passport, sessionStore, socketStore, config) ->
   messagesBackend.use "read", auth.message.canRead
   messagesBackend.use "read", messages.read
   messagesBackend.use "create", auth.message.canCreate
-  messagesBackend.use "create", UserMap.mapReceiver
+  #messagesBackend.use "create", UserMap.mapReceiver
   messagesBackend.use "create", messages.create
 
   # Articles
@@ -73,16 +73,16 @@ module.exports = (server, passport, sessionStore, socketStore, config) ->
   io.on "connection", (socket) ->
     if socket.handshake.user.logged_in
       userId = socket.handshake.user._id
-      socketStore.client.set socket.id, userId
-      socketStore.client.set userId, socket.id
+      redisClient.set socket.id, userId
+      redisClient.set userId, socket.id
       User.findByIdAndUpdate userId,
         online: true
       , (err, user) ->
         usersBackend.emit "updated", {_id: user._id, online: true}
 
       socket.on "disconnect", ->
-        socketStore.client.del socket.id
-        socketStore.client.del userId
+        redisClient.del socket.id
+        redisClient.del userId
         User.findByIdAndUpdate userId,
           online: false
         , (err, user) ->

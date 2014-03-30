@@ -40,11 +40,8 @@ models_path = __dirname + "/models"
 fs.readdirSync(models_path).forEach (file) ->
   require(models_path + "/" + file)  if ~file.indexOf(".coffee")
 
-RedisStore = require("connect-redis")(express)
+redis = require("redis")
 redisClient = redis.createClient()
-socketStore = new RedisStore
-  client: redisClient
-  host: "localhost"
 sessionStore = new MongoStore
   db: "cyberia"
 
@@ -52,7 +49,7 @@ sessionStore = new MongoStore
 require('./config/passport')(passport, config)
 require('./config/express')(app, config, passport, sessionStore)
 require('./config/routes')(app, passport)
-require('./config/sockets')(server, passport, sessionStore, socketStore, config)
+require('./config/sockets')(server, passport, sessionStore, redisClient, config)
 
 port = process.env.PORT || config.port
 app.set "port", port

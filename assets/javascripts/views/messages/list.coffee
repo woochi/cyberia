@@ -29,7 +29,7 @@ class MessageList extends Marionette.CollectionView
     wrapper.scrollTop(@el.scrollHeight + padding)
 
   onCreate: (response) ->
-    if response.from._id is @collection.to.id
+    if response.from._id is @collection.to.id and response.to._id is App.user.id
       message = new Message(response)
       @collection.add message
 
