@@ -6,9 +6,23 @@ body
   height: 100%
   overflow-x: hidden
   overflow-y: auto
+  position: absolute
+  z-index: 10
+  width: 100%
+  background: $black
 
   > .row
     height: 100%
+
+  .menu-visible &
+    left: $sidebar-width
+
+  .user-menu-visible &
+    right: $additional-width
+
+#content
+  height: 100%
+  padding-top: rhythm(2)
 
 %section
   padding-top: rhythm(1)
@@ -22,8 +36,12 @@ body
     +animation(fade-in 0.4s)
     padding-top: rhythm(2)
 
+  #content-wrapper
+    position: static
+    width: auto
+
   #content
-    height: 100%
+    padding-top: 0
 
   #inner
     +animation(fade-in-right 0.2s)

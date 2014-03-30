@@ -14,8 +14,8 @@
   bottom: 0
 
 #message-form
-  padding: rhythm(1) 0
-  +leading-border(1px, 1)
+  padding: rhythm(0.5) 0
+  +leading-border(1px, 0.5)
   border-color: $gray-darker
   background-color: $body-background-color
 
@@ -35,7 +35,6 @@
 
 .message-list
   @extend .block-list
-  padding-top: rhythm(1)
   padding-bottom: rhythm(4)
 
 .message
@@ -77,8 +76,13 @@
 
 @media #{$medium-up}
 
+  #message-form
+    padding: rhythm(1) 0
+    +leading-border(1px, 1)
+
   #send-button
     display: block
 
   .message-list
     margin: 0
+    padding-top: rhythm(1)

@@ -12,6 +12,7 @@ User = require("./models/user.coffee")
 Users = require("./collections/users.coffee")
 Posts = require("./collections/posts.coffee")
 Navigation = require("./views/sidebar/navigation.coffee")
+NavigationMobile = require("./views/sidebar/navigation_mobile.coffee")
 
 $ ->
   window.App = new Marionette.Application()
@@ -49,7 +50,7 @@ $ ->
     content: "#content"
     sidebar: "#sidebar"
     additional: "#additional"
-
+  new NavigationMobile(el: $("#mobile-nav"))
   origin = window.location.origin
   options = if origin.indexOf("https") > -1 then secure: true else undefined
   App.socket = Backbone.io.connect(window.location.origin, options)

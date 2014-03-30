@@ -1,14 +1,16 @@
 $nav-separator-color: #2A2A2A
 
-$sidebar-width: rhythm(7)
-$additional-width: rhythm(8)
-$sidebar-background: #1b1a1b
-
-#sidebar
+%sidebar
   display: none
   float: left
   position: relative
   height: 100%
+
+#sidebar
+  @extend %sidebar
+
+  .menu-visible &
+    display: block
 
 #nav
   width: $sidebar-width
@@ -17,8 +19,11 @@ $sidebar-background: #1b1a1b
   border-right: 1px solid lighten($sidebar-background, 3%)
 
 #additional
-  @extend #sidebar
+  @extend %sidebar
   float: right
+
+  .user-menu-visible &
+    display: block
 
 .nav-header
   padding: rhythm(1)
@@ -95,7 +100,31 @@ $sidebar-background: #1b1a1b
 #logout-button
   width: 100%
 
+#mobile-nav
+  border-bottom: 1px solid $gray-dark
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  z-index: $zindex-nav
+  background: $black
+
+%menu-toggle
+  padding: rhythm(0.5)
+  border: none !important
+
+.toggle-menu
+  @extend %menu-toggle
+  float: left
+
+.toggle-user-menu
+  @extend %menu-toggle
+  float: right
+
 @media #{$medium-up}
 
-  #sidebar
+  #mobile-nav
+    display: none
+
+  #sidebar, #additional
     display: block
