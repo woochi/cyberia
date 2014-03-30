@@ -43,7 +43,8 @@ module.exports = (app, config, passport, sessionStore) ->
     app.use express.cookieParser()
     
     # bodyParser should be above methodOverride
-    app.use express.bodyParser()
+    app.use express.json()
+    app.use express.urlencoded()
     app.use express.methodOverride()
     app.use express.errorHandler() if env is "development"
     
