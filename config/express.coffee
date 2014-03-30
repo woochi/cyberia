@@ -49,15 +49,8 @@ module.exports = (app, config, passport, sessionStore) ->
     app.use express.errorHandler() if env is "development"
     
     # express/mongo session storage
-    app.use express.session(
-      key: config.sessionKey
+    app.use express.session
       secret: config.sessionSecret
-      store: sessionStore
-    )
-    
-    # use passport session
-    app.use passport.initialize()
-    app.use passport.session()
     
     # connect flash for flash messages - should be declared after sessions
     app.use flash()
@@ -75,7 +68,11 @@ module.exports = (app, config, passport, sessionStore) ->
       res.locals.csrf_token = req.csrfToken()
       next()
     ###
-    
+
+    # use passport session
+    app.use passport.initialize()
+    app.use passport.session()
+
     # routes should be at the last
     app.use app.router
     

@@ -18,7 +18,6 @@ module.exports = (passport, config) ->
     passwordField: "password"
   , (username, password, done) ->
     User.findOne username: username, "+hashed_password +salt", (err, user) ->
-      console.log err, user
       return done(err) if err
       unless user
         return done(null, false, message: "Unknown user")

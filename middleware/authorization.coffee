@@ -5,7 +5,6 @@ ObjectId = mongoose.Types.ObjectId
 
 exports.requiresLogin = (req, res, next) ->
   return next() if req.isAuthenticated()
-  req.session.returnTo = req.originalUrl if req.method is "GET"
   res.redirect "/login"
 
 exports.redirectLoggedIn = (req, res, next) ->

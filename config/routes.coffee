@@ -25,4 +25,4 @@ module.exports = (app, passport) ->
   app.get '/logout', users.logout
   app.post '/login', passport.authenticate('local',
     successRedirect: '/app'
-    failureRedirect: '/login'), users.session
+    failureRedirect: '/login')
