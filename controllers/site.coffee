@@ -12,11 +12,12 @@ exports.timeline = (req, res) ->
 exports.app = (req, res) ->
   async.parallel
     users: (callback) -> User.find {_id: {$ne: req.user._id}}, callback
-    posts: (callback) -> Post.find({})
-      .sort(sent: -1)
-      .limit(10)
-      .populate("author")
-      .exec callback
+    posts: (callback) ->
+      Post.find({})
+        .sort(sent: -1)
+        .limit(10)
+        .populate("author")
+        .exec callback
   , (err, result) ->
     res.render "app",
       user:
