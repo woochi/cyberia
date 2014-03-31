@@ -5,9 +5,10 @@ class Messages extends Backbone.Collection
   backend: "messages"
 
   initialize: (models, opts) ->
-    @from = opts.from
-    @to = opts.to
-    names = [@from.get("username"), @to.get("username")]
-    @backend.channel = names.sort().join "/"
+    if opts and opts.from and opts.to
+      @from = opts.from
+      @to = opts.to
+      names = [@from.get("username"), @to.get("username")]
+      @backend.channel = names.sort().join "/"
 
 module.exports = Messages

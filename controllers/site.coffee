@@ -1,7 +1,9 @@
 async = require("async")
 mongoose = require("mongoose")
+ObjectId = mongoose.Types.ObjectId
 User = mongoose.model("User")
 Post = mongoose.model("Post")
+Message = mongoose.model("Message")
 
 exports.index = (req, res) ->
   res.render "index"
@@ -18,6 +20,15 @@ exports.app = (req, res) ->
         .limit(10)
         .populate("author")
         .exec callback
+    messages: (callback) ->
+      opts =
+        query:
+          to: req.user._id
+          unread: true
+        map: -> emit(@from, 1)
+        reduce: (key, vals) -> vals.length
+        limit: 50
+      Message.mapReduce opts, callback
   , (err, result) ->
     res.render "app",
       user:
@@ -29,3 +40,4 @@ exports.app = (req, res) ->
         group: req.user.group
       users: result.users
       posts: result.posts
+      unreads: result.messages[0]

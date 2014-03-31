@@ -44,3 +44,12 @@ exports.create = (req, res, next) ->
     Message.populate message, {path: "from to"}, (err, message) ->
       return next(err) if err
       res.end message
+
+exports.update = (req, res, next) ->
+  console.log "UPDATE", req.model
+  Message.findByIdAndUpdate req.model._id,
+    unread: req.model.unread
+  , (err, message) ->
+    console.log "UPDATED", err, message
+    return next(err) if err
+    res.end message

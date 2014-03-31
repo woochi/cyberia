@@ -8,6 +8,7 @@ class MessageList extends Marionette.CollectionView
   className: "message-list"
   collectionEvents:
     "backend:create": "onCreate"
+    "add": "onAdd"
 
   showEmptyView: ->
     EmptyView = @getEmptyView()
@@ -32,5 +33,14 @@ class MessageList extends Marionette.CollectionView
     if response.from._id is @collection.to.id and response.to._id is App.user.id
       message = new Message(response)
       @collection.add message
+
+  onAdd: (message) ->
+    message.set unread: false
+    if message.hasChanged "unread"
+      message.save {},
+        success: ->
+          unread = App.unreads.get message.get("from")
+          unread.set "value", unread.get("value") - 1
+        error: -> console.error "ERROR", err
 
 module.exports = MessageList

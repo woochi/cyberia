@@ -54,6 +54,7 @@ module.exports = (server, passport, sessionStore, redisClient, config) ->
   messagesBackend.use "create", auth.message.canCreate
   #messagesBackend.use "create", UserMap.mapReceiver
   messagesBackend.use "create", messages.create
+  messagesBackend.use "update", messages.update
 
   # Articles
   articlesBackend.use UserMap.populate

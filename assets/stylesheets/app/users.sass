@@ -26,6 +26,7 @@
   @extend .block-list
 
 .user
+  position: relative
 
   a
     $font-size: 14px
@@ -38,6 +39,9 @@
   a:hover, &.current a
     +box-shadow(-1px 0 0 #101010)
     background: #101010
+
+  &.unread
+    +animation(pulse 0.8s 2)
 
 .detailed-user
   +clearfix()
@@ -53,3 +57,23 @@
 
 .user-description
   margin: 0
+
+.unread-count
+  display: none
+  position: absolute
+  right: rhythm(1)
+  top: rhythm(0.5)
+  padding: 0 rhythm(0.25)
+  background: $gray-darker
+  color: $gray-dark !important
+
+  .unread &
+    display: block
+
+.status-icon
+
+  .unread &
+    color: $orange !important
+
+  .online &
+    color: $green !important

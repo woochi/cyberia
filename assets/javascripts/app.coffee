@@ -11,6 +11,8 @@ AdminRouter = require("./routers/admin.coffee")
 User = require("./models/user.coffee")
 Users = require("./collections/users.coffee")
 Posts = require("./collections/posts.coffee")
+Messages = require("./collections/messages.coffee")
+Unreads = require("./collections/unreads.coffee")
 Navigation = require("./views/sidebar/navigation.coffee")
 NavigationMobile = require("./views/sidebar/navigation_mobile.coffee")
 
@@ -20,16 +22,20 @@ $ ->
     @user = new User(window.user)
     @users = new Users(window.users)
     @posts = new Posts(window.posts.reverse())
+    @messages = new Messages(window.messages)
+    console.log window.unreads
+    @unreads = new Unreads(window.unreads, messages: @messages)
     delete window.user
     delete window.users
     delete window.posts
+    delete window.unreads
     $("#bootstrap").remove()
   App.addInitializer (options) ->
     User = require("./models/user.coffee")
     Users = require("./collections/users.coffee")
     UserList = require("./views/users/list.coffee")
     @sidebar.show new Navigation(model: @user)
-    @additional.show new UserList(collection: @users)
+    @additional.show new UserList(collection: @users, unreads: @unreads)
   App.addInitializer (options) ->
     @appRouter = new AppRouter()
     @postsRouter = new PostsRouter()

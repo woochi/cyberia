@@ -6,11 +6,20 @@ class UserList extends Marionette.CompositeView
   itemView: require("./item.coffee")
   id: "users"
 
+  initialize: (opts) ->
+    @listenTo opts.unreads, "change:value", @setUnread
+
   toggleCurrent: (model) ->
     @clearCurrent()
     @children.findByModel(model).$el.addClass "current"
 
   clearCurrent: ->
     @$(".user.current").removeClass "current"
+
+  setUnread: (unread) ->
+    @children.findByModel(App.users.get(unread.id)).setUnread unread
+
+  onRender: ->
+    App.unreads.each @setUnread.bind(@)
 
 module.exports = UserList
