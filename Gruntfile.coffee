@@ -29,6 +29,9 @@ module.exports = (grunt) ->
         options:
           transform: ["coffeeify", "jadeify"]
           shim:
+            sudoku:
+              path: "assets/javascripts/libs/sudoku.js"
+              exports: "Sudoku"
             bacon:
               path: "assets/javascripts/libs/bacon.min.js"
               exports: "Bacon"
