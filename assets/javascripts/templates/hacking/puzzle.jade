@@ -9,7 +9,9 @@
         - for (var row = 0; row < 9; row++) {
           tr
             - for (var col = 0; col < 9; col++)
-              td.puzzle-cell(data-row=row, data-col=col)
+              td.puzzle-cell.empty(data-row=row, data-col=col)
+                a.clear-cell <i class="fa fa-times"></i>
+                span.value
         - }
     ul.inline-list
       li

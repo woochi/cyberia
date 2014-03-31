@@ -10,13 +10,13 @@ class Puzzle extends Marionette.ItemView
     "click .show-success": "onSuccess"
     "click .show-failure": "onFailure"
     "click .puzzle-cell": "showPicker"
+    "click .clear-cell": "clearCell"
 
   initialize: ->
     Sudoku = require("sudoku")
     @puzzle = new Sudoku()
-    @puzzle.level = @model.get("difficulty")
+    @puzzle.level = 0 #@model.get("difficulty")
     @puzzle.newGame()
-    # @puzzle.checkVal, @puzzle.setVal
 
   onRender: ->
     puzzle = @puzzle
@@ -24,16 +24,7 @@ class Puzzle extends Marionette.ItemView
       $(el).find("td").each (col, el) ->
         value = puzzle.getVal(row, col)
         unless value is 0
-          $(el).addClass("disabled").text value
-
-  timeLimit: ->
-    limit = switch @model.get("difficulty")
-      when 1 then 3
-      when 2 then 5
-      when 3 then 10
-      when 4 then 0
-
-    limit * 60 * 1000 # Minutes
+          $(el).addClass("disabled").find(".value").text value
 
   showPicker: (e) ->
     el = $(e.target)
@@ -55,7 +46,16 @@ class Puzzle extends Marionette.ItemView
       col = parent.data("col")
       value = el.data("cell")
       @puzzle.setVal row, col, value
-      parent.text value
+      parent.removeClass("empty").find(".value").text value
+      @onSuccess() if @puzzle.gameFinished()
+
+  clearCell: (e) ->
+    e.stopImmediatePropagation()
+    el = $(e.target).closest(".puzzle-cell")
+    row = el.data("row")
+    col = el.data("col")
+    @puzzle.setVal row, col, 0
+    el.addClass("empty").find(".value").text ""
 
   onSuccess: ->
     App.hackingRouter.controller.reward @model

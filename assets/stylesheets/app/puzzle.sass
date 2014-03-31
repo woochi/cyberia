@@ -93,3 +93,21 @@ tr:last-child .puzzle-cell
 
     &.disabled
       @extend %disabled-cell
+
+.clear-cell
+  +adjust-font-size-to(12px, 0.75)
+  display: none
+  position: absolute
+  top: 0
+  right: 0
+  width: rhythm(0.75)
+  background: $green-light
+  color: $black
+  text-align: center
+
+  &:hover
+    background: $green
+    color: $black
+
+  .puzzle-cell:not(.empty):hover &
+    display: block

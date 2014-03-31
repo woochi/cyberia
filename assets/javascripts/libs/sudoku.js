@@ -1110,7 +1110,7 @@ function Sudoku() {
 			this.matrix = mask;
 
 			timeDiff.start();
-			this.done();
+			//this.done();
 		}
 		else
 		{
