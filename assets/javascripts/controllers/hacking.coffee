@@ -1,8 +1,8 @@
 class HackingController
 
   index: ->
-    HackingTools = require("../views/hacking/tools.coffee")
-    App.content.show new HackingTools()
+    KeyForm = require("../views/hacking/form.coffee")
+    App.content.show new KeyForm()
     App.appRouter.navigate "hacking"
 
   level: ->
@@ -30,11 +30,24 @@ class HackingController
     layout.search.show new Search()
     layout.results.show new Results()
     App.appRouter.navigate "hacking/search"
-    
+
   block: ->
     App.appRouter.navigate "hacking/block"
 
   code: ->
     App.appRouter.navigate "hacking/code"
+
+  puzzle: (code) ->
+    Puzzle = require("../views/hacking/puzzle.coffee")
+    App.content.show new Puzzle(model: code)
+    App.appRouter.navigate "hacking/puzzle/#{code.key}"
+
+  reward: (code) ->
+    Reward = require("./reward.coffee")
+    App.content.show new Reward(model: @model)
+
+  penalty: (code) ->
+    Penalty = require("./penalty.coffee")
+    App.content.show new Penalty(model: @model)
 
 module.exports = HackingController
