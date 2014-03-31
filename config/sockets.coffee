@@ -6,6 +6,7 @@ users = require("../controllers/users")
 posts = require("../controllers/posts")
 articles = require("../controllers/articles")
 events = require("../controllers/events")
+codes = require("../controllers/codes")
 auth = require("../middleware/authorization")
 
 mongoose = require("mongoose")
@@ -18,6 +19,7 @@ module.exports = (server, passport, sessionStore, redisClient, config) ->
   messagesBackend = backboneio.createBackend()
   articlesBackend = backboneio.createBackend()
   eventsBackend = backboneio.createBackend()
+  codesBackend = backboneio.createBackend()
 
   io = backboneio.listen server,
     users: usersBackend
@@ -25,6 +27,7 @@ module.exports = (server, passport, sessionStore, redisClient, config) ->
     messages: messagesBackend
     articles: articlesBackend
     events: eventsBackend
+    codes: codesBackend
 
   UserMap = require("../middleware/user_map")(server, io, redisClient)
 
@@ -63,6 +66,10 @@ module.exports = (server, passport, sessionStore, redisClient, config) ->
   eventsBackend.use "read", events.read
   eventsBackend.use "create", auth.event.canCreate
   eventsBackend.use "create", events.create
+
+  # Events
+  eventsBackend.use UserMap.populate
+  eventsBackend.use "read", codes.read
 
   io.set "authorization", passportSocketIo.authorize(
     cookieParser: express.cookieParser

@@ -1,9 +1,7 @@
+Backbone = require("backbone")
+
 class Code extends Backbone.Model
   backend: "codes"
-  idAttribute: "_id"
-  defaults:
-    key: "x"
-    difficulty: "easy"
-    value: "x"
+  idAttribute: "key"
 
 module.exports = Code
