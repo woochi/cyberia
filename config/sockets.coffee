@@ -68,8 +68,8 @@ module.exports = (server, passport, sessionStore, redisClient, config) ->
   eventsBackend.use "create", events.create
 
   # Events
-  eventsBackend.use UserMap.populate
-  eventsBackend.use "read", codes.read
+  codesBackend.use UserMap.populate
+  codesBackend.use "read", codes.read
 
   io.set "authorization", passportSocketIo.authorize(
     cookieParser: express.cookieParser
