@@ -2,10 +2,13 @@ Marionette = require("marionette")
 ValuePicker = require("./value_picker.coffee")
 
 class Puzzle extends Marionette.ItemView
+  @CLOCK_INTERVAL: 1000
   template: require("../../templates/hacking/puzzle.jade")
   id: "puzzle"
   ui:
     table: ".puzzle-table"
+    clockValue: ".clock-value"
+    disconnect: ".disconnect"
   events:
     "click .show-success": "onSuccess"
     "click .show-failure": "onFailure"
@@ -15,8 +18,32 @@ class Puzzle extends Marionette.ItemView
   initialize: ->
     Sudoku = require("sudoku")
     @puzzle = new Sudoku()
-    @puzzle.level = 0 #@model.get("difficulty")
+    @puzzle.level = @model.get("difficulty")
     @puzzle.newGame()
+    @startTime = localStorage.getItem "cb-#{@model.id}"
+    if not @startTime
+      @startTime = new Date().getTime()
+      localStorage.setItem "cb-#{@model.id}", @startTime
+    @endTime = parseInt(@startTime) + @model.timeLimit()
+    @onFailure() if @endTime - new Date().getTime() < 0
+    @clock = @startClock()
+
+  startClock: ->
+    setInterval @updateClock, Puzzle.CLOCK_INTERVAL
+
+  updateClock: =>
+    if @endTime - new Date().getTime() < 0
+      clearInterval @clock
+      @onFailure()
+    @ui.clockValue.text @formatRemainingTime()
+
+  formatRemainingTime: ->
+    remaining = @endTime - new Date().getTime()
+    Math.floor(remaining / 1000) + "s"
+
+  serializeData: ->
+    admin: App.user.isAdmin()
+    time: @formatRemainingTime()
 
   onRender: ->
     puzzle = @puzzle

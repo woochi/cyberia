@@ -5,7 +5,7 @@ class Code extends Backbone.Model
   idAttribute: "key"
 
   timeLimit: ->
-    limit = switch @model.get("difficulty")
+    limit = switch @get("difficulty")
       when 1 then 3
       when 2 then 5
       when 3 then 10

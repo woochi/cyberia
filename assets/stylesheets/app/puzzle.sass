@@ -111,3 +111,16 @@ tr:last-child .puzzle-cell
 
   .puzzle-cell:not(.empty):hover &
     display: block
+
+.puzzle-clock
+  @extend %default-margin
+
+.clock-value
+  @extend %uppercase
+  @extend .green
+  +adjust-font-size-to($h2-font-size)
+
+@media #{$medium-up}
+
+  .puzzle-clock
+    text-align: right

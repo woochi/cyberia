@@ -1,9 +1,19 @@
 .row
   .column.medium-10.medium-centered
-    pre.puzzle-instructions
-      | > Yhdistetään palvelimeen ...
-      | > Matriisipalomuuri havaittu
-      | > Visualisoidaan ...
+    .row
+      .column.medium-5
+        pre.puzzle-instructions
+          | > Yhdistetään palvelimeen ...
+          | > Matriisipalomuuri havaittu
+          | > Visualisoidaan ...
+      .column.medium-5
+        .puzzle-clock
+          | Salattua proxy-yhteyttä jäljellä
+          .clock-value= time
+          a.button-alt.disconnect Katkaise yhteys
+.row
+  .column.medium-10.medium-centered
+    hr
     table.puzzle-table
       tbody
         - for (var row = 0; row < 9; row++) {
@@ -13,8 +23,12 @@
                 a.clear-cell <i class="fa fa-times"></i>
                 span.value
         - }
-    ul.inline-list
-      li
-        button.button.show-success Onnistuminen
-      li
-        button.button.show-failure Epäonnistuminen
+    if admin
+      hr
+      ul.inline-list
+        li
+          | Admin debug:
+        li
+          button.button.show-success Onnistuminen
+        li
+          button.button.show-failure Epäonnistuminen
