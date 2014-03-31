@@ -99,10 +99,10 @@ q
   border-bottom: 1px solid $body-font-color
 
 .green
-  color: $green-light
+  color: $green-light !important
 
 .red
-  color: $red
+  color: $red !important
 
 .uppercase
   @extend %uppercase
@@ -155,6 +155,12 @@ ul, ol, dl
   li
     float: left
     margin-right: rhythm(1)
+
+// Tables
+//-------------------------------------
+
+table
+  @extend %default-margin
 
 // Rules
 

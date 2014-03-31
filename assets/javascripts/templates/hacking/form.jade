@@ -1,6 +1,13 @@
-fieldset
-  ul
-    li
-      input(name="key", type="text", placeholder="Proxy-koodi")
-    li
-      button.ok-button(type="submit") Yhdistä
+.row
+  .column.medium-7.medium-centered
+    form#key-form.inline
+      h6.profile-title Yhdistä proxy-välipalvelimeen
+      p
+        | Anna proxy-palvelimen tunniste ottaaksesi yhteyden siihen.
+        | Välipalvelimelta lähtevät yhteydet ovat anonyymejä ja salattuja.
+      fieldset
+        ul
+          li
+            input(name="key", type="text", placeholder="Proxy-palvelintunniste")
+          li
+            button.ok-button(type="submit") Yhdistä

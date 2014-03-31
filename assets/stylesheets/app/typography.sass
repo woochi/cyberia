@@ -4,3 +4,10 @@
 .header-title
   @extend %uppercase
   margin: 0
+
+.super-title
+  @extend %uppercase
+  +trailing-border(1px, 1, $h6-font-size)
+  margin: 0 0 rhythm(1, $h6-font-size)
+  color: $green-light
+  border-color: $gray-dark

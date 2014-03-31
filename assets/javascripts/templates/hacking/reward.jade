@@ -1,1 +1,18 @@
-h1 Onnistuit: <span class="green">#{value}</span>
+.row
+  .column.medium-8.medium-centered
+    h6.profile-title Digitaalinen operaatioraportti
+    h2 Datalouhinta suoritettu onnistuneesti
+    pre.green
+      | > Kirjaudutaan sisään ...
+      | > Ei havaittuja ylläpitotoimia ...
+      | > Ei havaittuja seurantaohjelmia ...
+      | > Louhitaan dataa ...
+      | > Pyyhitään palvelinlokit ...
+      | > Kirjaudutaan ulos ...
+    p
+      | Olet onnistunut keräämään palvelimelta dataa
+      | koskien haluamiasi kohteita. Data on lähetetty sekundaarisen 
+      | proxy-palvelimen kautta edelleen Cyberiassa sijaitsevaan 
+      | mustaan laatikkoon jäljittämisen vaikeuttamiseksi.
+      | Voit noutaa datan mustasta laatikosta, joka on varustettu tunnuksella:
+    h3.green=value

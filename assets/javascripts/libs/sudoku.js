@@ -901,13 +901,14 @@ function Sudoku() {
 			tried[cell] = 0;
 			hints--;
 			var t = this;
-			setTimeout(function(){t._doHints(matrix, mask, tried, hints);}, 50);
+			t._doHints(matrix, mask, tried, hints);
+			//setTimeout(function(){t._doHints(matrix, mask, tried, hints);}, 50);
 		}
 		else
 		{
 			this.save = this.matrix;
 			this.matrix = mask;
-			this.done();
+			// this.done();
 		}
 
 		//console.log(hints);
@@ -1081,7 +1082,8 @@ function Sudoku() {
 		while(n < 81);
 
 		var t = this;
-		setTimeout(function(){t._doHints(matrix, mask, tried, hints);}, 50);
+		t._doHints(matrix, mask, tried, hints);
+		//setTimeout(function(){t._doHints(matrix, mask, tried, hints);}, 50);
 	}
 
 	this.newGame = function() {
@@ -1132,6 +1134,7 @@ function Sudoku() {
 				}
 			}
 		}
+		console.log(this.matrix, mask);
 	}
 
 	// this method solves the current game by restoring the solved matrix.

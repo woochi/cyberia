@@ -1,13 +1,18 @@
-ul.inline-list
-  li
-    button.button.show-success Onnistuminen
-  li
-    button.button.show-failure Epäonnistuminen
-
-table.puzzle-table
-  tbody
-    - for (var row = 0; row < 9; row++) {
-      tr.darkTableRow
-        - for (var col = 0; col < 9; col++) 
-          td.vcTextValue= row * 9 + col
-    - }
+.row
+  .column.medium-10.medium-centered
+    pre.puzzle-instructions
+      | > Yhdistetään palvelimeen ...
+      | > Matriisipalomuuri havaittu
+      | > Visualisoidaan ...
+    table.puzzle-table
+      tbody
+        - for (var row = 0; row < 9; row++) {
+          tr
+            - for (var col = 0; col < 9; col++)
+              td.puzzle-cell(data-row=row, data-col=col)
+        - }
+    ul.inline-list
+      li
+        button.button.show-success Onnistuminen
+      li
+        button.button.show-failure Epäonnistuminen

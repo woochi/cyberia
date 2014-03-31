@@ -1,24 +1,95 @@
-$puzzle-cell-border: 1px solid $gray-dark
-$puzzle-region-border: 2px solid $gray-dark
+$puzzle-cell-border: 1px solid $gray-darker
+$puzzle-region-border: 3px solid $green-dark
+
+#key-form
+  @extend %section
+
+#puzzle
+  @extend %section
+
+#reward
+  @extend %section
+
+#penalty
+  @extend %section
+
+.puzzle-instructions
+  @extend .green
+  margin: 0 auto rhythm(1) auto
 
 .puzzle-table
+  margin: 0 auto rhythm(1) auto
   border-spacing: 0
   border-collapse: collapse
 
+%disabled-cell
+  color: $gray
+  background: $gray-darker
+
+.puzzle-cell
+  +transition(all 0.1s)
+  +adjust-font-size-to(18px, 1)
+  position: relative
+  width: rhythm(2)
+  height: rhythm(2)
+  padding: rhythm(0.5) 0
+  border: $puzzle-cell-border
+  text-align: center
+
+  &:hover:not(.disabled)
+    background: $gray-dark
+    cursor: pointer
+
+  &:nth-child(3n)
+    border-right: $puzzle-region-border
+
+  &:last-child
+    border-right: $puzzle-cell-border
+
+  &.disabled
+    @extend %disabled-cell
+
+tr:nth-child(3n) .puzzle-cell
+  border-bottom: $puzzle-region-border
+
+tr:last-child .puzzle-cell
+  border-bottom: $puzzle-cell-border
+
+.value-picker
+  display: block
+  position: absolute
+  left: rhythm(-1)
+  top: rhythm(-1)
+  bottom: rhythm(-1)
+  right: rhythm(-1)
+  z-index: $zindex-tooltip
+  margin: 0
+  background: $black
+  border-spacing: 0
+  border-collapse: collapse
+  border: 1px solid $green-light
+
+  tbody
+    display: block
+    width: 100%
+    height: 100%
+
+  tr
+    display: block
+    width: 100%
+    height: 33.3%
+
   td
-    +adjust-font-size-to(18px, 2)
-    width: rhythm(2)
-    height: rhythm(2)
-    border: 1px solid $puzzle-cell-border
+    display: block
+    float: left
+    width: 33.3%
+    height: 100%
+    padding: rhythm(0.2) 0
+    border: $puzzle-cell-border
 
-    &:nth-child(3n)
-      border-right: $puzzle-region-border
+    &:hover:not(.disabled)
+      background: $green-light
+      color: $black
 
-    &:last-child
-      border-right: $puzzle-cell-border
-
-  tr:nth-child(3n) td
-    border-bottom: $puzzle-region-border
-
-  tr:last-child td
-    border-bottom: $puzzle-cell-border
+    &.disabled
+      @extend %disabled-cell

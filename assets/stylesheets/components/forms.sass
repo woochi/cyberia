@@ -23,6 +23,15 @@ fieldset
     > li
       margin: 0 0 rhythm(0.5)
 
+  .inline &
+
+    > ul > li
+      float: left
+      margin-right: rhythm(0.25)
+
+      &:last-child
+        margin-right: 0
+
 input, textarea, select
   @extend %reset-font
 

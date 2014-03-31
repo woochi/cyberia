@@ -1,0 +1,6 @@
+- for (var row = 0; row < 3; row++) {
+  tr
+    - for (var col = 0; col < 3; col++)
+      - cell = row * 3 + col  + 1
+      td.picker-cell.disabled(data-cell=cell)= cell
+- }

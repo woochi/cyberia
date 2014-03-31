@@ -1,4 +1,5 @@
 Marionette = require("marionette")
+ValuePicker = require("./value_picker.coffee")
 
 class Puzzle extends Marionette.ItemView
   template: require("../../templates/hacking/puzzle.jade")
@@ -8,18 +9,22 @@ class Puzzle extends Marionette.ItemView
   events:
     "click .show-success": "onSuccess"
     "click .show-failure": "onFailure"
+    "click .puzzle-cell": "showPicker"
 
   initialize: ->
-    console.log "Puzzle for", @model.get("key")
     Sudoku = require("sudoku")
     @puzzle = new Sudoku()
+    @puzzle.level = @model.get("difficulty")
+    @puzzle.newGame()
     # @puzzle.checkVal, @puzzle.setVal
 
   onRender: ->
     puzzle = @puzzle
     @ui.table.find("tr").each (row, el) ->
       $(el).find("td").each (col, el) ->
-        $(el).text puzzle.getVal(row, col)
+        value = puzzle.getVal(row, col)
+        unless value is 0
+          $(el).addClass("disabled").text value
 
   timeLimit: ->
     limit = switch @model.get("difficulty")
@@ -29,6 +34,28 @@ class Puzzle extends Marionette.ItemView
       when 4 then 0
 
     limit * 60 * 1000 # Minutes
+
+  showPicker: (e) ->
+    el = $(e.target)
+    return if el.is ".disabled"
+    if el.is ".puzzle-cell"
+      e.stopImmediatePropagation()
+      row = el.data("row")
+      col = el.data("col")
+      available = []
+      puzzle = @puzzle
+      puzzle.getAvailable @puzzle.matrix, row * 9 + col, available
+      picker = new ValuePicker(available: available)
+      @listenTo picker, "pick", (value) ->
+        puzzle.setVal row, col, value
+      el.append picker.render().$el
+    else
+      parent = el.closest(".puzzle-cell")
+      row = parent.data("row")
+      col = parent.data("col")
+      value = el.data("cell")
+      @puzzle.setVal row, col, value
+      parent.text value
 
   onSuccess: ->
     App.hackingRouter.controller.reward @model
