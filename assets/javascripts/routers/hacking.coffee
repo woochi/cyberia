@@ -5,6 +5,7 @@ class HackingRouter extends Marionette.AppRouter
   controller: new HackingController()
   appRoutes:
     "hacking/search/:query": "search"
+    "hacking/puzzle/:code": "puzzle"
     "hacking/level": "level"
     "hacking/search": "search"
     "hacking/block": "block"

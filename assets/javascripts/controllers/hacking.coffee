@@ -37,17 +37,23 @@ class HackingController
   code: ->
     App.appRouter.navigate "hacking/code"
 
-  puzzle: (code) ->
+  puzzle: (codeKey) ->
+    console.log "PUZZLE", code
+    Code = require("../models/code.coffee")
     Puzzle = require("../views/hacking/puzzle.coffee")
+    code = new Code(key: codeKey)
+    code.fetch
+      success: (response, b, c) -> console.log "RESPONSE", response, b, c
+      error: (err) -> console.error err
     App.content.show new Puzzle(model: code)
-    App.appRouter.navigate "hacking/puzzle/#{code.key}"
+    App.appRouter.navigate "hacking/puzzle/#{code.get('key')}"
 
   reward: (code) ->
-    Reward = require("./reward.coffee")
-    App.content.show new Reward(model: @model)
+    Reward = require("../views/hacking/reward.coffee")
+    App.content.show new Reward(model: code)
 
   penalty: (code) ->
-    Penalty = require("./penalty.coffee")
-    App.content.show new Penalty(model: @model)
+    Penalty = require("../views/hacking/penalty.coffee")
+    App.content.show new Penalty(model: code)
 
 module.exports = HackingController

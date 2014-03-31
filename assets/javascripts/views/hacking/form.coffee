@@ -14,15 +14,6 @@ class KeyForm extends Marionette.ItemView
 
   onSubmit: (e) ->
     e.preventDefault()
-    @code = new Code(key: @ui.key.val())
-    @code.fetch
-      success: @showPuzzle
-      error: @onError
-
-  onError: (e) ->
-    console.error e
-
-  showPuzzle: ->
-    App.hackingRouter.controller.puzzle @code
+    App.hackingRouter.controller.puzzle @ui.key.val()
 
 module.exports = KeyForm

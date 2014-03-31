@@ -1,0 +1,24 @@
+$puzzle-cell-border: 1px solid $gray-dark
+$puzzle-region-border: 2px solid $gray-dark
+
+.puzzle-table
+  border-spacing: 0
+  border-collapse: collapse
+
+  td
+    +adjust-font-size-to(18px, 2)
+    width: rhythm(2)
+    height: rhythm(2)
+    border: 1px solid $puzzle-cell-border
+
+    &:nth-child(3n)
+      border-right: $puzzle-region-border
+
+    &:last-child
+      border-right: $puzzle-cell-border
+
+  tr:nth-child(3n) td
+    border-bottom: $puzzle-region-border
+
+  tr:last-child td
+    border-bottom: $puzzle-cell-border

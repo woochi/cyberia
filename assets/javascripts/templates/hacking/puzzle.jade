@@ -1,12 +1,13 @@
 ul.inline-list
   li
-    button.ok-button.show-success Onnistuminen
+    button.button.show-success Onnistuminen
   li
-    button.show-failure Epäonnistuminen
+    button.button.show-failure Epäonnistuminen
 
 table.puzzle-table
   tbody
-    for (var row = 0; row < 9; row++)
-      tr
-        for (var col = 0; x < 9; col++)
-          td
+    - for (var row = 0; row < 9; row++) {
+      tr.darkTableRow
+        - for (var col = 0; col < 9; col++) 
+          td.vcTextValue= row * 9 + col
+    - }

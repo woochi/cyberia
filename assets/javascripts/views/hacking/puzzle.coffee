@@ -16,9 +16,10 @@ class Puzzle extends Marionette.ItemView
     # @puzzle.checkVal, @puzzle.setVal
 
   onRender: ->
-    @table.find("tr").each (row, el) ->
+    puzzle = @puzzle
+    @ui.table.find("tr").each (row, el) ->
       $(el).find("td").each (col, el) ->
-        $(el).text @puzzle.getVal(row, col)
+        $(el).text puzzle.getVal(row, col)
 
   timeLimit: ->
     limit = switch @model.get("difficulty")
