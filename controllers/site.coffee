@@ -31,6 +31,7 @@ exports.app = (req, res) ->
       Message.mapReduce opts, callback
   , (err, result) ->
     unreads = result.messages?[0] or []
+    posts = if result.posts then result.posts else []
     res.render "app",
       user:
         _id: req.user._id
@@ -40,5 +41,5 @@ exports.app = (req, res) ->
         admin: req.user.admin
         group: req.user.group
       users: result.users
-      posts: result.posts
+      posts: posts
       unreads: unreads
