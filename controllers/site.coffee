@@ -30,6 +30,7 @@ exports.app = (req, res) ->
         limit: 50
       Message.mapReduce opts, callback
   , (err, result) ->
+    unreads = result.messages?[0] or []
     res.render "app",
       user:
         _id: req.user._id
@@ -40,4 +41,4 @@ exports.app = (req, res) ->
         group: req.user.group
       users: result.users
       posts: result.posts
-      unreads: result.messages[0]
+      unreads: unreads
