@@ -35,6 +35,7 @@ class MessageList extends Marionette.CollectionView
       @collection.add message
 
   onAdd: (message) ->
+    return if message.get("from")._id is App.user.id
     message.set unread: false
     if message.hasChanged "unread"
       message.save {},

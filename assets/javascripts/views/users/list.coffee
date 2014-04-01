@@ -5,6 +5,8 @@ class UserList extends Marionette.CompositeView
   itemViewContainer: "#user-list"
   itemView: require("./item.coffee")
   id: "users"
+  collectionEvents:
+    "change:online": "render"
 
   initialize: (opts) ->
     @listenTo opts.unreads, "change:value", @setUnread
@@ -16,8 +18,11 @@ class UserList extends Marionette.CompositeView
   clearCurrent: ->
     @$(".user.current").removeClass "current"
 
-  setUnread: (unread) ->
+  setUnread: (unread) =>
     @children.findByModel(App.users.get(unread.id)).setUnread unread
+
+  onBeforeRender: ->
+    @collection.sort()
 
   onRender: ->
     App.unreads.each @setUnread.bind(@)

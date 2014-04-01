@@ -57,15 +57,17 @@
   @extend .post-text
 
 .empty-icon
+  $margin: rhythm(0.4, $h1-font-size)
   +adjust-font-size-to($h1-font-size, 2)
   float: left
   width: rhythm(2, $h1-font-size)
-  margin-right: rhythm(1, $h1-font-size)
+  margin: $margin rhythm(0.5, $h1-font-size) $margin $margin
   color: $green-light
   text-align: center
 
 .empty-message
   +trailing-border(1px, 1)
+  margin-top: rhythm(1)
   border-color: $gray-darker
 
 .empty-title, .empty-text
