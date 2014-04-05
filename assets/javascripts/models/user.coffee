@@ -1,7 +1,6 @@
 Backbone = require("backbone")
 
 class User extends Backbone.Model
-  backend: "users"
   idAttribute: "_id"
   defaults:
     admin: false
@@ -10,6 +9,7 @@ class User extends Backbone.Model
     group: "Archangels"
     class: "Decker"
     level: "A"
+    disabled: false
 
   isAdmin: ->
     @get("admin")

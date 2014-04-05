@@ -1,0 +1,18 @@
+td= name
+td= group
+td
+  if online
+    span.table-state.ok Online
+  else
+    span.table-state Offline
+td
+  if disabled
+    span.table-state.warning Disabled
+  else
+    span.table-state.ok Enabled
+td.collapse
+  ul.row-actions
+    li
+      a.disable-user Disable
+    li
+      a.enable-user Enable

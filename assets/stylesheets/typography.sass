@@ -156,11 +156,56 @@ ul, ol, dl
     float: left
     margin-right: rhythm(1)
 
+    &:last-child
+      margin-right: 0
+
 // Tables
 //-------------------------------------
 
 table
   @extend %default-margin
+  width: 100%
+  border-spacing: 0
+  border-collapse: collapse
+
+tr
+
+  &:nth-child(even)
+    background: $gray-darker
+
+th
+  text-align: left
+  padding: rhythm(0.5)
+  +trailing-border(1px, 0.5)
+  border-color: $gray-dark
+
+td
+  @extend th
+
+  &.collapse
+    width: 1px
+
+.table-state
+  @extend %uppercase
+  +adjust-font-size-to(12px, 1)
+  display: inline-block
+  min-width: rhythm(3, 12px)
+  padding: 0 rhythm(0.25, 12px)
+  background: $gray-dark
+  color: $gray
+  text-align: center
+
+  &.warning
+    background: $red
+    color: $black
+
+  &.ok
+    background: $green-light
+    color: $black
+
+.row-actions
+  @extend .inline-list
+  margin: 0
 
 // Rules
 

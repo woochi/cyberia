@@ -33,6 +33,8 @@ exports.read = (req, res, next) ->
 exports.update = (req, res, next) ->
   User.findByIdAndUpdate req.model._id,
     status: req.model.status
+    disabled: req.model.disabled
   , (err, user) ->
+    console.log user
     return next(err) if err
     res.end user

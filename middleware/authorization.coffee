@@ -14,7 +14,8 @@ exports.redirectLoggedIn = (req, res, next) ->
 exports.user =
   canRead: (req, res, next) -> next()
   canUpdate: (req, res, next) ->
-    if not req.user._id.equals(new ObjectId req.model._id)
+    isOwner = req.user._id.equals(new ObjectId req.model._id)
+    if not req.user.admin and not isOwner
       return next(new Error("Unauthorized."))
     next()
 

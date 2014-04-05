@@ -15,6 +15,7 @@ UserSchema = new Schema
   status: {type: String}
   group: {type: String}
   online: {type: Boolean, default: false, required: true}
+  disabled: {type: Boolean, default: false}
 
 UserSchema.virtual("password").set((password) ->
   @_password = password

@@ -6,12 +6,12 @@ class AdminController
     App.appRouter.navigate "admin"
 
   users: ->
-    SearchResultsLayout = require("../views/layouts/search_results.coffee")
-    DetailedUserList = require("../views/users/detailed_list.coffee")
-    layout = new SearchResultsLayout()
+    NavigationLayout = require("../views/layouts/navigation_layout.coffee")
+    AdminUserTable = require("../views/admin/users/table.coffee")
+    layout = new NavigationLayout()
 
     App.content.show layout
-    layout.results.show new DetailedUserList(collection: App.users)
+    layout.content.show new AdminUserTable(collection: App.users)
     App.appRouter.navigate "admin/users"
 
   messages: (a, b) ->
