@@ -1,41 +1,43 @@
 module.exports = [
-  title: ""
-  text: ""
-  keywords: []
+  title: "Elanor Burmingham Natural Cosmetics -kupru (Gossip Inc.)"
+  content: "<p>Pian koko kaupunki sai lukea, kuinka  Elanor Burmingham, joka omisti Elanor Burmingham Natural Cosmetics -kosmetiikkayrityksen, ja joka mainosti tuotteitaan luonnonmukaisina, ja kemikaalittomina, olikin suuri huijari, joka oli turmellut joidenkin tuotteidensa käyttäjän ulkonäön jopa pysyvästi. Nainen oli aluksi kiistänyt väitteet ja vannonut, että tuotteet olivat hyvin testattuja ja turvallisia, mutta Moonshinen paljastamien dokumenttien mukaan kaikille selvisi, että todellisuudessa moni testihenkilö oli saanut ihoonsa vakaviakin reaktioita tuotteista. Moonshine oli myös jäljittänyt naiset, jotka olivat ihoreaktioita saaneet. Heidät oli yritetty ostaa hiljaisiksi, mutta Moonshine oli saanut heidät suostuteltua kertomaan tietonsa. Jutussa ei tietystikään paljastettu heidän henkilöllisyyttään.</p>"
 ,
-  title: ""
-  text: ""
-  keywords: []
+  title: "William ‘Wild Bill’ Connorin nousu ja tuho (Red Riding Hood -bloggari)"
+  content: "<p>Äärettömän lupaava sentteri, Night City Rangersien pelaaja. Hänestä oli liikkunut monenlaisia ikäviä huhuja uran alkuajoista lähtien, mutta vasta joukkueen voitettua toisen kerran Super Bowlin ja kaupungin järjestettyä joukkueelle juhlat, julkisuuteen tuli niin iso juttu, etteivät edes joukkueen pr-koneisto ja lakimiehet pystyneet sitä painamaan villaisella. Red Riding Hood -niminen bloggeri julkaisi lyhyen videopätkän, jossa Wild Bill nai alaikäistä sammunutta tyttöä - pian video oli yksi ladatuimmista pätkistä sillä hetkellä. Connor väitti ensin joutuneensa törkeän huijauksen kohteeksi, mutta kun poliisi varmisti videopätkän aitouden, ei tämän auttanut kuin luopua valitusvirrestään. Wild Billille annettiin kenkää joukkueesta ja joukkueen quarterback, Joe Montenegro, antoi julkisuuteen lausunnon, jossa koko muu joukkue sanoutui ehdottomasti irti tästä tapauksesta ja vannoi, että tämä oli ainoastaan yhden sairaan ihmisen teko, ja että Wild Bill kärsisi ansaitun rangaistuksensa. Montenegron mukaan joukkueen nuoretkin fanit olisivat täysin turvassa nyt, kun Connorkin tuomittiin telkien taakse loppuiäkseen.</p>"
 ,
-  title: ""
-  text: ""
-  keywords: []
+  title: "Taidetta orjapalkalla (Gossip Inc.)"
+  content: "<p>News Inc. -mediatalon ylläpitämältä Gossip Inc. -sivulta on tulostettavissa faxari eräästä toimittajanaisesta, joka on paljastanut Bud Winston -nimisen taidediilerin. Tyyppi oli pakottanut Brian Kingsley-nimisen taiteilijan tekemään töitä orjanaan ja myi tämän tauluja omiin nimiinsä. Tämä tietovuotajanainen, joka käytti pseudonyymiä Moonshine, oli sitten paljastanut Winstonin ja luultavasti pelastanut Kinsgleyn hengen toimillaan. Nainen painui kuitenkin maan alle paljastuksen jälkeen.</p>"
 ,
-  title: ""
-  text: ""
-  keywords: []
+  title: "Nukkevaimo hyppäsi jyrkänteeltä"
+  content: "<p>Night Cityn kauniissa korppilähiössä, Pacificassa, sattui traaginen tapahtuma. Paikallisen menestyneen liikemiehen ja korppipomon, Arthur McCarthyn vaimo, sosialiitti Mirina McCarthy syöksyi kuolemaansa kohti rantakallioita aivan linnoituksen lailla varustellun Coastview’n alueella sijaitsevan kotikartanonsa läheisyydessä. Rouva McCarthy tunnettiin paitsi kauniista ulkomuodostaan, myös Petrochem-miljardööri Gilbert Treshamin tyttärenä. Rouva McCarthy oli lähipiirin tietolähteen mukaan ollut viime ajat todella ahdistunut ja jopa vainoharhainen - lähde kertoo tämän jopa väittäneen, että hänen miehensä ei ollut hänen miehensä! Sattuu sitä nähtävästi paremmissakin piireissä siis. No, järkyttävä tragedia joka tapauksessa. Ajatuksissamme olemme herra McCarthyn tukena.</p>"
 ,
-  title: ""
-  text: ""
-  keywords: []
+  title: "Jengien välienselvittely East Marinassa (News Inc. - Scoop)"
+  content: "<p>Ilmeisesti jotkut kaupungin lukuisista jengeistä ottivat yhteen East Marinan satama-alueella eilen torstaina. Tiettävästi tyhjillään oleva varastotila Stallion Slough Shipyardin satamalaiturialueella tuohoutui lähes täysin tässä tuntemattomien tahojen yhteenotossa. Lukuisia laukauksenvaihtoja sanotaan tapahtuneen ja lopulta koko varastotila paloi käyttökelvottomaan kuntoon tulipalossa. Silminnäkijöitä pyydetään ottamaan yhteyttä lähimpään NCPD:n toimipisteeseen. Varastotilan omistaja on luvannut pidätyksiin johtaneista vihjeistä palkkion.</p>"
 ,
-  title: ""
-  text: ""
-  keywords: []
+  title: "Petrochem yhdistetty taas laittomiin tilanvaltauksiin"
+  content: "<p>Petrochem-korporaatio kerää jälleen hyvää mainetta. Aivan Night Cityä ympäröivällä maaseudulla on tapahtunut jo muutamia tilanvaltauksia, joista epäillään vahvasti Petrochemia. Korporaatio ryvetti mainettaan kotimarkkinoilla neljä vuotta sitten, kun Texasissa, Dallasia ympäröivällä maaseudulla tehtiin lukuisia tällaisia laittomia tilojen haltuunottoja. Petrochem kommentoi asiaa ainoastaan vakuuttamalla, että kyseisten tilojen omistajanvaihdokset on suoritettu hyvässä hengessä ja reilua liikemiestapaa noudattaen.</p><p>Tietolähteemme Dallasista muistuttaa törkeimmästä Petrochemiin yhdistetystä tilanvaltauksesta, jossa Peasterin pikkukaupunkia ympäriövällä alueella vallattiin useampikin tila, mm. perhe Millerin tilukset. Tämän tapauksen tekee ikäväksi se, että valtaamisen yhteydessä perheen isä ja äiti, Darrell ja Hannah Miller, saivat surmansa. Perheen lasten kohtalosta ei ole tietoa. Petrochem-korporaatio on luvannut maksaa perheen lapsille korvauksia tapahtuneesta - johon heillä ei korporaation mukaan ole minkäänlaista osuutta, mutta hyvän tahdon eleenä he haluavat kuitenkin muistaa perheen lapsia rahastolla. Ainoa ongelma on, että lapsista ei ole tuon päivän jälkeen kuultu mitään. Lieneekö toisaalta mikään ihmekään.</p>"
 ,
-  title: ""
-  text: ""
-  keywords: []
+  title: "Ei enää daiquireja DaiChirissä"
+  content: "<p>Little Chinan alueella sattuu ja tapahtuu, kuten hyvin tiedetään. Tänään kuitenkin hieman räjähtävämpää toimintaa, kun poliisi teki iskun Rangers-jengin laittomuuksien tukikohtana tietämäänsä baariin. Lukuisia jengiläisiä sai iskussa surmansa, samoin kuin muutama sivullinen - baarin omistaja, drag queen Chiri mukaan luettuna. NCPD:n edustaja pahoittelee sivullisten menehtymistä, mutta vakuuttaa iskun olleen välttämätön Rangers-jengin toiminnan rampauttamiseksi.</p>"
 ,
-  title: ""
-  text: ""
-  keywords: []
+  title: "Speedball-tähti kärysi luvattomasta cyberwaresta"
+  content: "<p>Lupaava speedball-pelaaja Jim Grant jäi kiinni luvattomien cyberwareosien käyttämisestä Los Angelesissa järjestettävissä speedballin Super Bowl -kisoissa. Grant oli asennuttanut parempien tulosten toivossa luvallisen rajan selvästi ylittävän määrän cyberwarea itseensä. Joukkueen suoritus hylättiin ja Grant potkittiin ulos niin joukkueesta kuin koko urheilupiireistä. Huhu kertoo, että velkojat etsisivät miestä sponsorirahojen väärinkäytöksistä. Grantia sponsoroivat mm. BioTechnica- ja DreamCorps-korporaatiot.</p>"
 ,
-  title: ""
-  text: ""
-  keywords: []
+  title: "Dramaattinen onnettomuus Cyberiassa"
+  content: "<p>Yksi Night Cityn menevimmistä menomestoista, Cyberia-klubi, joutui eilen todistamaan kaameaa onnettomuutta. Klubin ravintolapäällikkö Abe ‘Bingo’ Laninga putosi kolmannesta kerroksesta kaiteen yli suoraan alakerroksessa sijaitsevalle tanssilattialle. Hän menehtyi välittömästi, lyötyään pudotessaan päänsä tanssilattialla olleeseen metallikorokkeeseen. Cyberian johtaja, Mean Cat, kommentoi tilannetta “tosi karmeena tragediana meidän koko yhteisölle. Bingo oli mielettömän hyvä työntekijä ja myös hyvä ihminen. Me jäädään koko porukka kaipaamaan häntä kovasti.”</p>"
 ,
-  title: ""
-  text: ""
-  keywords: []
+  title: "Kyberpsyko teki tuhoa ostoskeskuksessa"
+  content: "<p>North Siden ostoskeskus The Uptown Mall joutui aikaisemmin tänään kyberpsykoosiin vajonneen yksilön mielivaltaisen terrorin kohteeksi. Kyseinen ostoskeskus ei muutenkaan ole ollut normaaliväestön suosiossa runsaine jengiaineksineen, mutta tämänpäiväinen välikohtaus oli siihenkin verrattuna aivan eri luokkaa. Jengikytköksiin yhdistetty nainen asteli silminnäkijöiden mukaan sekavassa mielentilassa ostoskeskukseen ja alkoi tuhota tilaa. Hän oli aseistautunut ja on suoranainen ihme, ettei kukaan loukkaantunut pahemmin välikohtauksessa. NCPD:n psykojoukot olivat nopeasti paikalla ja he taltuttivat naisen lyhyeksi jääneen pakoyrityksen jälkeen. Tietolähteidemme mukaan nainen on passitettu pakkohoitoon ja häntä odottaa vuoden, parin mittainen vankeustuomio vandalismista sekä vaaran aiheuttamisesta. Tuomiota lyhentää se, että nainen ei ryhtynyt aseelliseen vastarintaan psykojoukkoja vastaan eikä ole näyttöä siitä, että hän olisi tarkoituksellisesti etsinyt siviilejä kohteekseen.</p>"
+,
+  title: "Chains Incorporated antaa kenkää levy-yhtiölleen"
+  content: "<p>Raisustikin kantaaottavista teksteistään tunnetun Hard Rock/Glam/Grunge -bändi Chains Incorporatedin toinen perustajajäsen, aina yhtä räväkkä Metalmouth, ilmoitti tänään bändin järjestämässä lehdistötilaisuudessa antaneensa kenkää levy-yhtiönsä Copperhead Recordsin edustajalle Isaac Copperheadille. Samaan hengenvetoon mies totesi koko levy-yhtiön ja sen edustajien saavan “vittu Amerikan kokosen kengänkuvan ihrasiin perseisiinsä”. Syyksi Metalmouth ilmoitti julkaisukelvottomin sanoin korjaamattomat erimielisyydet.</p><p>Toinen perustajajäsenistä, värikkään verbaalinen Sineater, ilmoitti välittömästi tämän jälkeen bändin jäsenten “tukeutuvan jatkossa ihan vitun paljon” enemmän toisiinsa ja perustavan oman, Skullfuck Freedom Entertainment -levy-yhtiön. Uusi yhtiö julkaisisi myöhemmin samana vuonna rokkareiden uuden levyn, jonka nimiraita ‘Rise To Frustration And Rage’ tulisi pikapuoliin radiosoittoon ja siitä tulisi Sineaterin sanoin “vittu semmonen hitti että se ravistelee ne saatanan korppikusipäät norsunluutorneistaan”. Jäämme odottelemaan mielenkiinnolla.</p>"
+,
+  title: "Typhon ja Alexios Itärannikkoa valloittamaan"
+  content: "<p>Tänään alkaa vahvassa nosteessa olevien laulajatähtien, Typhonin ja Alexioksen, Yhdysvaltain Itärannikolle kohdistuva kiertue. Ensimmäisenä on vuorossa avauskeikka New Yorkin Yankee-stadionilla. Jopa 70,000 katsojaa odotetaan todistamaan, kuinka Typhon ja Alexios viimein laskeutuvat Itärannikon väestön keskuuteen kuin Antiikin Kreikan jumalat Olympos-vuorelta konsanaan.</p><p>DreamCorps-viihdejätin tallissa olevat Länsirannikon hittituotteet Typhon ja Alexios ovat kumpainenkin myyneet viime aikoina kuin häkää ja ovat ykkösluokan julkkiksia Tyynenmeren rannikon suurissa kaupungeissa kuten Los Angelesissa, San Franciscossa ja Night Cityssä. Toivottavasti kaksikon karisma saattaa nyt Itärannikonkin polvilleen - sen jälkeen ei näille kahdelle ole taivaskaan rajana!</p>"
+,
+  title: "DJ Rafflesia antaa kenkää agentilleen"
+  content: "<p>Jo kolmen vuoden ajan yhteistyössä NovaVoxin agentin, Keith Novan, kanssa työskennellyt Night Cityssä jalansijansa vakiinnuttanut DJ Rafflesia on irtisanonut sopimuksensa Novan ja NovaVoxin kanssa. Rafflesia ilmoitti syyksi perustavanlaatuiset erimielisyydet hänen uransa suunnan suhteen. Rafflesia ilmaantui kaupungin klubisceneen seitsemisen vuotta sitten ja aloitti uransa pienellä Spicata-klubilla. Viisi vuotta sitten hän siirtyi Spicatan toisen omistajan Mean Catin mukana tämän perustaman uuden Cyberia-klubin vakio-DJ:ksi. Cyberian avajaiset muistetaan yhtenä Rafflesian uran tähtihetkistä - tuolloin hän löi itsensä läpi underground-scenessä. Tietolähteemme paljastavat, että naisen entinen agentti Nova halusi viedä Rafflesiaa mainstreamimpaan suuntaan, mistä DJ itse ilmeisesti oli eri mieltä. Rafflesia ei ole viihtynyt julkisuuden valokeilassa, vaan viettää mieluummin rauhallista elämää klubiscenen ulkopuolella. Sen verran kuitenkin olemme saaneet selville, että Rafflesia asuu toistaiseksi tunnistamattoman naishenkilön kanssa.</p>"
+,
+  title: "Miesmallin uusi ilme"
+  content: "<p>NewVogue palkkasi miesmalli Seichon uuden kampanjansa keulakuvaksi ihastuttuaan tämän uuteen ilmeeseen. IKON-mallitoimistosta kommentoidaan Seichon uutta ilmettä vain siten, että mies halusi uudistaa hieman ulkonäköään - ja että hän ei ollut oikeastaan koskaan ollut tyytyväinen nenäänsä. Tämä kuulostaa miestä kuolaavien naisten ja miesten mielestä täysin naurettavalta - sen verran suosittu tuo Länsirannikon kermaleivos kuitenkin on! Kukaan ei voi saada mielestään sitä useamman kerroksen korkuista mainostaulua, jossa Seicho esitteli uljaalla vartalollaan Calvin Kleinin uutta miesten alusvaatemallistoa. Ainakin kirjoittajan pikkuhousut se mainos saa edelleenkin kostumaan.</p>"
 ]

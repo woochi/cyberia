@@ -58,7 +58,7 @@ module.exports = (server, passport, sessionStore, redisClient, config) ->
 
   # Articles
   articlesBackend.use UserMap.populate
-  articlesBackend.use "read", auth.article.canRead
+  #articlesBackend.use "read", auth.article.canRead
   articlesBackend.use "read", articles.read
 
   # Events

@@ -30,6 +30,7 @@ exports.app = (req, res) ->
         limit: 50
       Message.mapReduce opts, callback
   , (err, result) ->
+    users = if result.users then result.users else []
     unreads = result.messages?[0] or []
     posts = if result.posts then result.posts else []
     res.render "app",

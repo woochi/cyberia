@@ -7,6 +7,7 @@ class Navigation extends Marionette.ItemView
   events:
     "click .show-posts": "showPosts"
     "click .show-profile": "showProfile"
+    "click .show-data": "showData"
     "click .show-messages": "showMessages"
     "click .show-hacking": "showHacking"
     "click .show-admin": "showAdmin"
@@ -15,7 +16,7 @@ class Navigation extends Marionette.ItemView
     "mouseleave": "closeMenu"
 
   onRender: ->
-    @toggleCurrent @$("a[rel='#{Backbone.history.fragment}']")[0]
+    @toggleCurrent Backbone.history.fragment
 
   toggleCurrent: (rel) ->
     @clearCurrent()
@@ -27,6 +28,10 @@ class Navigation extends Marionette.ItemView
   showPosts: (e) ->
     @toggleCurrent("posts")
     App.postsRouter.controller.index()
+
+  showData: (e) ->
+    @toggleCurrent("data")
+    App.dataRouter.controller.index()
 
   showProfile: (e) ->
     @toggleCurrent("profile")

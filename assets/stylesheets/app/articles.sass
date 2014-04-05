@@ -1,0 +1,30 @@
+.article-list
+  @extend .block-list
+
+.article
+  +trailing-border(1px, 1)
+  cursor: pointer
+  padding-top: rhythm(1)
+  border-color: $gray-darker
+
+  &:last-child
+    border: none
+
+.article-title
+  +transition(all 0.2s)
+
+  .article:hover &
+    color: $green-light
+
+.article-excerpt
+  margin: 0
+
+.article-content
+  +adjust-font-size-to(18px, 1.25)
+
+.more-icon
+  display: none
+  margin-left: rhythm(0.1)
+
+  .article:hover &
+    display: inline
