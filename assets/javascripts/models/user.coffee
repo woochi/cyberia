@@ -5,8 +5,6 @@ class User extends Backbone.Model
   defaults:
     admin: false
     name: "Anonymous"
-    status: ""
-    group: "Archangels"
     class: "Decker"
     level: "A"
     disabled: false

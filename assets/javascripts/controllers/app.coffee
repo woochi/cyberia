@@ -1,6 +1,6 @@
 class AppController
 
   index: ->
-    App.postsRouter.controller.index()
+    App.usersRouter.controller.profile()
 
 module.exports = AppController

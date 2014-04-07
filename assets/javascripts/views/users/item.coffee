@@ -7,7 +7,7 @@ class UserItem extends Marionette.ItemView
   events:
     "click": "openConversation"
   modelEvents:
-    "change": "onRender"
+    "change": "render"
 
   onRender: (model, changes) ->
     @$el.toggleClass "online", @model.get("online")
