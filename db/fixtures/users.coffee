@@ -121,4 +121,8 @@ module.exports = [
 ,
   name: "Headbanger"
   group: "dreadnok"
+,
+  name: "Red Riding Hood"
+,
+  name: "Moonshine"
 ]
