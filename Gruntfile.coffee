@@ -59,6 +59,15 @@ module.exports = (grunt) ->
             pixi:
               path: "assets/javascripts/libs/pixi.js"
               exports: "PIXI"
+    uglify:
+      build:
+        files:
+          "build/assets/javascripts/app.js": ["build/assets/javascripts/app.js"]
+    cssmin:
+      build:
+        files:
+          "build/assets/stylesheets/app.css": ["build/assets/stylesheets/app.css"]
+          "build/assets/stylesheets/site.css": ["build/assets/stylesheets/site.css"]
     copy:
       build:
         files: [
@@ -85,4 +94,4 @@ module.exports = (grunt) ->
         tasks: ["default"]
 
   grunt.registerTask "default", ["copy", "browserify", "sass", "express:dev", "watch"]
-  grunt.registerTask "deploy", ["copy", "browserify", "sass"]
+  grunt.registerTask "deploy", ["copy", "browserify", "sass", "uglify", "cssmin"]
