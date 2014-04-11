@@ -38,7 +38,6 @@ class HackingController
     App.appRouter.navigate "hacking/code"
 
   puzzle: (codeKey) ->
-    console.log "PUZZLE", code
     Code = require("../models/code.coffee")
     Puzzle = require("../views/hacking/puzzle.coffee")
     code = new Code(key: codeKey)
@@ -47,7 +46,7 @@ class HackingController
         App.content.show new Puzzle(model: code)
         App.appRouter.navigate "hacking/puzzle/#{code.get('key')}"
       error: (err) ->
-        console.error err
+        alert "Koodia vastaavaa palvelinta ei löytynyt"
 
   reward: (code) ->
     Reward = require("../views/hacking/reward.coffee")
