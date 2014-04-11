@@ -1,14 +1,14 @@
 mongoose = require("mongoose")
 User = mongoose.model("User")
 
-users = require("../fixtures/users")
+users = require("../fixtures/npc")
 
 exports.up = (next) ->
   users = users.map (user) ->
     user.username = user.name.replace(/\s/g, "").toLowerCase()
     user.password = Math.random().toString(36).slice(2).substr(0, 6)
     user
-  console.log "Creating the following users:"
+  console.log "Creating the following NPCs:"
   console.log users.map (user) -> "#{user.name}: #{user.username} - #{user.password}"
   User.create users, next
 
