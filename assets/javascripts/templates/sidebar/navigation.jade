@@ -8,6 +8,10 @@ header.nav-header
 
 ul.nav-list
   li
+    a.nav-link.show-posts(rel="posts")
+      .link-icon.fa.fa-align-justify.fa-fw
+      .link-title Päivitykset
+  li
     a.nav-link.show-profile(rel="profile")
       .link-icon.fa.fa-male.fa-fw
       .link-title Profiili
@@ -15,15 +19,11 @@ ul.nav-list
     a.nav-link.show-data(rel="data")
       .link-icon.fa.fa-file-text-o.fa-fw
       .link-title Tietokannat
+  li
+    a.nav-link.show-hacking(rel="hacking")
+      .link-icon.fa.fa-keyboard-o.fa-fw
+      .link-title Alirutiinit
   if admin
-    li
-      a.nav-link.show-posts(rel="posts")
-        .link-icon.fa.fa-align-justify.fa-fw
-        .link-title Päivitykset
-    li
-      a.nav-link.show-hacking(rel="hacking")
-        .link-icon.fa.fa-keyboard-o.fa-fw
-        .link-title Alirutiinit
     li
       a.nav-link.show-admin(rel="admin")
         .link-icon.fa.fa-gavel.fa-fw

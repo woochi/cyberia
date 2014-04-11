@@ -25,6 +25,7 @@ class Puzzle extends Marionette.ItemView
       @startTime = new Date().getTime()
       localStorage.setItem "cb-#{@model.id}", @startTime
     @endTime = parseInt(@startTime) + @model.timeLimit()
+    console.log @startTime, parseInt(@startTime), @model.timeLimit(), @endTime
     @onFailure() if @endTime - new Date().getTime() < 0
     @clock = @startClock()
 
