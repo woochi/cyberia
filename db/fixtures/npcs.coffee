@@ -24,4 +24,7 @@ module.exports = [
 ,
   name: "Charles Runkle"
   admin: true
+,
+  name: "Mystikko"
+  admin: true
 ]
