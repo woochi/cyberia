@@ -299,9 +299,9 @@ function Sudoku() {
 
 		for (var i = 0; i < 3; i++) {
 			for (var j = 0; j < 3; j++) {
-				// for each 3x3 subsquare, pick 5 random cells
+				// for each 3x3 subsquare, pick 3 random cells
 				// and mask them.
-				for (var k = 0; k < 5; k++) {
+				for (var k = 0; k < 3; k++) {
 					var c;
 					do {
 						c = Math.floor(Math.random() * 9);
@@ -844,10 +844,10 @@ function Sudoku() {
 			// single solution.
 			this.maskBoard(this.matrix, mask);
 
-			// if the level is medium, randomly add 4 extra hints.
+			// if the level is medium, randomly add 10 extra hints.
 			if(this.level == 1)
 			{
-				for(i = 0; i < 4; i++)
+				for(i = 0; i < 10; i++)
 				{
 					do
 					{
@@ -1134,7 +1134,6 @@ function Sudoku() {
 				}
 			}
 		}
-		console.log(this.matrix, mask);
 	}
 
 	// this method solves the current game by restoring the solved matrix.

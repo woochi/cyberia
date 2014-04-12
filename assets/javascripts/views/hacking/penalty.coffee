@@ -5,7 +5,7 @@ class Penalty extends Marionette.ItemView
   id: "penalty"
 
   serializeData: ->
-    i = @_getRandomInt 1, 2
+    i = @_getRandomInt 0, 1
     data = switch @model.get("difficulty")
       when 0
         [
