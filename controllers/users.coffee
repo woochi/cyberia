@@ -31,10 +31,10 @@ exports.read = (req, res, next) ->
       res.end users
 
 exports.update = (req, res, next) ->
-  User.findByIdAndUpdate req.model._id,
-    status: req.model.status
-    disabled: req.model.disabled
-  , (err, user) ->
-    console.log user
+  changes = {}
+  changes.status = req.model.status if req.model.status?
+  changes.disabled = req.model.disabled if req.model.disabled?
+
+  User.findByIdAndUpdate req.model._id, changes, (err, user) ->
     return next(err) if err
     res.end user
