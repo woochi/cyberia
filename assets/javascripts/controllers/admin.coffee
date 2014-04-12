@@ -27,7 +27,7 @@ class AdminController
     else
       a = App.users.get(a)
       b = App.users.get(b)
-    console.log "selected", a, b
+
     messages = new Messages()
     message = new Message(from: a, to: b)
     layout = new ChatLayout()

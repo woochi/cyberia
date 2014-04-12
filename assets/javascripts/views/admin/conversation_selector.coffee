@@ -14,8 +14,10 @@ class ConversationSelector extends Marionette.ItemView
     users: @collection.toJSON()
 
   onRender: ->
-    @ui.from.find("option[value='#{@model.get("from").id}']").select()
-    @ui.to.find("option[value='#{@model.get("to").id}']").select()
+    @ui.from.find("option[value='#{@model.get("from").id}']")
+      .prop "selected", true
+    @ui.to.find("option[value='#{@model.get("to").id}']")
+      .prop "selected", true
 
   changeConversation: ->
     from = @ui.from.find("option:selected").val()
