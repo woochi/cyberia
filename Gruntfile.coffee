@@ -88,7 +88,10 @@ module.exports = (grunt) ->
         tasks: ["browserify"]
       views:
         files: ["views/**/*.jade"]
-        tasks: []
+        tasks: ["browserify"]
+      libs:
+        files: ["assets/javascripts/libs/*.js"]
+        tasks: ["copy"]
       self:
         files: "Gruntfile.coffee"
         tasks: ["default"]
