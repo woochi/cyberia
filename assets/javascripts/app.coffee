@@ -30,6 +30,13 @@ $ ->
     delete window.posts
     delete window.unreads
     $("#bootstrap").remove()
+    @user.on "backend:update", (model) =>
+      if model.id is @user.id and model.get("disabled")
+        alert "Yhteytesi on lukittu! Sinut kirjataan ulos. Ota yhteys pelinjohtoon."
+        setTimeout ->
+          window.location = "/logout"
+        , 5000
+
   App.addInitializer (options) ->
     User = require("./models/user.coffee")
     Users = require("./collections/users.coffee")
