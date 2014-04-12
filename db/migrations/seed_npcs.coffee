@@ -1,7 +1,7 @@
 mongoose = require("mongoose")
 User = mongoose.model("User")
 
-users = require("../fixtures/npc")
+users = require("../fixtures/npcs")
 
 exports.up = (next) ->
   users = users.map (user) ->
