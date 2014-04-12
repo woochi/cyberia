@@ -17,15 +17,15 @@ class Puzzle extends Marionette.ItemView
 
   initialize: ->
     Sudoku = require("sudoku")
+    storageKey = "cb-#{App.user.username}-#{@model.id}"
     @puzzle = new Sudoku()
     @puzzle.level = @model.get("difficulty")
     @puzzle.newGame()
-    @startTime = localStorage.getItem "cb-#{@model.id}"
+    @startTime = localStorage.getItem storageKey
     if not @startTime
       @startTime = new Date().getTime()
-      localStorage.setItem "cb-#{@model.id}", @startTime
+      localStorage.setItem storageKey, @startTime
     @endTime = parseInt(@startTime) + @model.timeLimit()
-    console.log @startTime, parseInt(@startTime), @model.timeLimit(), @endTime
     @onFailure() if @endTime - new Date().getTime() < 0
     @clock = @startClock()
 
@@ -36,6 +36,7 @@ class Puzzle extends Marionette.ItemView
     if @endTime - new Date().getTime() < 0
       clearInterval @clock
       @onFailure()
+      return
     @ui.clockValue.text @formatRemainingTime()
 
   formatRemainingTime: ->
