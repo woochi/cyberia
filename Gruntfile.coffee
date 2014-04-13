@@ -19,12 +19,10 @@ module.exports = (grunt) ->
         bundleExec: true
       build:
         files:
-          "build/assets/stylesheets/app.css": "assets/stylesheets/app.sass"
           "build/assets/stylesheets/site.css": "assets/stylesheets/site.sass"
     browserify:
       build:
         files:
-          "build/assets/javascripts/app.js": ["assets/javascripts/app.coffee"]
           "build/assets/javascripts/site.js": ["assets/javascripts/site.coffee"]
         options:
           transform: ["coffeeify", "jadeify"]
@@ -59,14 +57,9 @@ module.exports = (grunt) ->
             pixi:
               path: "assets/javascripts/libs/pixi.js"
               exports: "PIXI"
-    uglify:
-      build:
-        files:
-          "build/assets/javascripts/app.js": ["build/assets/javascripts/app.js"]
     cssmin:
       build:
         files:
-          "build/assets/stylesheets/app.css": ["build/assets/stylesheets/app.css"]
           "build/assets/stylesheets/site.css": ["build/assets/stylesheets/site.css"]
     copy:
       build:
@@ -97,4 +90,4 @@ module.exports = (grunt) ->
         tasks: ["default"]
 
   grunt.registerTask "default", ["copy", "browserify", "sass", "express:dev", "watch"]
-  grunt.registerTask "deploy", ["copy", "browserify", "sass", "uglify", "cssmin"]
+  grunt.registerTask "deploy", ["browserify", "sass", "cssmin"]
