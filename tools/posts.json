@@ -1,0 +1,16 @@
+[{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbe83" }, "text" : "Jauuu, enää viis päivää koko universumin parhaimpiin bileisiin! Onhan tanssikengät jo lankattu?", "_id" : { "$oid" : "5342ec0f1262684a6cb3cc9d" }, "sent" : { "$date" : 1396894735424 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbe8f" }, "text" : "Ketkä kaikki on tulos tänään Cyberian synttäreille? Parhaat bileet tulossa!", "_id" : { "$oid" : "53491bf2abe37ce03a926a78" }, "sent" : { "$date" : 1397300210371 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbe9e" }, "text" : "Matkalla Cyberian <3 upein keikka tiedossa . be there :* <33", "_id" : { "$oid" : "53496ab5abe37ce03a926a7b" }, "sent" : { "$date" : 1397320373397 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbea6" }, "text" : "Rotta u there?", "_id" : { "$oid" : "53496ba6abe37ce03a926a7d" }, "sent" : { "$date" : 1397320614073 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbe94" }, "text" : "<3", "_id" : { "$oid" : "53497e4d78e8020745544974" }, "sent" : { "$date" : 1397325389472 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbeaf" }, "text" : "Suht kuivaa", "_id" : { "$oid" : "5349868b78e8020745544977" }, "sent" : { "$date" : 1397327499590 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbea4" }, "text" : "Ihan niin kuivaa ko ite tekee bro", "_id" : { "$oid" : "5349874c78e8020745544979" }, "sent" : { "$date" : 1397327692481 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbe9e" }, "text" : "Oikee asenne Kestral ;*", "_id" : { "$oid" : "534987e278e802074554497b" }, "sent" : { "$date" : 1397327842777 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbea4" }, "text" : "Thx! <3 ;D", "_id" : { "$oid" : "5349888078e802074554497e" }, "sent" : { "$date" : 1397328000400 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbea4" }, "text" : "Typhon on ehkä ihquin", "_id" : { "$oid" : "53498f1178e8020745544985" }, "sent" : { "$date" : 1397329681456 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbeaf" }, "text" : "Typhon on kyllä paras.", "_id" : { "$oid" : "5349908078e8020745544989" }, "sent" : { "$date" : 1397330048657 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbea4" }, "text" : "Rafflesia soittaa parhaat setit :D NIN <3", "_id" : { "$oid" : "534992e278e802074554498b" }, "sent" : { "$date" : 1397330658417 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbe88" }, "text" : "Ah, ihana show Typhon ja Aleksios <3 Ilta jatkuu vielä, tulkaa tanssimaan! Xoxo", "_id" : { "$oid" : "534993af78e802074554498d" }, "sent" : { "$date" : 1397330863403 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbea4" }, "text" : "Kiitti persoonasta. Tunnen olevani vihdoin oma itseni.   SW", "_id" : { "$oid" : "5349cbf8990b0dc74fadfadc" }, "sent" : { "$date" : 1397345272311 }, "__v" : 0 },
+{ "author" : { "$oid" : "5342e3f6d6b50d4f792cbeaf" }, "text" : "Jeaaah", "_id" : { "$oid" : "5349efeb015d42ab7af1ef84" }, "sent" : { "$date" : 1397354475270 }, "__v" : 0 }
+]
